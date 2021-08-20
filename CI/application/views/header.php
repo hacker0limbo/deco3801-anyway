@@ -19,7 +19,6 @@
 
     <!-- Search bar -->
     <input type="search" placeholder="Search" name="search" aria-label="Search">
-    
 
     <!-- 做一个if 判断登陆没有-->
     <!-- logout 要在login的controller里加function-->
@@ -31,4 +30,8 @@
     <!-- button 翻译整个页面 -->
     <a href="">Languages</a>
 
-  </nav>
+    </nav>
+
+    
+
+

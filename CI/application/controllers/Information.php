@@ -10,4 +10,22 @@ class Information extends CI_Controller {
 		$this->load->view('medInformation');
 		$this->load->view('footer');
 	}
+
+	// load the medical services page
+	public function loadMedService()
+	{
+		$this->load->view('header');
+		$this->load->view('medService');
+		$this->load->view('footer');
+	}
+
+	// load the medical insurance page
+	public function loadMedInsurance()
+	{
+		$this->load->view('header');
+		$this->load->view('medInsurance');
+		$this->load->view('footer');
+	}
+
+
 }
