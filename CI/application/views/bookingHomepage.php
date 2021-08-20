@@ -1,0 +1,1 @@
+<p> booking homepage </p> 
