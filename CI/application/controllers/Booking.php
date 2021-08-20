@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Booking extends CI_Controller {
 
-	// index page
+	// booking homepage
 	public function index()
 	{
 		$this->load->view('header');
-		$this->load->view('homepage');
+		$this->load->view('bookingHomepage');
 		$this->load->view('footer');
 	}
 }
