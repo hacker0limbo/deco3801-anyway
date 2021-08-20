@@ -9,26 +9,28 @@
     
   <body>
     <!-- Navigation -->
-    <nav>
-    <p> header body </p>
-    <!-- navigation bar links -->
-    <a href="<?php echo base_url(); ?>">Homepage</a>
-    <a href="<?php echo base_url(); ?>booking">Online Booking</a>
-    <a href="<?php echo base_url(); ?>information">Medical Information</a>
-    <a href="<?php echo base_url(); ?>checker">Symptom Checker</a>
+    <nav class="navbar-expand-md d-xl-flex align-items-xl-end" id="nav-bar">
+      <img id="logo">
+      <h1 id="website-name"> Anyway</h1>
+      
+      <!-- navigation bar links -->
+      <a class="nav-link d-xl-flex align-items-xl-end" href="<?php echo base_url(); ?>">Homepage</a>
+      <a class="nav-link d-xl-flex align-items-xl-end" href="<?php echo base_url(); ?>booking">Online Booking</a>
+      <a class="nav-link d-xl-flex align-items-xl-end" href="<?php echo base_url(); ?>information">Medical Information</a>
+      <a class="nav-link d-xl-flex align-items-xl-end" href="<?php echo base_url(); ?>checker">Symptom Checker</a>
 
-    <!-- Search bar -->
-    <input type="search" placeholder="Search" name="search" aria-label="Search">
+      <!-- Search bar -->
+      <input type="search" placeholder="Search" name="search" aria-label="Search">
 
-    <!-- 做一个if 判断登陆没有-->
-    <!-- logout 要在login的controller里加function-->
-    <a href="<?php echo base_url(); ?>login">LogIn</a>
-    <a href="<?php echo base_url(); ?>login/logout">LogOut</a>
-    <a href="<?php echo base_url(); ?>signup">SignUp</a>
-    <a href="<?php echo base_url(); ?>profile">My Profile</a>
+      <!-- 做一个if 判断登陆没有-->
+      <!-- logout 要在login的controller里加function-->
+      <a href="<?php echo base_url(); ?>login">LogIn</a>
+      <a href="<?php echo base_url(); ?>login/logout">LogOut</a>
+      <a href="<?php echo base_url(); ?>signup">SignUp</a>
+      <a href="<?php echo base_url(); ?>profile">My Profile</a>
 
-    <!-- button 翻译整个页面 -->
-    <a href="">Languages</a>
+      <!-- button 翻译整个页面 -->
+      <a href="">Languages</a>
 
     </nav>
 
