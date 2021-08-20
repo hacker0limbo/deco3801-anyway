@@ -5,6 +5,8 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		echo "Welcome to Team Anyway's homepage";
+		$this->load->view('header');
+		$this->load->view('homepage');
+		$this->load->view('footer');
 	}
 }

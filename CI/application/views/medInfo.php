@@ -1,0 +1,1 @@
+<p> medical information page </p>
