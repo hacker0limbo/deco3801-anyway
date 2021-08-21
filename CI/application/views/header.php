@@ -9,9 +9,9 @@
     
   <body>
     <!-- Navigation -->
-    <nav class="navbar-expand-md d-xl-flex align-items-xl-end" id="nav-bar">
-      <img id="logo">
-      <h1 id="website-name"> Anyway</h1>
+    <nav class="navbar-expand-md d-xl-flex align-items-xl-center justify-content-between" id="nav-bar">
+      <img class="d-xl-flex align-items-xl-end" id="logo">
+      <h1 class="d-xl-flex align-items-xl-end" id="website-name"> Anyway</h1>
       
       <!-- navigation bar links -->
       <a class="nav-link d-xl-flex align-items-xl-end" href="<?php echo base_url(); ?>">Homepage</a>
@@ -24,15 +24,15 @@
 
       <!-- 做一个if 判断登陆没有-->
       <!-- logout 要在login的controller里加function-->
-      <a href="<?php echo base_url(); ?>login">LogIn</a>
+      <a class="d-xl-flex align-items-xl-end"  href="<?php echo base_url(); ?>login">LogIn</a>
       <!-- 
-      <a href="<?php echo base_url(); ?>login/logout">LogOut</a>
-      <a href="<?php echo base_url(); ?>signup">SignUp</a>
-      <a href="<?php echo base_url(); ?>profile">My Profile</a>
+      <a class="d-xl-flex align-items-xl-end"  href="<?php echo base_url(); ?>login/logout">LogOut</a>
+      <a class="d-xl-flex align-items-xl-end"  href="<?php echo base_url(); ?>signup">SignUp</a>
+      <a class="d-xl-flex align-items-xl-end"  href="<?php echo base_url(); ?>profile">My Profile</a>
       -->
-      
+
       <!-- button 翻译整个页面 -->
-      <a href="">Languages</a>
+      <a class="d-xl-flex align-items-xl-end"  href="">Languages</a>
 
     </nav>
 

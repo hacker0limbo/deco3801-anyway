@@ -1,6 +1,5 @@
         <footer>
-            <p> footer content </p>
-            <p>&copy; 2021-<?php echo date("Y"); ?></p>
+            <p class="d-xl-flex justify-content-center">&copy; 2021 Copyright: DECO3801 Anyway</p>
         </footer>
     </body>
 </html>
