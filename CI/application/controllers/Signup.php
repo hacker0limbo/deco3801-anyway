@@ -14,9 +14,16 @@ class Signup extends CI_Controller {
 
 	// sign up new account
 	// validate form information (unique username, valid email, password strength)
-	// send email validation
+	// send email validation with verify link
 	public function validate_signup() {
 
+	}
+
+
+	// email validation
+	// user open the verify link, set up verify status in database
+	public function email_verification() {
+		
 	}
 
 
