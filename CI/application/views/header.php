@@ -25,10 +25,12 @@
       <!-- 做一个if 判断登陆没有-->
       <!-- logout 要在login的controller里加function-->
       <a href="<?php echo base_url(); ?>login">LogIn</a>
+      <!-- 
       <a href="<?php echo base_url(); ?>login/logout">LogOut</a>
       <a href="<?php echo base_url(); ?>signup">SignUp</a>
       <a href="<?php echo base_url(); ?>profile">My Profile</a>
-
+      -->
+      
       <!-- button 翻译整个页面 -->
       <a href="">Languages</a>
 

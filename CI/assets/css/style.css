@@ -8,6 +8,9 @@
 /* header */
 #logo {
     background-image: url(../img/logo.png);
+    height: 30px;
+    width: 30px;
+    background-size: contain;
 }
 
 #website-name {
