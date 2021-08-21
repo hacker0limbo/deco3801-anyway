@@ -1,1 +1,15 @@
 /* style file for all webpages */
+
+/* general font size, font color, font, background-color etc */
+
+
+
+
+/* header */
+#logo {
+    background-image: url(../img/logo.png);
+}
+
+#website-name {
+    font-weight: bolder;
+}
