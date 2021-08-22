@@ -1,7 +1,11 @@
 /* style file for all webpages */
 
 /* general font size, font color, font, background-color etc */
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 
 
@@ -23,4 +27,127 @@
 
 #website-name {
     margin-bottom: 0;
+}
+
+
+
+/* homepage banner */
+#banner-container {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#main-banner {
+    position: relative;
+    top: 0vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-bg {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: white;
+    background-size: 100% 100%;
+}
+
+#main-banner section {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 100%;
+}
+
+.banner-imagebox {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.moving {
+    animation: moving-banner 5s linear infinite;
+}
+
+@keyframes moving-banner {
+    0%, 100% {
+        opacity: 0.2;
+        backdrop-filter: blur(10px);
+    }
+
+    30%, 80% {
+        opacity: 1;
+        backdrop-filter: blur(0px);
+    }
+}
+
+.banner-select {
+    position: absolute;
+    bottom: 10px;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-dot {
+    margin: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.banner-dot:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+.banner-dot-check {
+    background-color: white;
+}
+
+.banner-left, .banner-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.banner-button:hover{
+    font-size: 40px;
+}
+
+.banner-left {
+    left: 20px;
+}
+
+.banner-right {
+    right: 20px;
+}
+
+.banner-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: white;
+    user-select: none;
+    transition: all 0.3s;
 }
