@@ -20,10 +20,53 @@
 
 
 <!-- Four section -->
-<a href="<?php echo base_url(); ?>checker">Symptom Checker</a>
-<a href="<?php echo base_url(); ?>booking">Online Booking</a>
-<a href="<?php echo base_url(); ?>information/loadMedService">Medical Service</a>
-<a href="<?php echo base_url(); ?>information/loadMedInsurance">Medical Insurance</a>
+<ul class="homepage-content d-xl-flex align-items-xl-center justify-content-between">
+    <li>
+        <figure>
+            <img class="homepage-content-img" src="assets/img/placeholder.jpeg">
+            <figcaption>
+                <h3> Symptom Checker </h3>
+                <p> Some description here! </p>
+                <p> <a href="<?php echo base_url(); ?>checker">Read More</a> </p>
+            </figcaption>
+        </figure>
+    </li>
+
+    <li>
+        <figure>
+            <img class="homepage-content-img" src="assets/img/placeholder.jpeg">
+            <figcaption>
+                <h3> Online Booking </h3>
+                <p> Some description here! </p>
+                <p> <a href="<?php echo base_url(); ?>booking">Read More</a> </p>
+            </figcaption>
+        </figure>
+    </li>
+
+    <li>
+        <figure>
+            <img class="homepage-content-img" src="assets/img/placeholder.jpeg">
+            <figcaption>
+                <h3> Medical Service </h3>
+                <p> Some description here! </p>
+                <p> <a href="<?php echo base_url(); ?>information/loadMedService">Read More</a> </p>
+            </figcaption>
+        </figure>
+    </li>
+
+    <li>
+        <figure>
+            <img class="homepage-content-img" src="assets/img/placeholder.jpeg">
+            <figcaption>
+                <h3> Medical Insurance </h3>
+                <p> Some description here! </p>
+                <p> <a href="<?php echo base_url(); ?>information/loadMedInsurance">Read More</a> </p>
+            </figcaption>
+        </figure>
+    </li>
+
+    <br style="clear: both;" />
+</ul>
 
 
 
