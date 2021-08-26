@@ -8,7 +8,7 @@ class Login extends CI_Controller {
 	// set relevant values in session/cookies
 	public function index() {
 		$this->load->view('header');
-		$this->load->view('logIn');
+		$this->load->view('login');
 		$this->load->view('footer');
 	}
 
