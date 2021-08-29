@@ -24,7 +24,12 @@
 
       <!-- 做一个if 判断登陆没有-->
       <!-- logout 要在login的controller里加function-->
-      <a class="d-xl-flex align-items-xl-end"  href="<?php echo base_url(); ?>login">LogIn</a>
+      <?php if(!$this->session->userdata('logged_in')): ?>
+        <a class="d-xl-flex align-items-xl-end"  href="<?php echo base_url(); ?>login">LogIn</a>
+      <?php else: ?>
+        <a class="d-xl-flex align-items-xl-end"  href="<?php echo base_url(); ?>login/logout">LogOut</a>
+      <?php endif; ?>
+
       <!-- 
       <a class="d-xl-flex align-items-xl-end"  href="<?php echo base_url(); ?>login/logout">LogOut</a>
       <a class="d-xl-flex align-items-xl-end"  href="<?php echo base_url(); ?>signup">SignUp</a>

@@ -27,9 +27,11 @@ class Signup extends CI_Controller {
 		//Set form_validation error html format
 		$this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert" style="margin-top:5px;">','</div>');
 		//Set form_validation rules for each input 1.Username 2.Password 3.Email
-		$this->form_validation->set_rules('username', 'Username', 'required|trim|callback_username_exists');
-		$this->form_validation->set_rules('password', 'Password', 'required|trim|callback_check_password');
-		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|callback_check_email_exists');
+		$this->form_validation->set_rules('username', 'Username', 'required|trim|callback_valid_username');
+		$this->form_validation->set_rules('password', 'Password', 'required|trim|callback_valid_password');
+		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+		$this->form_validation->set_rules('agreement', 'agreement', 'required');
+
 
 		//Check all inputs by run form_validation 
 		//TRUE -> add new user into database 
@@ -43,22 +45,52 @@ class Signup extends CI_Controller {
 			$password = $this->input->post('password');
 
 			//Add user date into database
-			$this->user->signup($username, $password);
+			$this->user_model->signup($username, $password);
 
-			//Show signup success message and direct to homepage
-			$this->session->set_flashdata('signup', 'You are now registered! Log in now!');
-			redirect('welcome');
+			//Show signup success message and direct to login page
+			$this->session->set_flashdata('signup', 'You are now registered! &nbsp Log in now!');
+			redirect('login');
 		}
 	}
 
-	//username validation
-	//check if the username already exists in the database return TRUE if unexists
-	public function username_exists() {
-
-
+	//check username validation
+	//if the username already exists in the database return TRUE if unexists
+	public function valid_username($username) {
+		$this->form_validation->set_message('valid_username', 
+			'Username have been used. Please choose a different one');
+        if($this->user_model->valid_username($username)){
+            return true;
+        } else {
+            return false;
+        }
 	}
 
-	// email validation
+	//check password validation
+	//if the password strength is strong enough return TRUE
+	public function valid_password($password) {
+		if (preg_match("/^[^0-9]*$/", $password)) {
+            $this->form_validation->set_message('valid_password',
+            'Password must contain numbers');
+            return FALSE; //No words
+        } else if (preg_match("/^[^a-zA-Z]*$/", $password)) {
+            $this->form_validation->set_message('valid_password',
+            'Password must contain characters');
+            return FALSE; //No number
+        } else if (strlen($password) < 3) {
+            $this->form_validation->set_message('valid_password',
+            'Password should more than 3 digits');
+            return FALSE; //too short
+        } else if (strlen($password) > 10) {
+            $this->form_validation->set_message('valid_password',
+            'Password should less than 10 digits');
+            return FALSE; //too long
+        }
+        else {
+            return TRUE;
+        }
+	}
+
+	// check email validation
 	// user open the verify link, set up verify status in database
 	public function email_verification() {
 		

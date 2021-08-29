@@ -1,3 +1,9 @@
+<!-- Display only when new user sign up successfully -->
+<?php if($this->session->flashdata('login')): ?>
+    <?php echo '<p class="alert alert-success" style="text-align: center;">'.
+    $this->session->flashdata('login').' '.$this->session->userdata("username").'</p>'; ?>
+<?php endif; ?>
+
 <!-- Image banner -->
 <div id="banner-container">
     <main id="main-banner">
@@ -67,6 +73,11 @@
 
     <br style="clear: both;" />
 </ul>
+
+<?php if($this->session->userdata('logged_in')):?>
+    <?php echo $_SESSION['username'];?>
+    <?php echo $_SESSION['password'];?>
+<?php endif;?>
 
 
 
