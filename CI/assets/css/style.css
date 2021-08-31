@@ -10,19 +10,9 @@
 
 
 /* header & navigation bar */
-#logo {
-    background-image: url(../img/logo.png);
-    height: 30px;
-    width: 30px;
-    background-size: contain;
-}
 
 #website-name {
     font-weight: bolder;
-}
-
-#nav-bar {
-    padding: 50px;
 }
 
 #website-name {
@@ -212,4 +202,9 @@
 .homepage-content figcaption a:hover {
     color: black;
     background: white;
+}
+
+/* footer */
+.footer {
+    background-color: #f5f5f5;
 }
