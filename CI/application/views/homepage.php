@@ -1,29 +1,94 @@
 <!-- Display only when new user sign up successfully -->
 <?php if($this->session->flashdata('login')): ?>
-    <?php echo '<p class="alert alert-success" style="text-align: center;">'.
-    $this->session->flashdata('login').' '.$this->session->userdata("username").'</p>'; ?>
+    <?php 
+    echo 
+    '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">'
+        . $this->session->flashdata('login')
+        . ' '
+        . '<strong>' . $this->session->userdata("username") . '</strong>'
+        . '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
+    .'</div>';
+    ;?>
 <?php endif; ?>
 
-<!-- Image banner -->
-<div id="banner-container">
-    <main id="main-banner">
-        <div class="banner-bg"></div>
-        <section>
-            <div class="banner-imagebox">
-                <img src="assets/img/banner-placeholder1.png" class="banner-image">
-            </div>
+<style>
+    .back-to-top {
+        display: none;
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 99;
+        cursor: pointer;
+    }
+</style>
 
-            <div class="banner-select">
-                <!-- <div class="banner-dot"></div>
-                    <div class="banner-dot-check"></div> -->
-            </div>
-
-            <div class="banner-left"><span class="banner-button">&lt</span></div>
-            <div class="banner-right"><span class="banner-button">&gt</span></div>
-        </section>
-    </main>
+<!-- back to top indicator -->
+<div class="back-to-top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-up-square text-primary" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+    </svg>
 </div>
 
+<!-- carousel/slider -->
+<div id="homepageCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#homepageCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#homepageCarousel" data-slide-to="1"></li>
+        <li data-target="#homepageCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="assets/img/homepage-slider0.png" class="d-block w-100" alt="slider0">
+            <div class="container">
+                <div class="carousel-caption text-left">
+                    <h1>Simple and fast new mode,</h1>
+                    <h1>appointment is no longer limited</h1>
+                    <p>
+                        <a class="btn btn-lg btn-primary" href="#">Make a appointment</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="assets/img/homepage-slider0.png" class="d-block w-100" alt="slider1">
+            <div class="container">
+                <div class="carousel-caption text-left">
+                    <h1>Second slide</h1>
+                    <h1>Second slide...</h1>
+                    <p>
+                        <a class="btn btn-lg btn-primary" href="#">Second Button</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="assets/img/homepage-slider0.png" class="d-block w-100" alt="slider2">
+            <div class="container">
+                <div class="carousel-caption text-left">
+                    <h1>Third slide</h1>
+                    <h1>Third slide...</h1>
+                    <p>
+                        <a class="btn btn-lg btn-primary" href="#">Third Button</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#homepageCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#homepageCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<h1 class="text-center mt-5">Welcome to Anyway</h1>
+<hr class="my-1 w-25" style="margin: auto">
+<p class="lead text-center">
+  What we will do what we will do what we will do what we will do what we will do.
+</p>
 
 <!-- Four section -->
 <ul class="homepage-content d-xl-flex align-items-xl-center justify-content-between">
@@ -79,105 +144,19 @@
     <?php echo $_SESSION['password'];?>
 <?php endif;?>
 
-
-
-
-
-
-<!-- script for banner moving -->
 <script>
-    var images = ['assets/img/banner-placeholder1.png', 'assets/img/banner-placeholder2.png', 'assets/img/banner-placeholder3.png'];
+const backToTop = document.querySelector('.back-to-top')
 
-    var mainBanner = document.getElementById('main-banner');
-    var bannerBg = document.querySelector('.banner-bg');
-    var bannerImage = document.querySelector('.banner-image');
-    var bannerSelect = document.querySelector('.banner-select');
-    var bannerDot = document.getElementsByClassName('banner-dot');
-    var bannerLeft = document.querySelector('.banner-left');
-    var bannerRight = document.querySelector('.banner-right');
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+})
 
-
-    var idx = 0;
-
-    // add dots 
-    for (let i = 0; i < images.length; i++) {
-        let dot = document.createElement('div');
-        dot.classList.add('banner-dot');
-        bannerSelect.appendChild(dot);
-        dot.number = i;
+window.addEventListener('scroll', () => {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTop.style.display = 'block'
+    } else {
+        backToTop.style.display = 'none'
     }
-
-
-    // clear dot format
-    function clear() {
-        for (let i = 0; i < bannerDot.length; i++) {
-            bannerDot[i].classList.remove('banner-dot-check');
-        }
-    }
-
-    // move to next image
-    function moveImage() {
-        idx = idx + 1;
-        if (idx == images.length) {
-            idx = 0;
-        }
-
-        bannerImage.src = images[idx];
-
-        clear();
-        bannerDot[idx].classList.add('banner-dot-check');
-
-        if (idx == images.length - 1) {
-            idx = -1;
-        }
-    }
-
-    // click right button
-    bannerRight.addEventListener('click', function() {
-        moveImage();
-    })
-
-    // click left button
-    bannerLeft.addEventListener('click', function() {
-        idx = idx - 1;
-        if (idx == -1) {
-            idx = images.length - 1;
-        }
-        bannerImage.src = images[idx];
-
-        clear();
-        bannerDot[idx].classList.add('banner-dot-check');
-    })
-
-
-    // automatic move images stops when mouse over
-    mainBanner.addEventListener('mouseover', function() {
-        clearInterval(continuousMoving);
-        bannerImage.classList.remove('moving');
-    })
-
-    // automatic moving starts when mouse leave the div
-    mainBanner.addEventListener('mouseout', function() {
-        continuousMoving = setInterval(moveImage, 5000);
-
-        bannerImage.classList.add('moving');
-        bannerImage.style.animationDelay = '5s';
-    })
-
-
-    // click on dots
-    for (let i = 0; i < images.length; i++) {
-        bannerDot[i].addEventListener('click', function() {
-            clear();
-            this.classList.add('banner-dot-check');
-            idx = i;
-            bannerImage.src = images[idx];
-        })
-    }
-
-    // set up automatic timer and initial moving states
-    continuousMoving = setInterval(moveImage, 5000);
-    bannerImage.classList.add('moving');
-    bannerDot[0].classList.add('banner-dot-check');
+})
 
 </script>

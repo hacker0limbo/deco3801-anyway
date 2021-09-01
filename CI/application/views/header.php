@@ -42,6 +42,7 @@
         <!-- 做一个if 判断登陆没有-->
         <!-- logout 要在login的controller里加function-->
         <ul class="navbar-nav">
+          <!-- not login, only show login button -->
           <?php if(!$this->session->userdata('logged_in')): ?>
             <li class="nav-item">
               <a class="nav-link" href="<?php echo base_url(); ?>login">
@@ -50,21 +51,32 @@
               </a>
             </li>
           <?php else: ?>
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url(); ?>login/logout">
-                <i class="bi bi-person-x"></i>
-                Logout
+            <!-- user logged in, show dropdown list with profile and logout button -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="authDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-person-check"></i>
+                <?php echo $this->session->userdata("username"); ?>
               </a>
+              <div class="dropdown-menu" aria-labelledby="authDropdown">
+                <a class="dropdown-item" href="<?php echo base_url(); ?>profile">
+                  <i class="bi bi-person"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="<?php echo base_url(); ?>login/logout">
+                  <i class="bi bi-person-x"></i>
+                  Logout
+                </a>
+              </div>
             </li>
           <?php endif; ?>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="languagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Languages
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <span class="dropdown-item" href="#">English</span>
-              <span class="dropdown-item" href="#">简体中文</span>
+            <div class="dropdown-menu" aria-labelledby="languagesDropdown">
+              <a class="dropdown-item" href="#">English</a>
+              <a class="dropdown-item" href="#">简体中文</a>
             </div>
           </li>
         </ul>
