@@ -1,19 +1,26 @@
 <html>
   <head>
     <title>Anyway - Your Perfect Medical Help In Australia</title>
+    <!-- global css for all pages -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- global script for all pages -->
     <script src="<?php echo base_url(); ?>assets/js/jquery-3.6.0.min.js" defer></script>
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js" defer></script>
-
     <script type="module" src="<?php echo base_url(); ?>assets/js/index.js"></script>
-
+    <!-- corresponding script for different pages -->
+    <?php if (strcmp(base_url(uri_string()), base_url()) == 0 || strcmp(base_url(uri_string()), base_url() . 'welcome') == 0): ?>
+      <script type="module" src="<?php echo base_url(); ?>assets/js/homepage.js"></script>
+    <?php elseif (strcmp(base_url(uri_string()), base_url() . 'signup') == 0): ?>
+      <!-- Import google reCaptcha API -->
+      <script src="https://www.google.com/recaptcha/api.js" defer></script>
+    <?php endif; ?>
   </head>
     
-  <body class="h-100 d-flex flex-column">
-    <div id="app">
-    <!-- Navigation -->
+  <body>
+    <div class="h-100 d-flex flex-column" id="app">
+      <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- Logo(Homepage) & toggle button for responsible size -->
         <a class="navbar-brand" href="<?php echo base_url(); ?>">
@@ -91,7 +98,7 @@
         </div>
 
       </nav>
-    </div>
+
     
 
 

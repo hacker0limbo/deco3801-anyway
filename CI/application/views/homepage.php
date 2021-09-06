@@ -11,17 +11,6 @@
     ;?>
 <?php endif; ?>
 
-<style>
-    .back-to-top {
-        display: none;
-        position: fixed;
-        bottom: 1.5rem;
-        right: 1.5rem;
-        z-index: 99;
-        cursor: pointer;
-    }
-</style>
-
 <!-- back to top indicator -->
 <div class="back-to-top">
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-up-square text-primary" viewBox="0 0 16 16">
@@ -143,20 +132,3 @@
     <?php echo $_SESSION['username'];?>
     <?php echo $_SESSION['password'];?>
 <?php endif;?>
-
-<script>
-const backToTop = document.querySelector('.back-to-top')
-
-backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-})
-
-window.addEventListener('scroll', () => {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        backToTop.style.display = 'block'
-    } else {
-        backToTop.style.display = 'none'
-    }
-})
-
-</script>

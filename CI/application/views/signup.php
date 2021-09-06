@@ -1,44 +1,6 @@
 
-<style>
-	.form-group {
-		margin-bottom: 10px;
-	}
-    .btn-primary-outline1 {
-        background-color: transparent;
-        border-color: #006FFF;
-		color:#006FFF;
-    }
-
-	.btn-primary-outline1:hover {
-        background-color: #006FFF;
-        color: #FFF;
-    }
-
-    .btn-primary-outline2 {
-        background-color: transparent;
-        border-color: #17a2b8;
-		color: #17a2b8;
-    }
-
-	.btn-primary-outline2 a {
-		color: #17a2b8;
-	}
-
-	.btn-primary-outline2:hover {
-        background-color: #17a2b8;
-		color: #FFF;
-    }
-	.btn-primary-outline2:hover a { 
-		text-decoration: none; 
-		color: #FFF;
-	}
-</style>
-
-<!-- Import google reCaptcha API -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 <?php echo form_open(base_url().'signup/validate_signup'); ?>
-	<div class="col-6 offset-3" style=" padding: 100px; margin-top: -60px;">
+	<div class="col-6 offset-3" style="padding: 5rem;">
 		<h1 class="text-center">Sign up</h1>
 
 		<div class="form-group">
@@ -61,15 +23,15 @@
 
 		<!-- buttons -->
 		<div class="form-group" style="margin-top: 30px;">
-			<button type="submit" class="submit-btn btn btn-primary-outline1 btn-block">
+			<button type="submit" class="btn btn-outline-primary btn-block">
 				Create Account
 			</button>
 		</div>
 
 		<div class="form-group">
-			<button type="submit" class="btn btn-primary-outline2 btn-block">
-				<a href="<?php echo base_url(); ?>login"> Have an account? Log in now</a>
-			</button>
+			<a role="button" class="btn btn-outline-info btn-block" href="<?php echo base_url(); ?>login"> 
+				Have an account? Log in now
+			</a>
 		</div>
 
 		<div class="clearfix">
