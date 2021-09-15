@@ -2,7 +2,8 @@
 export const messages = {
 	en: {
 		header: {
-			medicalInformation: "Medical Information",
+			medicalService: "Medical Service",
+			medicalInsurance: "Medical Insurance",
 			onlineBooking: "Online Booking",
 			symptomChecker: "Symptom Checker",
 			search: "Search",
@@ -12,7 +13,8 @@ export const messages = {
 	},
 	ch: {
 		header: {
-			medicalInformation: "医疗信息",
+			medicalService: "医疗服务",
+			medicalInsurance: "医疗保险",
 			onlineBooking: "在线预约",
 			symptomChecker: "症状检查",
 			search: "搜索",

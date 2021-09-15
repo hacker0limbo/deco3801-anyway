@@ -73,60 +73,113 @@
     </a>
 </div>
 
-<h1 class="text-center mt-5">Welcome to Anyway</h1>
-<hr class="my-1 w-25" style="margin: auto">
-<p class="lead text-center">
-  What we will do what we will do what we will do what we will do what we will do.
-</p>
+<div class="container my-5 text-center">
+    <h1>Welcome to Anyway</h1>
+    <hr class="my-3" style="margin: auto; width: 10%;">
+    <p class="lead">
+        What we will do what we will do what we will do what we will do what we will do.
+    </p>
+</div>
 
-<!-- Four section -->
-<ul class="homepage-content d-xl-flex align-items-xl-center justify-content-between">
-    <li>
-        <figure>
-            <img class="homepage-content-img" src="assets/img/placeholder.jpeg">
-            <figcaption>
-                <h3> Symptom Checker </h3>
-                <p> Some description here! </p>
-                <p> <a href="<?php echo base_url(); ?>checker">Read More</a> </p>
-            </figcaption>
-        </figure>
-    </li>
+<!-- router cards -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center">
+                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="symptom checker">
+                <div class="card-body">
+                    <h5 class="card-title">Symptom Checker</h5>
+                    <p class="card-text">Some description here</p>
+                    <a href="<?php echo base_url(); ?>checker" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center">
+                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="online booking">
+                <div class="card-body">
+                    <h5 class="card-title">Online Booking</h5>
+                    <p class="card-text">Some description here</p>
+                    <a href="<?php echo base_url(); ?>booking" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center">
+                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="medical service">
+                <div class="card-body">
+                    <h5 class="card-title">Medical Service</h5>
+                    <p class="card-text">Some description here</p>
+                    <a href="<?php echo base_url(); ?>service" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center">
+                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="medical insurance">
+                <div class="card-body">
+                    <h5 class="card-title">Medical Insurance</h5>
+                    <p class="card-text">Some description here</p>
+                    <a href="<?php echo base_url(); ?>insurance" class="btn btn-outline-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <li>
-        <figure>
-            <img class="homepage-content-img" src="assets/img/placeholder.jpeg">
-            <figcaption>
-                <h3> Online Booking </h3>
-                <p> Some description here! </p>
-                <p> <a href="<?php echo base_url(); ?>booking">Read More</a> </p>
-            </figcaption>
-        </figure>
-    </li>
+<div class="container my-5">
+    <h1 class="text-center">Top Hospital</h1>
+    <hr class="my-3" style="margin: auto; width: 10%;">
+    <p class="lead text-center">
+        What we will do what we will do what we will do what we will do what we will do.
+    </p>
+</div>
 
-    <li>
-        <figure>
-            <img class="homepage-content-img" src="assets/img/placeholder.jpeg">
-            <figcaption>
-                <h3> Medical Service </h3>
-                <p> Some description here! </p>
-                <p> <a href="<?php echo base_url(); ?>information/loadMedService">Read More</a> </p>
-            </figcaption>
-        </figure>
-    </li>
-
-    <li>
-        <figure>
-            <img class="homepage-content-img" src="assets/img/placeholder.jpeg">
-            <figcaption>
-                <h3> Medical Insurance </h3>
-                <p> Some description here! </p>
-                <p> <a href="<?php echo base_url(); ?>information/loadMedInsurance">Read More</a> </p>
-            </figcaption>
-        </figure>
-    </li>
-
-    <br style="clear: both;" />
-</ul>
+<!-- hospital cards -->
+<div class="container" style="margin-bottom: 6rem;">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center">
+                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="hospitalA">
+                <div class="card-body">
+                    <h5 class="card-title">PA Hospital A</h5>
+                    <p class="card-text">Some description here</p>
+                    <a href="#" class="btn btn-outline-info">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center">
+                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="hospitalB">
+                <div class="card-body">
+                    <h5 class="card-title">PA Hospital B</h5>
+                    <p class="card-text">Some description here</p>
+                    <a href="#" class="btn btn-outline-info">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center">
+                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="hospitalC">
+                <div class="card-body">
+                    <h5 class="card-title">PA Hospital C</h5>
+                    <p class="card-text">Some description here</p>
+                    <a href="#" class="btn btn-outline-info">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center">
+                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="hospitalD">
+                <div class="card-body">
+                    <h5 class="card-title">PA Hospital D</h5>
+                    <p class="card-text">Some description here</p>
+                    <a href="#" class="btn btn-outline-info">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php if($this->session->userdata('logged_in')):?>
     <?php echo $_SESSION['username'];?>

@@ -34,13 +34,48 @@
         <!-- collapsed content for responsible size -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'booking') == 0 ? 'active' : '' ?>">
               <a class="nav-link" href="<?php echo base_url(); ?>booking">{{ $t("header.onlineBooking") }}</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url(); ?>information">{{ $t("header.medicalInformation") }}</a>
+            <li class="nav-item dropdown btn-group <?php echo $this->uri->segment(1) == 'service' ? 'active' : '' ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>service" id="medicalServiceDropdown" role="button">
+                {{ $t("header.medicalService") }}
+              </a>
+              <button type="button" class="btn dropdown-toggle dropdown-toggle-split pl-0 py-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="medicalServiceDropdown">
+                <a href="<?php echo base_url(); ?>service/clinic" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'service/clinic') == 0 ? 'active' : '' ?>">
+                  Clinic
+                </a>
+                <a href="<?php echo base_url(); ?>service/medicalCentre" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'service/medicalCentre') == 0 ? 'active' : '' ?>">
+                  Medical Centre
+                </a>
+                <a href="<?php echo base_url(); ?>service/hospital" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'service/hospital') == 0 ? 'active' : '' ?>">
+                  Hospital
+                </a>
+                </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item dropdown btn-group <?php echo $this->uri->segment(1) == 'insurance' ? 'active' : '' ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>insurance" id="medicalInsuranceDropdown" role="button">
+                {{ $t("header.medicalInsurance") }}
+              </a>
+              <button type="button" class="btn dropdown-toggle dropdown-toggle-split pl-0 py-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="medicalInsuranceDropdown">
+                <a href="<?php echo base_url(); ?>insurance/student" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'insurance/student') == 0 ? 'active' : '' ?>">
+                  Student
+                </a>
+                <a href="<?php echo base_url(); ?>insurance/visitor" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'insurance/visitor') == 0 ? 'active' : '' ?>">
+                  Visitor
+                </a>
+                <a href="<?php echo base_url(); ?>insurance/citizen" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'insurance/citizen') == 0 ? 'active' : '' ?>">
+                  Citizen
+                </a>
+              </div>
+            </li>
+            <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'checker') == 0 ? 'active' : '' ?>">
               <a class="nav-link" href="<?php echo base_url(); ?>checker">{{ $t("header.symptomChecker") }}</a>
             </li>
           </ul>
@@ -55,7 +90,7 @@
           <ul class="navbar-nav">
             <!-- not login, only show login button -->
             <?php if(!$this->session->userdata('logged_in')): ?>
-              <li class="nav-item">
+              <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'login') == 0 ? 'active' : '' ?>">
                 <a class="nav-link" href="<?php echo base_url(); ?>login">
                   <i class="bi bi-person-plus"></i>
                   {{ $t("header.login") }}
@@ -63,13 +98,13 @@
               </li>
             <?php else: ?>
               <!-- user logged in, show dropdown list with profile and logout button -->
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown <?php echo strcmp(base_url(uri_string()), base_url() . 'profile') == 0 ? 'active' : '' ?>">
                 <a class="nav-link dropdown-toggle" href="#" id="authDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="bi bi-person-check"></i>
                   <?php echo $this->session->userdata("username"); ?>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="authDropdown">
-                  <a class="dropdown-item" href="<?php echo base_url(); ?>profile">
+                  <a class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'profile') == 0 ? 'active' : '' ?>" href="<?php echo base_url(); ?>profile">
                     <i class="bi bi-person"></i>
                     Profile
                   </a>

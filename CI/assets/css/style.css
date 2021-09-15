@@ -94,3 +94,8 @@
     z-index: 99;
     cursor: pointer;
 }
+
+/* set background color of bootstrap breadcrumb to default */
+.breadcrumb {
+    background-color: initial;
+}
