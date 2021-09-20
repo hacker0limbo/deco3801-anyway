@@ -6,14 +6,15 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
     <!-- global script for all pages -->
-    <script src="<?php echo base_url(); ?>assets/js/jquery-3.6.0.min.js" defer></script>
-    <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js" defer></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery-3.6.0.min.js" ></script>
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js" ></script>
+    <script src="<?php echo base_url(); ?>assets/js/index.js"></script>
     <!-- corresponding script for different pages -->
     <?php if (strcmp(base_url(uri_string()), base_url()) == 0 || strcmp(base_url(uri_string()), base_url() . 'welcome') == 0): ?>
       <script type="module" src="<?php echo base_url(); ?>assets/js/homepage.js"></script>
     <?php elseif (strcmp(base_url(uri_string()), base_url() . 'signup') == 0): ?>
       <!-- Import google reCaptcha API -->
-      <script src="https://www.google.com/recaptcha/api.js" defer></script>
+      <script src="https://www.google.com/recaptcha/api.js" ></script>
     <?php endif; ?>
   </head>
     
@@ -41,11 +42,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'booking') == 0 ? 'active' : '' ?>">
-              <a class="nav-link" href="<?php echo base_url(); ?>booking">{{ $t("header.onlineBooking") }}</a>
+              <a class="nav-link lang" key="onlineBooking" href="<?php echo base_url(); ?>booking"><!-- {{ $t("header.onlineBooking") }}-->Online Booking</a>
             </li>
             <li class="nav-item dropdown btn-group <?php echo $this->uri->segment(1) == 'service' ? 'active' : '' ?>">
-              <a class="nav-link" href="<?php echo base_url(); ?>service" id="medicalServiceDropdown" role="button">
-                {{ $t("header.medicalService") }}
+              <a class="nav-link lang" key="medicalService" href="<?php echo base_url(); ?>service" id="medicalServiceDropdown" role="button">
+                <!-- {{ $t("header.medicalService") }} -->
+                Medical Service
               </a>
               <button type="button" class="btn dropdown-toggle dropdown-toggle-split pl-0 py-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="sr-only">Toggle Dropdown</span>
@@ -63,8 +65,9 @@
                 </div>
             </li>
             <li class="nav-item dropdown btn-group <?php echo $this->uri->segment(1) == 'insurance' ? 'active' : '' ?>">
-              <a class="nav-link" href="<?php echo base_url(); ?>insurance" id="medicalInsuranceDropdown" role="button">
-                {{ $t("header.medicalInsurance") }}
+              <a class="nav-link lang" key="medicalInsurance" href="<?php echo base_url(); ?>insurance" id="medicalInsuranceDropdown" role="button">
+                <!--{{ $t("header.medicalInsurance") }}-->
+                Medical Insurance
               </a>
               <button type="button" class="btn dropdown-toggle dropdown-toggle-split pl-0 py-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="sr-only">Toggle Dropdown</span>
@@ -82,13 +85,16 @@
               </div>
             </li>
             <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'checker') == 0 ? 'active' : '' ?>">
-              <a class="nav-link" href="<?php echo base_url(); ?>checker">{{ $t("header.symptomChecker") }}</a>
+              <a class="nav-link lang" key="symptomChecker" href="<?php echo base_url(); ?>checker">
+              <!-- {{ $t("header.symptomChecker") }} -->
+              Symptom Checker
+            </a>
             </li>
           </ul>
 
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">{{ $t("header.search") }}</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0 lang" key="search" type="submit"><!--{{ $t("header.search") }} --> Search</button>
           </form>
 
           <!-- 做一个if 判断登陆没有-->
@@ -98,8 +104,9 @@
             <?php if(!$this->session->userdata('logged_in')): ?>
               <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'login') == 0 ? 'active' : '' ?>">
                 <a class="nav-link" href="<?php echo base_url(); ?>login">
-                  <i class="bi bi-person-plus"></i>
-                  {{ $t("header.login") }}
+                  <i class="bi bi-person-plus lang" key="login"></i>
+                  <!-- {{ $t("header.login") }}-->
+                  Login
                 </a>
               </li>
             <?php else: ?>
@@ -123,16 +130,20 @@
             <?php endif; ?>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="languagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ $t("header.languages") }}
+              <a class="nav-link dropdown-toggle lang" key="languages" href="#" id="languagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!--{{ $t("header.languages") }}-->
+                Languages
               </a>
               <div class="dropdown-menu" aria-labelledby="languagesDropdown">
-                <span role="button" @click="() => changeLocale('en')" class="dropdown-item" :class="{ active: $i18n.locale === 'en' }">
-                  English
-                </span>
-                <span role="button" @click="() => changeLocale('ch')" class="dropdown-item" :class="{ active: $i18n.locale === 'ch' }">
-                  简体中文
-                </span>
+                <!--<span role="button" @click="() => changeLocale('en')" class="dropdown-item" :class="{ active: $i18n.locale === 'en' }">-->
+                <button class="translate btn btn-default" type="button" id="en">
+                English </button>
+                <!-- </span>
+                <span role="button" @click="() => changeLocale('ch')" class="dropdown-item" :class="{ active: $i18n.locale === 'ch' }"> -->
+                <button class="translate btn btn-default" type="button" id="zh">
+                简体中文 </button>
+                
+                <!--</span>-->
               </div>
             </li>
           </ul>
