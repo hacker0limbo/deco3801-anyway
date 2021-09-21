@@ -1,5 +1,5 @@
 // global javascript file used for all pages
-
+/* 
 import Vue from "https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.esm.browser.js";
 import VueI18n from "https://cdn.jsdelivr.net/npm/vue-i18n@8.25.0/dist/vue-i18n.esm.browser.js";
 import { messages } from "./i18n.js";
@@ -24,7 +24,7 @@ new Vue({
 			window.localStorage.setItem("locale", newLocale);
 		},
 	},
-});
+}); */
 
 // enable back to top for all pages
 loadBackToTop()
