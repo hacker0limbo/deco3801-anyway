@@ -30,7 +30,7 @@ class Welcome extends CI_Controller {
 			'language' => 'english'
 		);
 		$this->session->set_userdata($user_data);
-		redirect('welcome');
+		redirect($_SERVER['HTTP_REFERER']);
 		
 	}
 
@@ -39,7 +39,7 @@ class Welcome extends CI_Controller {
 			'language' => 'chinese'
 		);
 		$this->session->set_userdata($user_data);
-		redirect('welcome');
+		redirect($_SERVER['HTTP_REFERER']);
 		
 	}
 
