@@ -4,7 +4,7 @@
     <div id="input_area" class="col-md-10 offset-md-1 mt-5 d-flex flex-row flex-wrap justify-content-center">
         
         <div class="form-group col-md-4 d-flex align-items-center">
-            <img class="img-fluid img-thumbnail mr-3" style="width: 50px; height: 50px;" src="assets/img/logo.png"/>
+            <img class="img-fluid img-thumbnail mr-3" style="width: 50px; height: 50px;" src="<?php echo base_url(); ?>assets/img/logo.png"/>
             <input type="text" class="form-control" name="provider" placeholder="Specialty or provider name">
             <?php echo form_error('username'); ?>
         </div>

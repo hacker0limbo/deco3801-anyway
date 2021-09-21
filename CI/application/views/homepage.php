@@ -20,7 +20,7 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="assets/img/homepage-slider0.png" class="d-block w-100" alt="slider0">
+            <img src="<?php echo base_url(); ?>assets/img/homepage-slider0.png" class="d-block w-100" alt="slider0">
             <div class="container">
                 <div class="carousel-caption text-left">
                     <h1>Simple and fast new mode,</h1>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="assets/img/homepage-slider0.png" class="d-block w-100" alt="slider1">
+            <img src="<?php echo base_url(); ?>assets/img/homepage-slider0.png" class="d-block w-100" alt="slider1">
             <div class="container">
                 <div class="carousel-caption text-left">
                     <h1>Second slide</h1>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="assets/img/homepage-slider0.png" class="d-block w-100" alt="slider2">
+            <img src="<?php echo base_url(); ?>assets/img/homepage-slider0.png" class="d-block w-100" alt="slider2">
             <div class="container">
                 <div class="carousel-caption text-left">
                     <h1>Third slide</h1>
@@ -79,7 +79,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
-                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="symptom checker">
+                <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="symptom checker">
                 <div class="card-body">
                     <h5 class="card-title">Symptom Checker</h5>
                     <p class="card-text">Some description here</p>
@@ -89,7 +89,7 @@
         </div>
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
-                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="online booking">
+                <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="online booking">
                 <div class="card-body">
                     <h5 class="card-title">Online Booking</h5>
                     <p class="card-text">Some description here</p>
@@ -99,7 +99,7 @@
         </div>
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
-                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="medical service">
+                <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="medical service">
                 <div class="card-body">
                     <h5 class="card-title">Medical Service</h5>
                     <p class="card-text">Some description here</p>
@@ -109,7 +109,7 @@
         </div>
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
-                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="medical insurance">
+                <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="medical insurance">
                 <div class="card-body">
                     <h5 class="card-title">Medical Insurance</h5>
                     <p class="card-text">Some description here</p>
@@ -133,7 +133,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
-                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="hospitalA">
+                <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="hospitalA">
                 <div class="card-body">
                     <h5 class="card-title">PA Hospital A</h5>
                     <p class="card-text">Some description here</p>
@@ -143,7 +143,7 @@
         </div>
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
-                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="hospitalB">
+                <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="hospitalB">
                 <div class="card-body">
                     <h5 class="card-title">PA Hospital B</h5>
                     <p class="card-text">Some description here</p>
@@ -153,7 +153,7 @@
         </div>
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
-                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="hospitalC">
+                <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="hospitalC">
                 <div class="card-body">
                     <h5 class="card-title">PA Hospital C</h5>
                     <p class="card-text">Some description here</p>
@@ -163,7 +163,7 @@
         </div>
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
-                <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="hospitalD">
+                <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="hospitalD">
                 <div class="card-body">
                     <h5 class="card-title">PA Hospital D</h5>
                     <p class="card-text">Some description here</p>
