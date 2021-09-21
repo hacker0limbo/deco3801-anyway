@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="card shadow-sm text-center">
-        <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="student">
+        <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="student">
         <div class="card-body">
           <h5 class="card-title">Student</h5>
           <p class="card-text">Some description here</p>
@@ -20,7 +20,7 @@
     </div>
     <div class="col-md-4">
       <div class="card shadow-sm text-center">
-        <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="visitor">
+        <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="visitor">
         <div class="card-body">
           <h5 class="card-title">Visitor</h5>
           <p class="card-text">Some description here</p>
@@ -30,7 +30,7 @@
     </div>
     <div class="col-md-4">
       <div class="card shadow-sm text-center">
-        <img src="assets/img/placeholder.jpeg" class="card-img-top" alt="citizen">
+        <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="citizen">
         <div class="card-body">
           <h5 class="card-title">Citizen</h5>
           <p class="card-text">Some description here</p>
