@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>Anyway - Your Perfect Medical Help In Australia</title>
