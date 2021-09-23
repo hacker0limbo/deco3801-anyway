@@ -5,8 +5,18 @@ class Booking extends CI_Controller {
 
 	// booking homepage
 	public function index() {
-		$this->load->view('header');
-		$this->load->view('bookingHomepage');
+		// if no session stored, set langauge to english by default
+		if(!$this->session->userdata('language')) {
+			$user_data = array (
+				'language' => 'english'
+			);
+			$this->session->set_userdata($user_data);
+		}
+		$language = $this->session->userdata('language');
+		$header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
+		$bookingHomepage_lang = $this->lang->load('bookingHomepage_'.$language,$language, $return = TRUE);
+		$this->load->view('header', $header_lang);
+		$this->load->view('bookingHomepage',$bookingHomepage_lang);
 		$this->load->view('footer');
 	}
 

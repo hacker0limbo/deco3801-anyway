@@ -7,8 +7,18 @@ class Checker extends CI_Controller {
 	// load symptomCheck page
 	public function index()
 	{
-		$this->load->view('header');
-		$this->load->view('symptomCheck');
+		// if no session stored, set langauge to english by default
+		if(!$this->session->userdata('language')) {
+			$user_data = array (
+				'language' => 'english'
+			);
+			$this->session->set_userdata($user_data);
+		}
+		$language = $this->session->userdata('language');
+		$header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
+		$symptomCheck_lang = $this->lang->load('symptomCheck_'.$language,$language, $return = TRUE);
+		$this->load->view('header', $header_lang);
+		$this->load->view('symptomCheck', $symptomCheck_lang);
 		$this->load->view('footer');
 	}
 
@@ -16,8 +26,18 @@ class Checker extends CI_Controller {
 	public function liveChat() {
 		if ($this->session->userdata('logged_in')) {
 			// if user logged in, show chat, else redirect to login page
-			$this->load->view('header');
-			$this->load->view('liveChat');
+			// if no session stored, set langauge to english by default
+			if(!$this->session->userdata('language')) {
+				$user_data = array (
+					'language' => 'english'
+				);
+				$this->session->set_userdata($user_data);
+			}
+			$language = $this->session->userdata('language');
+			$header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
+			$liveChat_lang = $this->lang->load('liveChat_'.$language,$language, $return = TRUE);
+			$this->load->view('header', $header_lang);
+			$this->load->view('liveChat', $liveChat_lang);
 			$this->load->view('footer');
 		} else {
 			redirect('login', 'refresh');
