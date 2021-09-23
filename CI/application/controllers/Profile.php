@@ -32,6 +32,7 @@ class Profile extends CI_Controller {
 		$this->db->query($sql);
 		$sql = "select username,email,gender,DOB,language,medicare_status from user where username = '$username'";
 		$res = $this->db->query($sql);
+		$this->load->view('header');
 		foreach($res->result() as $item){
 			$data['username']= $item->username;
 			$data['email']= $item->email;
@@ -50,6 +51,7 @@ class Profile extends CI_Controller {
 		$this->db->query($sql);
 		$sql = "select username,email,gender,DOB,language,medicare_status from user where username = '$username'";
 		$res = $this->db->query($sql);
+		$this->load->view('header');
 		foreach($res->result() as $item){
 			$data['username']= $item->username;
 			$data['email']= $item->email;

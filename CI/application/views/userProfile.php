@@ -10,8 +10,8 @@
 <div class="container">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>service">Medical Service</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Clinic</li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>service">Home Page</a></li>
+      <li class="breadcrumb-item active" aria-current="page">User profile</li>
     </ol>
   </nav>
 </div>
@@ -39,9 +39,9 @@
   </div>
  
   <div class="col-md-10">
-      <h3>Differences</h3>
+      <h3>My details</h3>
       <p class="lead text-secondary">
-        Differences between clinic and hospital
+        You can change your details here
       </p>
 
       <div class="border rounded p-4">
@@ -56,8 +56,9 @@
         <div class="tab-content" id="clinicTabContent">
           <div class="tab-pane fade show active" id="clinic" role="tabpanel" aria-labelledby="clinic-tab">
             <!-- 在这写 -->
-            <div class="details_username">
+            
       <form action="<?php echo base_url().'Profile/update'; ?>" method="post">
+      <div class="details_username">
 			<h5>Username</h5>
 			<input type="text" class="form-control" name="username" placeholder="<?php if(isset($username)) echo $username;?>">
 			<?php echo form_error('username'); ?>
@@ -175,12 +176,13 @@
 				Save All
 </button>
 </div>
+                          </form>
             
           </div>
           <div class="tab-pane fade" id="hospital" role="tabpanel" aria-labelledby="hospital-tab">
             <!--在这写另一个-->
             <div class="details_email">
-            <?php echo form_open(base_url().'signup/validate_signup'); ?>
+            
       <form action="<?php echo base_url().'Profile/email'; ?>" method="post">
 			<label>Email</label>
 			<input type="text" class="form-control" name="new_email" placeholder="<?php if(isset($email)) echo $email;?>"></br>
