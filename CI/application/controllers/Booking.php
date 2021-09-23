@@ -5,9 +5,9 @@ class Booking extends CI_Controller {
 
 	// booking homepage
 	public function index() {
-		$this->load->view('header');
+		// $this->load->view('header');
 		$this->load->view('bookingHomepage');
-		$this->load->view('footer');
+		// $this->load->view('footer');
 	}
 
 
