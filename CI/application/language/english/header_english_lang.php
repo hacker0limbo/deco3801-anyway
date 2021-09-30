@@ -11,5 +11,9 @@
     $lang['websiteName'] = 'Anyway';
     $lang['websiteTitle'] = 'Anyway - Your Perfect Medical Help In Australia';
 
+    $lang['students'] = 'Students';
+    $lang['visitors'] = 'Vistors';
+    $lang['citizens'] = 'Citizens';
+
     
     ?>

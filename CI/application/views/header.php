@@ -65,13 +65,13 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="medicalInsuranceDropdown">
                 <a href="<?php echo base_url(); ?>insurance/student" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'insurance/student') == 0 ? 'active' : '' ?>">
-                  Student
+                  <?php echo $students?>
                 </a>
                 <a href="<?php echo base_url(); ?>insurance/visitor" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'insurance/visitor') == 0 ? 'active' : '' ?>">
-                  Visitor
+                <?php echo $visitors?>
                 </a>
                 <a href="<?php echo base_url(); ?>insurance/citizen" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'insurance/citizen') == 0 ? 'active' : '' ?>">
-                  Citizen
+                <?php echo $citizens?>
                 </a>
               </div>
             </li>

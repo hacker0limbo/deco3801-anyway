@@ -10,4 +10,8 @@
     $lang['languages'] = '语言设置';
     $lang['websiteName'] = '安游';
     $lang['websiteTitle'] = '安游 - 您在澳洲的最佳医疗助手';
+
+    $lang['students'] = '海外学生';
+    $lang['visitors'] = '来澳旅客';
+    $lang['citizens'] = '公民';
     ?>

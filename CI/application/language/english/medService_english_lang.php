@@ -5,7 +5,7 @@
     $lang['onlineBooking'] = 'Find Doctor';
     $lang['symptomChecker'] = 'Symptom Checker';
     $lang['serviceType'] = 'Service Types';
-    $lang['serviceTypeDes'] = 'Australia’s health system is one of the best in the world. It provides quality, safe and affordable health care for you and your family.There are many providers of health care in Australia, click to read more.';
+    $lang['serviceTypeDes'] = 'Australia’s health system is one of the best in the world. It provides quality, safe and affordable health care for you and your family. There are many providers of health care in Australia, click to read more.';
     $lang['readMore'] = 'Read More';
     $lang['medicalProcess'] = 'Medical Process';
     $lang['medicalProcessDes'] = 'In Australia, depends on whether it is an emergency condition, the process of getting medical help is different. Click to read more';
