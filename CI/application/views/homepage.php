@@ -23,22 +23,24 @@
             <img src="<?php echo base_url(); ?>assets/img/homepage-slider0.png" class="d-block w-100" alt="slider0">
             <div class="container">
                 <div class="carousel-caption text-left">
-                    <h1>Simple and fast new mode,</h1>
-                    <h1>appointment is no longer limited</h1>
+                    <h1><?php echo $findDoctorh11 ?></h1>
+                    <h1><?php echo $findDoctorh12 ?></h1>
                     <p>
-                        <a class="btn btn-lg btn-primary" href="#">Make a appointment</a>
+                        <a class="btn btn-lg btn-primary" href="<?php echo base_url(); ?>booking"><?php echo $onlineBooking ?></a>
                     </p>
                 </div>
             </div>
         </div>
+        
         <div class="carousel-item">
             <img src="<?php echo base_url(); ?>assets/img/homepage-slider0.png" class="d-block w-100" alt="slider1">
             <div class="container">
                 <div class="carousel-caption text-left">
-                    <h1>Second slide</h1>
-                    <h1>Second slide...</h1>
+                    <h1><?php echo $medicalInfoh11 ?></h1>
+                    <h1><?php echo $medicalInfoh12 ?></h1>
                     <p>
-                        <a class="btn btn-lg btn-primary" href="#">Second Button</a>
+                        <a class="btn btn-lg btn-primary" href="<?php echo base_url(); ?>service"><?php echo $medicalService?></a>
+                        <a class="btn btn-lg btn-primary" href="<?php echo base_url(); ?>insurance"><?php echo $medicalInsurance?></a>
                     </p>
                 </div>
             </div>
@@ -47,10 +49,10 @@
             <img src="<?php echo base_url(); ?>assets/img/homepage-slider0.png" class="d-block w-100" alt="slider2">
             <div class="container">
                 <div class="carousel-caption text-left">
-                    <h1>Third slide</h1>
-                    <h1>Third slide...</h1>
+                    <h1><?php echo $symptomCheckerh11 ?></h1>
+                    <h1><?php echo $symptomCheckerh12 ?></h1>
                     <p>
-                        <a class="btn btn-lg btn-primary" href="#">Third Button</a>
+                        <a class="btn btn-lg btn-primary" href="<?php echo base_url(); ?>checker"><?php echo $symptomChecker?></a>
                     </p>
                 </div>
             </div>
@@ -67,10 +69,10 @@
 </div>
 
 <div class="container my-5 text-center">
-    <h1>Welcome to Anyway</h1>
+    <h1><?php echo $welcomeMessage ?></h1>
     <hr class="my-3" style="margin: auto; width: 10%;">
     <p class="lead">
-        What we will do what we will do what we will do what we will do what we will do.
+        <?php echo $introduction?>
     </p>
 </div>
 
@@ -81,9 +83,9 @@
             <div class="card shadow-sm text-center">
                 <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="symptom checker">
                 <div class="card-body">
-                    <h5 class="card-title">Symptom Checker</h5>
-                    <p class="card-text">Some description here</p>
-                    <a href="<?php echo base_url(); ?>checker" class="btn btn-outline-primary">Read More</a>
+                    <h5 class="card-title"><?php echo $symptomChecker?></h5>
+                    <p class="card-text"><?php echo $symptomCheckerh11; echo $symptomCheckerh12?></p>
+                    <a href="<?php echo base_url(); ?>checker" class="btn btn-outline-primary"><?php echo $readMore?></a>
                 </div>
             </div>
         </div>
@@ -91,9 +93,9 @@
             <div class="card shadow-sm text-center">
                 <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="online booking">
                 <div class="card-body">
-                    <h5 class="card-title">Online Booking</h5>
-                    <p class="card-text">Some description here</p>
-                    <a href="<?php echo base_url(); ?>booking" class="btn btn-outline-primary">Read More</a>
+                    <h5 class="card-title"><?php echo $onlineBooking?></h5>
+                    <p class="card-text"><?php echo $findDoctorh11; echo $findDoctorh12 ?></p>
+                    <a href="<?php echo base_url(); ?>booking" class="btn btn-outline-primary"><?php echo $readMore?></a>
                 </div>
             </div>
         </div>
@@ -101,9 +103,9 @@
             <div class="card shadow-sm text-center">
                 <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="medical service">
                 <div class="card-body">
-                    <h5 class="card-title">Medical Service</h5>
-                    <p class="card-text">Some description here</p>
-                    <a href="<?php echo base_url(); ?>service" class="btn btn-outline-primary">Read More</a>
+                    <h5 class="card-title"><?php echo $medicalService?></h5>
+                    <p class="card-text"><?php echo $medicalServiceDes?> </p>
+                    <a href="<?php echo base_url(); ?>service" class="btn btn-outline-primary"><?php echo $readMore?></a>
                 </div>
             </div>
         </div>
@@ -111,25 +113,26 @@
             <div class="card shadow-sm text-center">
                 <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="medical insurance">
                 <div class="card-body">
-                    <h5 class="card-title">Medical Insurance</h5>
-                    <p class="card-text">Some description here</p>
-                    <a href="<?php echo base_url(); ?>insurance" class="btn btn-outline-primary">Read More</a>
+                    <h5 class="card-title"><?php echo $medicalInsurance?></h5>
+                    <p class="card-text"><?php echo $medicalInsuranceDes?></p>
+                    <a href="<?php echo base_url(); ?>insurance" class="btn btn-outline-primary"><?php echo $readMore?></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container my-5">
+<!-- 可能暂时不需要 -->
+<!-- <div class="container my-5">
     <h1 class="text-center">Top Hospital</h1>
     <hr class="my-3" style="margin: auto; width: 10%;">
     <p class="lead text-center">
         What we will do what we will do what we will do what we will do what we will do.
     </p>
 </div>
-
-<!-- hospital cards -->
-<div class="container" style="margin-bottom: 6rem;">
+ -->
+<!-- hospital cards 可能暂时不需要 -->
+<!-- <div class="container" style="margin-bottom: 6rem;">
     <div class="row">
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
@@ -172,7 +175,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <?php if($this->session->userdata('logged_in')):?>
     <?php echo $_SESSION['username'];?>

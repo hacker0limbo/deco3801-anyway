@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Anyway - Your Perfect Medical Help In Australia</title>
+    <title><?php echo $websiteTitle?></title>
     <!-- global css for all pages -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-icons.css">
@@ -31,7 +31,7 @@
         <!-- Logo(Homepage) & toggle button for responsible size -->
         <a class="navbar-brand" href="<?php echo base_url(); ?>">
           <img class="logo" width="30" height="30" src="<?php echo base_url(); ?>assets/img/logo.png"/>
-          <span>Anyway</span>
+          <span><?php echo $websiteName?> </span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -83,7 +83,7 @@
           </ul>
 
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="<?php echo $search ?>" aria-label="Search">
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><?php echo $search ?></button>
           </form>
 
