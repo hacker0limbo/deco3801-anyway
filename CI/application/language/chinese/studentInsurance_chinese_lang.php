@@ -13,7 +13,7 @@
 
 
     $lang['students'] = '海外学生';
-    $lang['visitors'] = '来澳旅客';
+    $lang['visitors'] = '来澳访客';
     $lang['citizens'] = '公民';
 
     $lang['OSHC'] = '海外学生健康保险（OSHC）';
