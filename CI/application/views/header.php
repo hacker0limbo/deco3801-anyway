@@ -49,15 +49,13 @@
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
               <div class="dropdown-menu" aria-labelledby="medicalServiceDropdown">
-                <a href="<?php echo base_url(); ?>service/clinic" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'service/clinic') == 0 ? 'active' : '' ?>">
-                  Clinic
+                <a href="<?php echo base_url(); ?>service/servicetype" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'service/servicetype') == 0 ? 'active' : '' ?>">
+                  <?php echo $serviceType ?>
                 </a>
-                <a href="<?php echo base_url(); ?>service/medicalCentre" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'service/medicalCentre') == 0 ? 'active' : '' ?>">
-                  Medical Centre
+                <a href="<?php echo base_url(); ?>service/medicalProcess" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'service/medicalProcess') == 0 ? 'active' : '' ?>">
+                  <?php echo $medicalProcess ?>
                 </a>
-                <a href="<?php echo base_url(); ?>service/hospital" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'service/hospital') == 0 ? 'active' : '' ?>">
-                  Hospital
-                </a>
+                
                 </div>
             </li>
             <li class="nav-item dropdown btn-group <?php echo $this->uri->segment(1) == 'insurance' ? 'active' : '' ?>">

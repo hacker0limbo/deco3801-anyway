@@ -19,7 +19,7 @@ class Service extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-  public function clinic() {
+  public function serviceType() {
     // clinic or surgery
     // if no session stored, set langauge to english by default
 		if(!$this->session->userdata('language')) {
@@ -30,13 +30,13 @@ class Service extends CI_Controller {
 		}
 		$language = $this->session->userdata('language');
 		$header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
-		$clinicService_lang = $this->lang->load('clinicService_'.$language,$language, $return = TRUE);
+		$serviceType_lang = $this->lang->load('serviceType_'.$language,$language, $return = TRUE);
 		$this->load->view('header', $header_lang);
-		$this->load->view('clinicService', $clinicService_lang);
+		$this->load->view('serviceType', $serviceType_lang);
 		$this->load->view('footer');
   }
 
-  public function medicalCentre() {
+  public function medicalProcess() {
     // medical centre
     // if no session stored, set langauge to english by default
 		if(!$this->session->userdata('language')) {
@@ -47,27 +47,27 @@ class Service extends CI_Controller {
 		}
 		$language = $this->session->userdata('language');
 		$header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
-		$centreService_lang = $this->lang->load('centreService_'.$language,$language, $return = TRUE);
+		$medicalProcess_lang = $this->lang->load('medicalProcess_'.$language,$language, $return = TRUE);
 		$this->load->view('header', $header_lang);
-		$this->load->view('centreService', $centreService_lang);
+		$this->load->view('medicalProcess', $medicalProcess_lang);
 		$this->load->view('footer');
   }
 
-  public function hospital() {
-    // hospital service
-    // if no session stored, set langauge to english by default
-		if(!$this->session->userdata('language')) {
-			$user_data = array (
-				'language' => 'english'
-			);
-			$this->session->set_userdata($user_data);
-		}
-		$language = $this->session->userdata('language');
-		$header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
-		$hospitalService_lang = $this->lang->load('hospitalService_'.$language,$language, $return = TRUE);
-		$this->load->view('header', $header_lang);
-		$this->load->view('hospitalService', $hospitalService_lang);
-		$this->load->view('footer');
-  }
+//   public function hospital() {
+//     // hospital service
+//     // if no session stored, set langauge to english by default
+// 		if(!$this->session->userdata('language')) {
+// 			$user_data = array (
+// 				'language' => 'english'
+// 			);
+// 			$this->session->set_userdata($user_data);
+// 		}
+// 		$language = $this->session->userdata('language');
+// 		$header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
+// 		$hospitalService_lang = $this->lang->load('hospitalService_'.$language,$language, $return = TRUE);
+// 		$this->load->view('header', $header_lang);
+// 		$this->load->view('hospitalService', $hospitalService_lang);
+// 		$this->load->view('footer');
+//   }
 
 }

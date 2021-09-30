@@ -3,6 +3,8 @@
     $lang['medicalInsurance'] = '医疗保险';
     $lang['onlineBooking'] = '寻找医生';
     $lang['symptomChecker'] = '症状检查';
+    $lang['serviceType'] = '医疗服务类型';
+    $lang['medicalProcess'] = '医疗服务流程';
     $lang['search'] = '搜索';
     $lang['login'] = '登录';
     $lang['languages'] = '语言设置';

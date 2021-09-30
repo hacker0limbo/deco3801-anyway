@@ -3,6 +3,8 @@
     $lang['medicalInsurance'] = 'Medical Insurance';
     $lang['onlineBooking'] = 'Find Doctor';
     $lang['symptomChecker'] = 'Symptom Checker';
+    $lang['serviceType'] = 'Service Types';
+    $lang['medicalProcess'] = 'Medical Process';
     $lang['search'] = 'Search';
     $lang['login'] = 'Login';
     $lang['languages'] = 'Languages';
