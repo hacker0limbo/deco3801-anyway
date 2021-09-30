@@ -13,5 +13,5 @@
 
     $lang['students'] = '海外学生';
     $lang['visitors'] = '来澳旅客';
-    $lang['citizens'] = '公民';
+    $lang['citizens'] = '澳洲公民';
     ?>

@@ -14,7 +14,7 @@
 
     $lang['students'] = '海外学生';
     $lang['visitors'] = '来澳访客';
-    $lang['citizens'] = '公民';
+    $lang['citizens'] = '澳洲公民';
 
     $lang['OVHC'] = '海外访客健康保险(OVHC) ';
     $lang['OVHC_des'] = '海外访客健康保险 (OVHC) 是一种健康保险专为无法使用澳大利亚公共医疗保险系统支付医疗或住院费用的澳大利亚访客而设计。 如果您需要医疗或住院治疗，OVHC 会为您可能产生的潜在费用提供保险。
