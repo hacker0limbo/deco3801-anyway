@@ -20,7 +20,7 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="<?php echo base_url(); ?>assets/img/homepage-slider0.png" class="d-block w-100" alt="slider0">
+            <img src="<?php echo base_url(); ?>assets/img/OnlineBooking.png" class="d-block w-100" alt="slider0">
             <div class="container">
                 <div class="carousel-caption text-left">
                     <h1><?php echo $findDoctorh11 ?></h1>
@@ -33,7 +33,7 @@
         </div>
         
         <div class="carousel-item">
-            <img src="<?php echo base_url(); ?>assets/img/homepage-slider0.png" class="d-block w-100" alt="slider1">
+            <img src="<?php echo base_url(); ?>assets/img/MedicalInsurances.png" class="d-block w-100" alt="slider1">
             <div class="container">
                 <div class="carousel-caption text-left">
                     <h1><?php echo $medicalInfoh11 ?></h1>
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="<?php echo base_url(); ?>assets/img/homepage-slider0.png" class="d-block w-100" alt="slider2">
+            <img src="<?php echo base_url(); ?>assets/img/SymptomChecker.png" class="d-block w-100" alt="slider2">
             <div class="container">
                 <div class="carousel-caption text-left">
                     <h1><?php echo $symptomCheckerh11 ?></h1>
@@ -81,7 +81,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
-                <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="symptom checker">
+                <img src="<?php echo base_url(); ?>assets/img/SymptomChecker_small.png" class="card-img-top" alt="symptom checker">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $symptomChecker?></h5>
                     <p class="card-text"><?php echo $symptomCheckerh11; echo $symptomCheckerh12?></p>
@@ -91,7 +91,7 @@
         </div>
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
-                <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="online booking">
+                <img src="<?php echo base_url(); ?>assets/img/OnlineBooking_small.png" class="card-img-top" alt="online booking">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $onlineBooking?></h5>
                     <p class="card-text"><?php echo $findDoctorh11; echo $findDoctorh12 ?></p>
@@ -101,7 +101,7 @@
         </div>
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
-                <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="medical service">
+                <img src="<?php echo base_url(); ?>assets/img/MedicalServices_small.png" class="card-img-top" alt="medical service">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $medicalService?></h5>
                     <p class="card-text"><?php echo $medicalServiceDes?> </p>
@@ -111,7 +111,7 @@
         </div>
         <div class="col-md-3">
             <div class="card shadow-sm text-center">
-                <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="medical insurance">
+                <img src="<?php echo base_url(); ?>assets/img/MedicalInsurances_small.png" class="card-img-top" alt="medical insurance">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $medicalInsurance?></h5>
                     <p class="card-text"><?php echo $medicalInsuranceDes?></p>
