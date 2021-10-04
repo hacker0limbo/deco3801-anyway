@@ -6,11 +6,12 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
     <!-- global script for all pages -->
-    <script src="<?php echo base_url(); ?>assets/js/jquery-3.6.0.min.js" defer></script>
-    <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js" defer></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery-3.6.0.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js"></script>
     <!-- corresponding script for different pages -->
+    <script src="<?php echo base_url(); ?>assets/js/backToTop.js" defer></script>
     <?php if (strcmp(base_url(uri_string()), base_url()) == 0 || strcmp(base_url(uri_string()), base_url() . 'welcome') == 0): ?>
-      <script type="module" src="<?php echo base_url(); ?>assets/js/homepage.js"></script>
+      <script src="<?php echo base_url(); ?>assets/js/homepage.js" defer></script>
     <?php elseif (strcmp(base_url(uri_string()), base_url() . 'signup') == 0): ?>
       <!-- Import google reCaptcha API -->
       <script src="https://www.google.com/recaptcha/api.js" defer></script>
@@ -116,8 +117,8 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="languagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $languages?></a>
               <div class="dropdown-menu" aria-labelledby="languagesDropdown">
-                <a href="<?php echo base_url(); ?>welcome/toEnglish" class="btn btn-light action-button" role="button"> English</a>
-                <a href="<?php echo base_url(); ?>welcome/toChinese" class="btn btn-light action-button" role="button"> 简体中文</a>
+                <a href="<?php echo base_url(); ?>welcome/toEnglish" class="dropdown-item btn action-button <?php echo strcmp($this->session->userdata('language'), 'english') == 0 ? 'active' : '' ?>" role="button">English</a>
+                <a href="<?php echo base_url(); ?>welcome/toChinese" class="dropdown-item btn action-button <?php echo strcmp($this->session->userdata('language'), 'chinese') == 0 ? 'active' : '' ?>" role="button">简体中文</a>
               </div>
             </li>
           </ul>

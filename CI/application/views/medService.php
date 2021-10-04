@@ -9,7 +9,7 @@
 <div class="container" style="margin-bottom: 6rem;">
   <div class="row">
     <div class="col-md-6">
-      <div class="card shadow-sm text-center">
+      <div class="card shadow-sm text-center h-100">
         <img src="<?php echo base_url(); ?>assets/img/MedicalServices_small.png" class="card-img-top" alt="clinic">
         <div class="card-body">
           <h5 class="card-title"><?php echo $serviceType?></h5>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="card shadow-sm text-center">
+      <div class="card shadow-sm text-center h-100">
         <img src="<?php echo base_url(); ?>assets/img/SymptomChecker_small.png" class="card-img-top" alt="medical centre">
         <div class="card-body">
           <h5 class="card-title"><?php echo $medicalProcess?></h5>
