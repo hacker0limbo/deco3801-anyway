@@ -89,8 +89,8 @@
 .back-to-top {
     display: none;
     position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
+    bottom: 3rem;
+    right: 3rem;
     z-index: 99;
     cursor: pointer;
 }
@@ -98,4 +98,18 @@
 /* set background color of bootstrap breadcrumb to default */
 .breadcrumb {
     background-color: initial;
+}
+
+/* chat launcher */
+.chat-launcher {
+    display: block;
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
 }

@@ -1,10 +1,15 @@
-<div class="container my-5">
-  <div class="btn-lang my-5">
-    <button class="btn btn-block btn-primary btn-en">Set language to English</button>
-    <button class="btn btn-block btn-info btn-zh">设置语言为中文</button>
+<div class="container my-5 text-center">
+  <h1>Live Chat</h1>
+  <div class="alert alert-info alert-dismissible fade show" role="alert">
+    You are welcomed to ask real staff any questions!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-  <div id="live-chat-container" style="height: 500px">
-    <i>Loading chat...</i>
+  <div id="live-chat-container" style="height: 60vh">
+    <div class="spinner-grow text-primary mt-5" role="status">
+      <span class="sr-only">Loading Live Chat...</span>
+    </div>
   </div>
 </div>
 
@@ -22,23 +27,26 @@ Talk.ready.then(() => {
       "name" => $_SESSION['username'],
       "email" => $_SESSION['email'],
       "welcomeMessage" => "Hey, let's have a chat!",
-      "role" => "visitor"
+      "role" => "visitor",
+      "locale" => strcmp($this->session->userdata('language'), 'english') == 0 ? 'en-US' : 'zh-CN'
     )); ?>
   )
 
+  const { auth, staffInfo } = liveChatConfig
+
   const talkSession = new Talk.Session({
-    appId: 't2eRiOSl',
+    appId: auth.appId,
     me,
   });
 
   let inbox;
 
-  if (me.name !== 'stephen') {
+  if (me.name !== staffInfo.name) {
     // current user is normal user seeking for help
     const staff = new Talk.User({
-      id: 'stephen',
-      name: 'stephen',
-      email: 'stephen.yin@outlook.com',
+      id: staffInfo.name,
+      name: staffInfo.name,
+      email: staffInfo.emial,
       welcomeMessage: 'Hey, how can I help?',
       role: 'visitor',
     });
@@ -63,36 +71,6 @@ Talk.ready.then(() => {
   }
 
   inbox.mount(document.getElementById('live-chat-container'));
-
-  // set language options
-  const languageBtn = document.querySelector('.btn-lang')
-
-  languageBtn.addEventListener('click', (e) => {
-    const url = `https://api.talkjs.com/v1/t2eRiOSl/users/${me.id}`
-
-    const data = {
-      ...me,
-      email: [me.email],
-      locale: e.target.matches('.btn-en') ? 'en-US' : 'zh-CN'
-    }
-
-    fetch(url, {
-      method: 'PUT',
-      body: JSON.stringify(data),
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer sk_test_wF1J15J2VZIBIlbwNQzFKqWL7goGGdln'
-      })
-    })
-      .then(res => res.json())
-      .catch(error => console.error('Error:', error))
-      .then(response => {
-        console.log('success', response)
-        
-        document.querySelector('#live-chat-container > iframe').src += ''
-      });
-
-  })
   
 });
 </script>
