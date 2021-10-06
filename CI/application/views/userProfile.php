@@ -2,7 +2,7 @@
 <html lang="en" class="app">
 <head>  
   <meta charset="utf-8" />
-  <title>User Profile</title>
+  <title><?php echo $userProfile?></title>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/datepicker/datepicker.css" type="text/css" />
 
 
@@ -10,8 +10,8 @@
 <div class="container">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>service">Home Page</a></li>
-      <li class="breadcrumb-item active" aria-current="page">User profile</li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>service"><?php echo $homepage?></a></li>
+      <li class="breadcrumb-item active" aria-current="page"><?php echo $userProfile?></li>
     </ol>
   </nav>
 </div>
@@ -24,14 +24,14 @@
       <div class="leftpanel">
     <a class="navbar-brand" href="<?php echo base_url(); ?>">
           <img class="logo" width="30" height="30" src="<?php echo base_url(); ?>assets/img/logo.png"/>
-          <span>Anyway</span>
+          <span><?php echo $websiteName?></span>
         </a>
 
     
     <div class="leftpanelinner">
-            <h5 class="sidebartitle actitle">Account</h5>
+            <h5 class="sidebartitle actitle"><?php echo $account?></h5>
             <ul class="nav nav-pills nav-stacked nav-bracket mb30">
-              <li><a href="profile.html"> <span>Profile</span></a></li>
+              <li><a href="profile.html"> <span><?php echo $profile?></span></a></li>
               
             </ul>
         </div>
@@ -39,18 +39,18 @@
   </div>
  
   <div class="col-md-10">
-      <h3>My details</h3>
+      <h3><?php echo $myDetails?></h3>
       <p class="lead text-secondary">
-        You can change your details here
+        <?php echo $changeDetails?>
       </p>
 
       <div class="border rounded p-4">
         <ul class="nav nav-tabs nav-fill mb-3" id="clinicTab" role="tablist">
           <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="clinic-tab" data-toggle="tab" href="#clinic" role="tab" aria-controls="clinic" aria-selected="true">Profile</a>
+            <a class="nav-link active" id="clinic-tab" data-toggle="tab" href="#clinic" role="tab" aria-controls="clinic" aria-selected="true"><?php echo $profile?></a>
           </li>
           <li class="nav-item" role="presentation">
-            <a class="nav-link" id="hospital-tab" data-toggle="tab" href="#hospital" role="tab" aria-controls="hospital" aria-selected="false">Account Setting</a>
+            <a class="nav-link" id="hospital-tab" data-toggle="tab" href="#hospital" role="tab" aria-controls="hospital" aria-selected="false"><?php echo $accountSetting?></a>
           </li>
         </ul>
         <div class="tab-content" id="clinicTabContent">
@@ -59,26 +59,26 @@
             
       <form action="<?php echo base_url().'Profile/update'; ?>" method="post">
       <div class="details_username">
-			<h5>Username</h5>
+			<h5><?php echo $username?></h5>
 			<input type="text" class="form-control" name="username" placeholder="<?php if(isset($username)) echo $username;?>">
 			<?php echo form_error('username'); ?>
 </div>
             <div class="details_gender">
-			<h5>Gender</h5>
+			<h5><?php echo $gender?></h5>
       <div>
   <input type="radio" name="my-input" value="Male" <?php if($gender == "Male"){print("checked");};?>>
-  <label for="male">Male</label>
+  <label for="male"><?php echo $male?></label>
 
   <input type="radio" name="my-input" value="Female" <?php if($gender == "Female"){print("checked");};?>>
-  <label for="female">Female</label>
+  <label for="female"><?php echo $female?></label>
 
   <input type="radio" name="my-input" value="Other" <?php if($gender == "Other"){print("checked");};?>>
-  <label for="other">Other</label>
+  <label for="other"><?php echo $other?></label>
   </div>
 </div>
             <div class="details_DOB">
                     <div class="form-group">
-                      <h5>Date of birth</h5>
+                      <h5><?php echo $birthday?></h5>
                       
                       <div class="col-sm-10">
                         <input class="input-sm input-s datepicker-input form-control" size="16" type="text" value="<?php if(isset($username)) echo $DOB;?>" data-date-format="dd-mm-yyyy" name="DOB" >
@@ -86,7 +86,7 @@
                     </div>
 </div>
 <div class="detail_stauts">
-<h5>Choose your language</h5>
+<h5><?php echo $language?></h5>
 
                       <div class="col-sm-10">
                         <select name="my-select" class="form-control m-b">
@@ -112,7 +112,7 @@
                         </div>
                         </div>
                         <div class="detail_stauts">
-<h5>Medicare Status</h5>
+<h5><?php echo $insurance?></h5>
                       <div class="col-sm-10">
                         <select name="status" class="form-control m-b">
                           <option value="<?php if($medicare_status == "Student"){
@@ -173,7 +173,7 @@
                         <br>
                         <div class="save_button">
 <button type="submit" class="btn btn-outline-primary btn-block">
-				Save All
+				<?php echo $save?>
 </button>
 </div>
                           </form>
@@ -184,26 +184,26 @@
             <div class="details_email">
             
       <form action="<?php echo base_url().'Profile/email'; ?>" method="post">
-			<label>Email</label>
+			<label><?php echo $email?></label>
 			<input type="text" class="form-control" name="new_email" placeholder="<?php if(isset($email)) echo $email;?>"></br>
       <?php echo form_error('email') ?>
       <div class="change_button">
       <button type="submit" class="btn btn-outline-primary btn-block">
-				Change
+				<?php echo $change?>
 </button>
     </div>
     </form><!--email-->
     <form action="<?php echo base_url().'Profile/password'; ?>" method="post">
     <div class="password_detail">
-			<label>Password</label>
+			<label><?php echo $password?></label>
       <div id="password_details">
-      <input type="password" class="form-control" name="od_password" placeholder=" Old Password"></br>
-      <input type="password" class="form-control" name="new_password1" placeholder=" New Password"></br>
-      <input type="password" class="form-control" name="new_password2" placeholder=" Confirm Password"></br>
+      <input type="password" class="form-control" name="od_password" placeholder=" <?php echo $oldPassword?>"></br>
+      <input type="password" class="form-control" name="new_password1" placeholder=" <?php echo $newPassword?>"></br>
+      <input type="password" class="form-control" name="new_password2" placeholder=" <?php echo $confirmPassword?>"></br>
       <div>
       <div class="change_button">
       <button type="submit" class="btn btn-outline-primary btn-block">
-				Change
+        <?php echo $change?>
 </button>
     </div>
     </div>
