@@ -115,11 +115,11 @@
                 <div class="dropdown-menu" aria-labelledby="authDropdown">
                   <a class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'profile') == 0 ? 'active' : '' ?>" href="<?php echo base_url(); ?>profile">
                     <i class="bi bi-person"></i>
-                    Profile
+                    <?php echo $profile?>
                   </a>
                   <a class="dropdown-item" href="<?php echo base_url(); ?>login/logout">
                     <i class="bi bi-person-x"></i>
-                    Logout
+                    <?php echo $logout?>
                   </a>
                 </div>
               </li>

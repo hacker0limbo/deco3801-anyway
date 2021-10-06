@@ -14,6 +14,8 @@
     $lang['students'] = 'Students';
     $lang['visitors'] = 'Vistors';
     $lang['citizens'] = 'Citizens';
-
+    $lang['welcomeMessage']='Welcome to Anyway';
+    $lang['profile'] = '个人中心';
+    $lang['logout'] = '登出';
     
     ?>

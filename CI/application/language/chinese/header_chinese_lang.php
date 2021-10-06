@@ -14,4 +14,7 @@
     $lang['students'] = '海外学生';
     $lang['visitors'] = '来澳旅客';
     $lang['citizens'] = '澳洲公民';
+    $lang['welcomeMessage']='欢迎来到安游';
+    $lang['profile'] = '个人中心';
+    $lang['logout'] = '登出';
     ?>

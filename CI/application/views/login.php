@@ -5,38 +5,38 @@
 			<?php echo '<p class="alert alert-success" style="text-align: center;">'.$this->session->flashdata('signup').'</p>'; ?>
 		<?php endif; ?>
 
-		<h1 class="text-center">Log in</h1>
+		<h1 class="text-center"><?php echo $login?></h1>
 
 		<div class="form-group">
-			<label>Username</label>
-			<input type="text" class="form-control" name="username" placeholder="Username">
+			<label><?php echo $username ?></label>
+			<input type="text" class="form-control" name="username" placeholder="<?php echo $username ?>">
 			<?php echo form_error('username'); ?>
 
 		</div>
 
 		<div class="form-group">
-			<label>Password</label>
-			<input type="password" class="form-control" name="password" placeholder="Password">
+			<label><?php echo $password ?></label>
+			<input type="password" class="form-control" name="password" placeholder="<?php echo $password ?>">
 			<?php echo form_error('password'); ?>
 		</div>
 
 		<!-- buttons -->
 		<div class="form-group">
 			<button type="submit" class="btn btn-outline-primary btn-block">
-				Log in
+				<?php echo $login ?>
 			</button>
 			
 		</div>
 
 		<div class="form-group">
 			<a role="button" class="btn btn-outline-info btn-block" href="<?php echo base_url(); ?>signup"> 
-				Don't have an account? Sign up here 
+				<?php echo $signUpNotice ?>
 			</a>
 		</div>
 
 		<div class="clearfix">
-			<label class="float-left form-check-label"><input type="checkbox" name="remember"> Remember me</label>
-			<a href="<?php echo base_url(); ?>forgot" class="float-right">Forgot Password?</a>
+			<label class="float-left form-check-label"><input type="checkbox" name="remember"> <?php echo $rememberMe ?></label>
+			<a href="<?php echo base_url(); ?>forgot" class="float-right"><?php echo $forgetPassword?></a>
 		</div> 
 	</div>
 <?php echo form_close(); ?>
