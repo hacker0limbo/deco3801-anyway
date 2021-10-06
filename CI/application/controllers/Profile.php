@@ -6,8 +6,6 @@ class Profile extends CI_Controller {
 	// index page for user profile
 	public function index()
 	{
-
-		$this->load->view('header');
 		$username = $this->session->userdata('username');
 		$sql = "select username,email,gender,DOB,language,medicare_status from user where username = '$username'";
 		$res = $this->db->query($sql);
@@ -18,19 +16,19 @@ class Profile extends CI_Controller {
 			$data['DOB']= $item->DOB;
 			$data['language']= $item->language;
 			$data['medicare_status']= $item->medicare_status;
-      // if no session stored, set langauge to english by default
-		  if(!$this->session->userdata('language')) {
+      	// if no session stored, set langauge to english by default
+		if(!$this->session->userdata('language')) {
 		  	$user_data = array (
 				'language' => 'english'
 			);
 			$this->session->set_userdata($user_data);
 	  	}
-		  $language = $this->session->userdata('language');
-		  $header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
-		  $userProfile_lang = $this->lang->load('userProfile_'.$language,$language, $return = TRUE);
-      $data = array_merge($data, $userProfile_lang);
-		  $this->load->view('header', $header_lang);
-			$this->load->view('userProfile', $data);
+		$language = $this->session->userdata('language');
+		$header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
+		$userProfile_lang = $this->lang->load('userProfile_'.$language,$language, $return = TRUE);
+      	$data = array_merge($data, $userProfile_lang);
+		$this->load->view('header', $header_lang);
+		$this->load->view('userProfile', $data);
 		}
 		//$this->load->view('footer');
 	}
@@ -45,7 +43,6 @@ class Profile extends CI_Controller {
 		$this->db->query($sql);
 		$sql = "select username,email,gender,DOB,language,medicare_status from user where username = '$username'";
 		$res = $this->db->query($sql);
-		$this->load->view('header');
 		foreach($res->result() as $item){
 			$data['username']= $item->username;
 			$data['email']= $item->email;
@@ -53,8 +50,22 @@ class Profile extends CI_Controller {
 			$data['DOB']= $item->DOB;
 			$data['language']= $item->language;
 			$data['medicare_status']= $item->medicare_status;
-			$this->load->view('userProfile',$data);
+			
 		}
+		// if no session stored, set langauge to english by default
+		if(!$this->session->userdata('language')) {
+			$user_data = array (
+			  'language' => 'english'
+		  );
+		  $this->session->set_userdata($user_data);
+		}
+		$language = $this->session->userdata('language');
+		$header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
+		$userProfile_lang = $this->lang->load('userProfile_'.$language,$language, $return = TRUE);
+		$data = array_merge($data, $userProfile_lang);
+		$this->load->view('header', $header_lang);
+		$this->load->view('userProfile', $data);
+		
 	}
 
 	public function email(){
@@ -64,7 +75,6 @@ class Profile extends CI_Controller {
 		$this->db->query($sql);
 		$sql = "select username,email,gender,DOB,language,medicare_status from user where username = '$username'";
 		$res = $this->db->query($sql);
-		$this->load->view('header');
 		foreach($res->result() as $item){
 			$data['username']= $item->username;
 			$data['email']= $item->email;
@@ -72,8 +82,19 @@ class Profile extends CI_Controller {
 			$data['DOB']= $item->DOB;
 			$data['language']= $item->language;
 			$data['medicare_status']= $item->medicare_status;
-			$this->load->view('userProfile',$data);
 		}
+		if(!$this->session->userdata('language')) {
+			$user_data = array (
+			  'language' => 'english'
+		  );
+		  $this->session->set_userdata($user_data);
+		}
+		$language = $this->session->userdata('language');
+		$header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
+		$userProfile_lang = $this->lang->load('userProfile_'.$language,$language, $return = TRUE);
+		$data = array_merge($data, $userProfile_lang);
+		$this->load->view('header', $header_lang);
+		$this->load->view('userProfile', $data);
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
 		$value=$this->form_validation->run();
