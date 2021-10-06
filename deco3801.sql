@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- 主机： localhost
--- 生成日期： 2021-08-29 17:35:56
--- 服务器版本： 10.4.20-MariaDB
--- PHP 版本： 7.4.22
+-- Host: 127.0.0.1
+-- Generation Time: Sep 23, 2021 at 05:48 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,47 +18,51 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 数据库： `deco3801`
+-- Database: `deco3801`
 --
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `uID` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL
+  `email` varchar(50) NOT NULL,
+  `gender` varchar(50) NOT NULL,
+  `DOB` varchar(50) NOT NULL,
+  `language` varchar(50) NOT NULL,
+  `medicare_status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 转存表中的数据 `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`uID`, `username`, `password`, `email`) VALUES
-(4, '123', '123qwe', '123@qq.com'),
-(5, '234', '234qwe', '234@qq.com');
+INSERT INTO `user` (`uID`, `username`, `password`, `email`, `gender`, `DOB`, `language`, `medicare_status`) VALUES
+(4, '123', '123qwe', '123@qq.com', 'Female', '11-11-2021', 'Chinese', 'Student'),
+(5, '234', '234qwe', '234@qq.com', '', '', '', '');
 
 --
--- 转储表的索引
+-- Indexes for dumped tables
 --
 
 --
--- 表的索引 `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`username`),
   ADD UNIQUE KEY `uID` (`uID`);
 
 --
--- 在导出的表使用AUTO_INCREMENT
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- 使用表AUTO_INCREMENT `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `uID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
