@@ -10,7 +10,7 @@
 <div class="container">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>service"><?php echo $homepage?></a></li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>"><?php echo $homepage?></a></li>
       <li class="breadcrumb-item active" aria-current="page"><?php echo $userProfile?></li>
     </ol>
   </nav>
