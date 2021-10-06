@@ -7,8 +7,18 @@ class Login extends CI_Controller {
 	// if remembered, load homepage
 	// set relevant values in session/cookies
 	public function index() {
-		$this->load->view('header');
-		$this->load->view('login');
+		// if no session stored, set langauge to english by default
+		 if(!$this->session->userdata('language')) {
+			$user_data = array (
+				'language' => 'english'
+			);
+			$this->session->set_userdata($user_data);
+		}
+		$language = $this->session->userdata('language');
+		$header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
+		$login_lang = $this->lang->load('login_'.$language,$language, $return = TRUE);
+		$this->load->view('header', $header_lang);
+		$this->load->view('login', $login_lang);
 		$this->load->view('footer');
 	}
 
@@ -32,8 +42,18 @@ class Login extends CI_Controller {
 		if(!$this->session->userdata('logged_in')) {
 			//if username or password are incorrect return login page displat error message
 			if($this->form_validation->run() === FALSE) {
-				$this->load->view('header');
-				$this->load->view('login');
+				// if no session stored, set langauge to english by default
+				if(!$this->session->userdata('language')) {
+					$user_data = array (
+						'language' => 'english'
+					);
+					$this->session->set_userdata($user_data);
+				}
+				$language = $this->session->userdata('language');
+				$header_lang = $this->lang->load('header_'.$language,$language, $return = TRUE);
+				$login_lang = $this->lang->load('login_'.$language,$language, $return = TRUE);
+				$this->load->view('header', $header_lang);
+				$this->load->view('login', $login_lang);
 				$this->load->view('footer');
 			} else {
 				//get user information

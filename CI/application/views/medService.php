@@ -1,40 +1,30 @@
 <div class="container my-5 text-center">
-  <h1>Medical Service</h1>
+  <h1><?php echo $medicalService?></h1>
   <hr class="my-3" style="margin: auto; width: 10%;">
   <p>
-    What we will do what we will do what we will do what we will do what we will do.
+    <?php echo $medicalServiceIntro ?>
   </p>
 </div>
 
 <div class="container" style="margin-bottom: 6rem;">
   <div class="row">
-    <div class="col-md-4">
-      <div class="card shadow-sm text-center">
-        <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="clinic">
+    <div class="col-md-6">
+      <div class="card shadow-sm text-center h-100">
+        <img src="<?php echo base_url(); ?>assets/img/MedicalServices_small.png" class="card-img-top" alt="clinic">
         <div class="card-body">
-          <h5 class="card-title">Clinic</h5>
-          <p class="card-text">Some description here</p>
-          <a href="<?php echo base_url(); ?>service/clinic" class="btn btn-outline-primary">Read More</a>
+          <h5 class="card-title"><?php echo $serviceType?></h5>
+          <p class="card-text"><?php echo $serviceTypeDes?></p>
+          <a href="<?php echo base_url(); ?>service/servicetype" class="btn btn-outline-primary"><?php echo $readMore?></a>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="card shadow-sm text-center">
-        <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="medical centre">
+    <div class="col-md-6">
+      <div class="card shadow-sm text-center h-100">
+        <img src="<?php echo base_url(); ?>assets/img/SymptomChecker_small.png" class="card-img-top" alt="medical centre">
         <div class="card-body">
-          <h5 class="card-title">Medical Centre</h5>
-          <p class="card-text">Some description here</p>
-          <a href="<?php echo base_url(); ?>service/medicalCentre" class="btn btn-outline-primary">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card shadow-sm text-center">
-        <img src="<?php echo base_url(); ?>assets/img/placeholder.jpeg" class="card-img-top" alt="hospital">
-        <div class="card-body">
-          <h5 class="card-title">Hospital</h5>
-          <p class="card-text">Some description here</p>
-          <a href="<?php echo base_url(); ?>service/hospital" class="btn btn-outline-primary">Read More</a>
+          <h5 class="card-title"><?php echo $medicalProcess?></h5>
+          <p class="card-text"><?php echo $medicalProcessDes?></p>
+          <a href="<?php echo base_url(); ?>service/medicalProcess" class="btn btn-outline-primary"><?php echo $readMore?></a>
         </div>
       </div>
     </div>

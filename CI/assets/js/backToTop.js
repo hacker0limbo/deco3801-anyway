@@ -1,4 +1,4 @@
-export function loadBackToTop() {
+function loadBackToTop() {
 	const backToTop = document.querySelector(".back-to-top");
 
 	backToTop.addEventListener("click", () => {
@@ -16,3 +16,5 @@ export function loadBackToTop() {
 		}
 	});	
 }
+
+loadBackToTop()
