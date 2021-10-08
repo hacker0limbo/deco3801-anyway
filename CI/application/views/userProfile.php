@@ -186,7 +186,7 @@
             <div class="details_email">
             
       <form action="<?php echo base_url().'Profile/email'; ?>" method="post">
-			<label><?php echo $email?></label>
+			<h5><?php echo $email?></h5>
 			<input type="text" class="form-control" name="new_email" placeholder="<?php if(isset($email)) echo $email;?>"></br>
       <?php echo form_error('email') ?>
       <div class="change_button">
@@ -197,7 +197,7 @@
     </form><!--email-->
     <form action="<?php echo base_url().'Profile/password'; ?>" method="post">
     <div class="password_detail">
-			<label><?php echo $password?></label>
+			<h5><?php echo $password?></h5>
       <div id="password_details">
       <input type="password" class="form-control" name="od_password" placeholder=" <?php echo $oldPassword?>"></br>
       <input type="password" class="form-control" name="new_password1" placeholder=" <?php echo $newPassword?>"></br>
