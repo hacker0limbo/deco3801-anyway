@@ -1,0 +1,91 @@
+html{
+	font-family: sans-serif;
+}
+/* Justify left side bar*/
+.leftpanelinner h5{
+	margin-top:10px;
+	margin-bottom: 10px;
+	font-size: 1.2em;
+}
+.leftpanelinner a{
+	margin-top:10px;
+	margin-bottom: 10px;
+	color: black;
+	font-size: 1.2em;
+	text-decoration: none;
+}
+
+.leftpanelinner a:hover{
+	color:#007bff;
+	text-decoration: none;
+}
+
+.leftpanelinner a:after{
+	font-weight: bold;
+}
+
+/* Justify title for the form*/
+.col-md-10 h3{
+	text-align: center;
+}
+
+.col-md-10 p{
+	text-align: center;
+	font-style: italic;
+}
+
+/* Justify contents for the form*/
+form h5{
+	margin-top: 20px;
+	margin-bottom: 15px;
+	font-size: 1.2em;
+}
+
+form label{
+	margin-top: 20px;
+	margin-bottom: 15px;
+	font-family: sans-serif;
+}
+
+input[type=text], select{
+	width: 100%;
+	padding: 12px 20px;
+	margin-top: 8px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type="radio"] {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+button[type="submit"]{
+	width:15%;
+	border-radius: 8px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.password_detail button[type="submit"]{
+	width:15%;
+	border-radius: 8px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#password_details{
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+input[type="password"] {
+	width: 100%;
+	margin-top: 15px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
