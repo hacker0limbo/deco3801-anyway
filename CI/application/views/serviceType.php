@@ -7,10 +7,10 @@
   </nav>
 </div>
 
-<div class="container my-5 text-center">
+<div class="container my-5">
   <div class="row">
     <div class="col-md-3">
-      <div class="toc position-sticky" style="top: 2rem; overflow: auto;">
+      <div class="toc position-sticky" style="top: 2rem; overflow: auto; text-align: center;">
         <ul class="list-group list-group-flush my-4" style="width: 220; ">
           <li class="list-group-item" style="background-color: #42A5F5; color:#FFFFFF;">Service Type</li>
           <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;">A second item</li>
@@ -23,8 +23,8 @@
 
     <div class="col-md-9">
       <h1><?php echo $serviceType?></h1>
-      <hr class="mt-4" style="margin: auto; width: 10%;">
-      <div style="margin-top: 2em; margin-bottom: 2em;" >
+      <hr class="mt-4" style="margin: auto;">
+      <div style="margin-top: 1em; margin-bottom: 5em;" >
         <p class="text-justify">
           <?php echo $p1 ?>
         </p>
@@ -39,19 +39,19 @@
         </ul>
       </div>
 
-      <div style="margin-top: 3em; margin-bottom: 3em;" >
+      <div style="margin-top: 1em; margin-bottom: 5em;" >
         <h3><?php echo $gp_primary?></h3>
-        <hr class="my-3" style="margin: auto; width: 10%;">
+        <hr class="my-3" style="margin: auto;">
         <p class="text-justify"><?php echo $gp_primary_p1?></p>
       </div>
 
-      <div style="margin-top: 3em; margin-bottom: 3em;" >
+      <div style="margin-top: 1em; margin-bottom: 5em;" >
         <h3><?php echo $specialist?></h3>
-        <hr class="my-3" style="margin: auto; width: 10%;">
+        <hr class="my-3" style="margin: auto;">
         <p class="text-justify"><?php echo $specialist_p1?></p>
       </div>
 
-      <div class="col-md-12" style="margin-top: 4em; margin-bottom: 3em;" >
+      <div class="col-md-12" style="margin-top: 1em; margin-bottom: 5em; padding-left:0px; padding-right:0px;" >
           <h3><?php echo $differences_primary_specialist?></h3>
 
           <div class="border rounded p-4">
@@ -79,26 +79,26 @@
           </div>
       </div>
 
-      <div style="margin-top: 3em; margin-bottom: 3em;" >
+      <div style="margin-top: 1em; margin-bottom: 5em;" >
         <h3><?php echo $allied?></h3>
-        <hr class="my-3" style="margin: auto; width: 10%;">
+        <hr class="my-3" style="margin: auto;">
         <p class="text-justify"><?php echo $allied_p1?></p>
       </div>
 
-      <div style="margin-top: 3em; margin-bottom: 3em;" >
+      <div style="margin-top: 1em; margin-bottom: 5em;" >
         <h3><?php echo $ed?></h3>
-        <hr class="my-3" style="margin: auto; width: 10%;">
+        <hr class="my-3" style="margin: auto;">
         <p class="text-justify"><?php echo $ed_p1?></p>
         <p class="text-justify" style="font-weight: bold;"><?php echo $ed_p2?></p>
       </div>
 
-      <div style="margin-top: 3em; margin-bottom: 3em;" >
+      <div style="margin-top: 1em; margin-bottom: 5em;" >
         <h3><?php echo $hospitals?></h3>
-        <hr class="my-3" style="margin: auto; width: 10%;">
+        <hr class="my-3" style="margin: auto;">
         <p class="text-justify"><?php echo $hospitals_p1?></p>
       </div>
 
-      <div class="col-md-12" style="margin-top: 4em; margin-bottom: 3em;" >
+      <div class="col-md-12" style="margin-top: 1em; margin-bottom: 5em; padding-left:0px; padding-right:0px;" >
           <h3><?php echo $differences_hospital_clinic?></h3>
 
           <div class="border rounded p-4">
@@ -126,7 +126,7 @@
           </div>
       </div>
 
-      <div style="margin-top: 3em; margin-bottom: 3em;" >
+      <div style="margin-top: 1em; margin-bottom: 5em;" >
         <h3><?php echo $medicines?></h3>
         <hr class="my-3" style="margin: auto; width: 10%;">
         <p class="text-justify"><?php echo $medicines_p1?></p>
