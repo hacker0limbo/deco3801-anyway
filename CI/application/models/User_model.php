@@ -5,7 +5,7 @@
     public function signup($username, $password) {
         $data = array(
             'username' => $username,
-            'password' => $password,
+            'password' => password_hash($password, PASSWORD_BCRYPT),
             'email' => $this->input->post('email')
         );
         return $this->db->insert('user', $data);
@@ -52,7 +52,14 @@
         return $user_info;
     }
 
-    //
+    //Get user password hash
+    public function get_hash($username) {
+        $this->db->select('password')
+                ->from('user')
+                ->where("username='$username'");
+        $result = $this->db->get()->row_array();
+        return $result;
+    }
 }
 ?>
 

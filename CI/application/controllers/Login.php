@@ -105,11 +105,19 @@ class Login extends CI_Controller {
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$this->form_validation->set_message('check_password', 'Password incorrect. Please try again. ');
-		if($this->user_model->check_password($username, $password)) {
-			return true;
+
+		$hash = $this->user_model->get_hash($username);
+		if($hash != null) {
+			$match = password_verify($password, $hash['password']);
+			if($match) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}
+		// $this->user_model->check_password($username, $password)
 	}
 
 	// log user out

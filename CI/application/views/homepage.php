@@ -122,9 +122,3 @@
         </div>
     </div>
 </div>
-
-
-<?php if($this->session->userdata('logged_in')):?>
-    <?php echo $_SESSION['username'];?>
-    <?php echo $_SESSION['password'];?>
-<?php endif;?>

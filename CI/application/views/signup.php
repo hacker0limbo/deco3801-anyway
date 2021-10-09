@@ -17,7 +17,7 @@
 
 		<div class="form-group">
 			<label><?php echo $email?></label>
-			<input type="text" class="form-control" name="new_email" placeholder="<?php echo $email?>">
+			<input type="text" class="form-control" name="email" placeholder="<?php echo $email?>">
 			<?php echo form_error('email'); ?>
 		</div>
 

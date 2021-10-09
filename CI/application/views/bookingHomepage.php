@@ -239,6 +239,38 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
         }
       }
 
+      // Booking
+      let bookingHeader = document.createElement('h5');
+      bookingHeader.classList.add('details');
+      bookingHeader.textContent = "Booking";
+      extraPane.appendChild(bookingHeader);
+      let booking = document.createElement('p');
+      booking.classList.add('details');
+      booking.textContent = this.randomTime();
+      extraPane.appendChild(booking);
+    }
+    
+    // Generate random time and date
+    function randomTime() {
+      var dateList = ['Today', 'Tomorrow', 'Next Monday', 'Next Tuesday', 'Next Wednesday',
+      'Next Thursday', 'Next Friday', 'Next Saturday', 'Next Sunday', 'Unknown']
+      var date = dateList[Math.floor(Math.random()*dateList.length)];
+      var time;
+
+      if(date == 'Today' || date == 'Unknown') {
+        time = '';
+      } else {
+        hrs = Math.round(Math.random()*12);
+        mins = Math.round(Math.random()*60);    
+        var hFormat = (hrs<10 ? "0" : "");
+        var mFormat = (mins<10 ? "0" : "");
+        var amPm = (hrs<12 ? "AM" : "PM");
+        time = hFormat+hrs+ ":" +mFormat+mins+ " " +amPm;
+      }
+
+      randomTime = date + ' ' + time;
+      console.log(randomTime);
+      return randomTime; 
     }
 
     // Info display long long long function 
