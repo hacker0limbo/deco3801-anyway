@@ -11,12 +11,12 @@
   <div class="row">
     <div class="col-md-3">
       <div class="toc position-sticky" style="top: 2rem; overflow: auto;">
-        <ul class="list-group list-group-flush my-4 border-right ">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
-          <li class="list-group-item">A fourth item</li>
-          <li class="list-group-item">And a fifth one</li>
+        <ul class="list-group list-group-flush my-4" style="width: 220; ">
+          <li class="list-group-item" style="background-color: #42A5F5; color:#FFFFFF;">Service Type</li>
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;">A second item</li>
+          <li class="list-group-item" style="background-color: #42A5F5; color:#FFFFFF;">A third item</li>
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;">A fourth item</li>
+          <li class="list-group-item" style="background-color: #42A5F5; color:#FFFFFF;">And a fifth one</li>
         </ul>
       </div>
     </div> 
