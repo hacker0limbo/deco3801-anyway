@@ -69,16 +69,16 @@
     </a>
 </div>
 
-<div class="container my-5 text-center">
-    <h1><?php echo $welcomeMessage ?></h1>
-    <hr class="my-3" style="margin: auto; width: 10%;">
-    <p class="lead">
+<div class="container my-5 text-center" style="padding-left:0px; padding-right:0px; margin: auto;">
+    <h1 style="margin-top: 2em;"><?php echo $welcomeMessage ?></h1>
+	<hr class="my-3" style="width: 100%; height:2px; color:transparent; background-image:linear-gradient(to right, #CAE1FF, #ADD8E6, #42C0FB, #1D7CF2, #27408B)">
+	<p class="lead" style="width:100%; text-align: left; margin-top: 2em; margin-bottom: 2em;">
         <?php echo $introduction?>
     </p>
 </div>
 
 <!-- router cards -->
-<div class="container mb-5">
+<div class="container mb-5" style="padding-left:0px; padding-right:0px; margin: auto;">
     <div class="row">
         <div class="col-md-3">
             <div class="card shadow-sm text-center h-100">
@@ -96,7 +96,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $onlineBooking?></h5>
                     <p class="card-text"><?php echo $findDoctorh11; echo $findDoctorh12 ?></p>
-                    <a href="<?php echo base_url(); ?>booking" class="btn btn-outline-primary"><?php echo $readMore?></a>
+                    <a style="margin-top:20px;" href="<?php echo base_url(); ?>booking" class="btn btn-outline-primary"><?php echo $readMore?></a>
                 </div>
             </div>
         </div>
@@ -106,7 +106,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $medicalService?></h5>
                     <p class="card-text"><?php echo $medicalServiceDes?> </p>
-                    <a href="<?php echo base_url(); ?>service" class="btn btn-outline-primary"><?php echo $readMore?></a>
+                    <a style="margin-top:0;" href="<?php echo base_url(); ?>service" class="btn btn-outline-primary"><?php echo $readMore?></a>
                 </div>
             </div>
         </div>
@@ -116,7 +116,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $medicalInsurance?></h5>
                     <p class="card-text"><?php echo $medicalInsuranceDes?></p>
-                    <a href="<?php echo base_url(); ?>insurance" class="btn btn-outline-primary"><?php echo $readMore?></a>
+                    <a style="margin-top:20px;" href="<?php echo base_url(); ?>insurance" class="btn btn-outline-primary"><?php echo $readMore?></a>
                 </div>
             </div>
         </div>
