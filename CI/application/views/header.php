@@ -10,7 +10,7 @@
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js"></script>
     <!-- config file for livechat -->
     <script src="<?php echo base_url(); ?>assets/js/liveChatConfig.js"></script>
-    <!-- corresponding script for different pages -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-615ea5ac83adc8b7"></script>     <!-- corresponding script for different pages -->
     <?php if (strcmp(base_url(uri_string()), base_url()) == 0 || strcmp(base_url(uri_string()), base_url() . 'welcome') == 0): ?>
       <script src="<?php echo base_url(); ?>assets/js/homepage.js" defer></script>
     <?php elseif (strcmp(base_url(uri_string()), base_url() . 'signup') == 0): ?>
@@ -30,7 +30,7 @@
     <!-- live chat indicator, redirect to livechat, hide when in the livechat page -->
     <div class="chat-launcher <?php echo strcmp(base_url(uri_string()), base_url() . 'checker/livechat') == 0 ? 'hide' : '' ?>">
       <a href="<?php echo base_url(); ?>checker/livechat">
-        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-chat-dots text-primary" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chat-dots text-primary" viewBox="0 0 16 16">
           <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
           <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z"/>
         </svg>

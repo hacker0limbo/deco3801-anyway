@@ -104,12 +104,17 @@
 .chat-launcher {
     display: block;
     position: fixed;
-    bottom: 3rem;
-    right: 3rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
     z-index: 99;
     cursor: pointer;
 }
 
 .hide {
     display: none;
+}
+
+.at-expanding-share-button {
+    bottom: 1.5rem !important;
+    left: 1.5rem !important;
 }
