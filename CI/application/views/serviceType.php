@@ -22,8 +22,8 @@
     </div> 
 
     <div class="col-md-9">
-      <h1><?php echo $serviceType?></h1>
-      <hr class="mt-4" style="margin: auto;">
+      <h1 style="text-align: center;"><?php echo $serviceType?></h1>
+      <hr class="mt-4" style="margin: auto; width: 10%;">
       <div style="margin-top: 1em; margin-bottom: 5em;" >
         <p class="text-justify">
           <?php echo $p1 ?>
