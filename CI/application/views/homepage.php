@@ -23,11 +23,11 @@
         <div class="carousel-item active">
             <img src="<?php echo base_url(); ?>assets/img/OnlineBooking.png" class="d-block w-100" alt="slider0">
             <div class="container">
-                <div class="carousel-caption text-left">
+                <div class="carousel-caption text-left" style="bottom: 50px;">
                     <h1><?php echo $findDoctorh11 ?></h1>
                     <h1><?php echo $findDoctorh12 ?></h1>
-                    <p>
-                        <a class="btn btn-lg btn-info" href="<?php echo base_url(); ?>booking"><?php echo $onlineBooking ?></a>
+                    <p style="margin-top: 2rem;">
+                        <a class="btn btn-lg btn-info homepage-button" href="<?php echo base_url(); ?>booking"><?php echo $onlineBooking ?></a>
                     </p>
                 </div>
             </div>
@@ -36,12 +36,12 @@
         <div class="carousel-item">
             <img src="<?php echo base_url(); ?>assets/img/MedicalInsurances.png" class="d-block w-100" alt="slider1">
             <div class="container">
-                <div class="carousel-caption text-left">
+                <div class="carousel-caption text-left" style="bottom: 50px;">
                     <h1><?php echo $medicalInfoh11 ?></h1>
                     <h1><?php echo $medicalInfoh12 ?></h1>
-                    <p>
-                        <a class="btn btn-lg btn-info" href="<?php echo base_url(); ?>service"><?php echo $medicalService?></a>
-                        <a class="btn btn-lg btn-info" href="<?php echo base_url(); ?>insurance"><?php echo $medicalInsurance?></a>
+                    <p style="margin-top: 2rem;">
+                        <a class="btn btn-lg btn-info homepage-button" href="<?php echo base_url(); ?>service"><?php echo $medicalService?></a>
+                        <a class="btn btn-lg btn-info homepage-button" href="<?php echo base_url(); ?>insurance"><?php echo $medicalInsurance?></a>
                     </p>
                 </div>
             </div>
@@ -49,11 +49,11 @@
         <div class="carousel-item">
             <img src="<?php echo base_url(); ?>assets/img/SymptomChecker.png" class="d-block w-100" alt="slider2">
             <div class="container">
-                <div class="carousel-caption text-left">
+                <div class="carousel-caption text-left" style="bottom: 50px;">
                     <h1><?php echo $symptomCheckerh11 ?></h1>
                     <h1><?php echo $symptomCheckerh12 ?></h1>
-                    <p>
-                        <a class="btn btn-lg btn-info" href="<?php echo base_url(); ?>checker"><?php echo $symptomChecker?></a>
+                    <p style="margin-top: 2rem;">
+                        <a class="btn btn-lg btn-info homepage-button" href="<?php echo base_url(); ?>checker"><?php echo $symptomChecker?></a>
                     </p>
                 </div>
             </div>

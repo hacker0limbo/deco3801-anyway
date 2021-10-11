@@ -9,10 +9,10 @@
     $lang['symptomChecker'] = '症状检查';
     $lang['findDoctorh11'] = '帮助您快速找到';
     $lang['findDoctorh12'] = '理想的医生';
-    $lang['medicalInfoh11'] = '我们提供全面准确的';
-    $lang['medicalInfoh12'] = '澳洲医疗体系及就诊流程介绍';
+    $lang['medicalInfoh11'] = '全面准确的澳洲医疗';
+    $lang['medicalInfoh12'] = '及就诊流程介绍';
     $lang['medicalServiceDes'] = '澳洲医疗体系及就诊流程介绍';
     $lang['medicalInsuranceDes'] = '澳洲医疗保险介绍';
     $lang['symptomCheckerh11'] = '助您自查身体情况';
-    $lang['symptomCheckerh12'] = '并为您提供在线答疑实时翻译';
+    $lang['symptomCheckerh12'] = '在线答疑实时翻译';
     ?>
