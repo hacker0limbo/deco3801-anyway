@@ -8,13 +8,13 @@
 </div>
 
 
-<div class="container my-5 text-center">
-  <h1><?php echo $citizens.' '; echo $medicalInsurance?> </h1>
+<div class="container my-5">
+  <h1 style="text-align: center"><?php echo $citizens.' '; echo $medicalInsurance?> </h1>
   <hr class="my-3" style="margin: auto; width: 10%;">
 
-  <div style="margin-top: 3em; margin-bottom: 3em;" >
+  <div style="margin-top: 4em; margin-bottom: 5em;" >
     <h3><?php echo $medicare?></h3>
-    <hr class="my-3" style="margin: auto; width: 10%;">
+    <hr class="my-3" style="margin: auto;">
     <p class="text-justify"><?php echo $medicare_des1 ?></p>
     <p class="text-justify"><?php echo $medicare_des2 ?></p>
     <p class="text-justify"><?php echo $medicare_des3 ?></p>
