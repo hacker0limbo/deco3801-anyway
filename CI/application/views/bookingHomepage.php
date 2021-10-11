@@ -38,7 +38,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
       infoWindow = new google.maps.InfoWindow;
       currentInfoWindow = infoWindow;
       infoPane = document.getElementById('panel');
-      extraPane = document.getElementById('extra');
+      extraPane = document.getElementById('accordion');
 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -93,8 +93,8 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
     function getNearbyPlaces(position) {
       // User input 
       var keyword = ['health'];
-      var radius = 5000;
-      var openNow;
+      var radius = 2500; //2500 in meters
+      var openStatus;
 
       // Type keywords input ps: must use space to split
       if (document.getElementById('keyword').value != '') {
@@ -109,11 +109,17 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
         radius = radius_input;
       }
 
+      // Open now input
+      if (document.getElementById('open').value == 'true') {
+        openStatus = true;
+      } else { openStatus = false;}
+
       let request = {
         location: position,
         radius: radius,
-        keyword: keyword
-        // openNow: open_input,
+        keyword: keyword,
+        openNow: openStatus,
+        // pageToken: 5,
         // rankBy: google.maps.places.RankBy.DISTANCE,
       };
 
@@ -177,79 +183,6 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
       }
     }
 
-    // Extra info function
-    function showExtraPanel(placeResult) {
-      // Clear the previous details
-      while (extraPane.lastChild) {
-        extraPane.removeChild(extraPane.lastChild);
-      }
-
-      // Address
-      let addressHeader = document.createElement('h5');
-      addressHeader.classList.add('details');
-      addressHeader.textContent = "Address:";
-      extraPane.appendChild(addressHeader);
-
-      let address = document.createElement('p');
-      address.classList.add('details');
-      address.textContent = placeResult.formatted_address;
-      extraPane.appendChild(address);
-
-      // Description
-      let descriptionHeader = document.createElement('h5');
-      descriptionHeader.classList.add('details');
-      descriptionHeader.textContent = "Description:";
-      extraPane.appendChild(descriptionHeader);
-
-      let description = document.createElement('p');
-      description.classList.add('description');
-      description.classList.add('details');
-      description.textContent = `${placeResult.name} is a medical institution near you.`;
-      extraPane.appendChild(description);
-
-      // Type Tag
-      let tagHeader = document.createElement('h5');
-      tagHeader.classList.add('details');
-      tagHeader.textContent = "Tags:";
-      extraPane.appendChild(tagHeader);
-
-      for (var type of placeResult.types) {
-        let tag = document.createElement('span');
-        tag.classList.add('details');
-        tag.classList.add('label');
-        tag.classList.add('label-default');
-        tag.textContent = type;
-        tag.style.cssText = 'margin: 10px; background-color: grey;'
-        extraPane.appendChild(tag);
-      }
-
-
-      // Opening hours
-      let openTimeHeader = document.createElement('h5');
-      openTimeHeader.classList.add('details');
-      openTimeHeader.textContent = "Opening Times:";
-      extraPane.appendChild(openTimeHeader);
-
-      if(placeResult.opening_hours) {
-        for (var time of placeResult.opening_hours.weekday_text) {
-          let opentime = document.createElement('p');
-          opentime.classList.add('details');
-          opentime.textContent = time;
-          extraPane.appendChild(opentime);
-        }
-      }
-
-      // Booking
-      let bookingHeader = document.createElement('h5');
-      bookingHeader.classList.add('details');
-      bookingHeader.textContent = "Booking";
-      extraPane.appendChild(bookingHeader);
-      let booking = document.createElement('p');
-      booking.classList.add('details');
-      booking.textContent = this.randomTime();
-      extraPane.appendChild(booking);
-    }
-    
     // Generate random time and date
     function randomTime() {
       var dateList = ['Today', 'Tomorrow', 'Next Monday', 'Next Tuesday', 'Next Wednesday',
@@ -268,11 +201,198 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
         time = hFormat+hrs+ ":" +mFormat+mins+ " " +amPm;
       }
 
-      randomTime = date + ' ' + time;
-      console.log(randomTime);
-      return randomTime; 
+      randomString = date + ' ' + time;
+      return randomString; 
+    }
+    // Generate random bill type
+    function randomBill() {
+      var billList = ['Fees and Bulk Billing', 'Bulk Billing Only', 'No Fee'];
+      var bill = billList[Math.floor(Math.random()*billList.length)];
+      return bill
     }
 
+
+    // Extra info function
+    function showExtraPanel(placeResult) {
+      // Clear the previous details
+      while (extraPane.lastChild) {
+        extraPane.removeChild(extraPane.lastChild);
+      }
+
+      // Address
+      let addressHeader = document.createElement('h6');
+      addressHeader.textContent = "Address";
+      extraPane.appendChild(addressHeader);
+      let address = document.createElement('p');
+      address.style.cssText = "font-size: 12px;"
+      address.textContent = placeResult.formatted_address;
+      extraPane.appendChild(address);
+
+      // Contact
+      let contactHeader = document.createElement('h6');
+      contactHeader.textContent = "Contact";
+      extraPane.appendChild(contactHeader);
+      if (placeResult.formatted_phone_number) {
+        let contact = document.createElement('p');
+        contact.style.cssText = "font-size: 12px;"
+        contact.textContent = placeResult.formatted_phone_number;
+        extraPane.appendChild(contact);
+      }
+      
+      // Description
+      let descriptionHeader = document.createElement('h6');
+      descriptionHeader.textContent = "Description";
+      extraPane.appendChild(descriptionHeader);
+      let description = document.createElement('p');
+      description.style.cssText = "font-size: 12px;"
+      description.textContent = `${placeResult.name} is a medical institution near you.`;
+      extraPane.appendChild(description);
+
+      // Type Tag
+      let tagHeader = document.createElement('h6');
+      tagHeader.textContent = "Tags";
+      extraPane.appendChild(tagHeader);
+      for (var type of placeResult.types) {
+        let tag = document.createElement('span');
+        tag.textContent = type;
+        tag.style.cssText = "font-size: 12px;"
+        extraPane.appendChild(tag);
+      }
+
+      // Split line
+      let split = document.createElement('hr');
+      extraPane.appendChild(split);
+
+      // Opening hours
+      // Opening hour heading
+      let openTitleContent = document.createElement('a');
+      openTitleContent.setAttribute("data-toggle", "collapse");
+      openTitleContent.setAttribute("data-parent", "#accordion");
+      openTitleContent.setAttribute("href", "#collapseOne");
+      openTitleContent.textContent = 'Opening Hours';
+
+      let openTitle = document.createElement('h6');
+      openTitle.classList.add('panel-title');
+      openTitle.appendChild(openTitleContent);
+
+      let openHead = document.createElement('div');
+      openHead.classList.add('panel-heading');
+      openHead.appendChild(openTitle);
+
+      // Opening hour body content 
+      let openBodyContent = document.createElement('div');
+      openBodyContent.classList.add('panel-body');
+      openBodyContent.style.cssText = 'font-size: 12px;';
+      if(placeResult.opening_hours) {
+        for (var time of placeResult.opening_hours.weekday_text) {
+          let a = document.createElement('p');
+          a.textContent = time;
+          openBodyContent.appendChild(a);
+        }
+      } else {
+        let a = document.createElement('p');
+          a.textContent = 'Currently unavailable';
+        openBodyContent.appendChild(a);
+      }
+
+      let openBody = document.createElement('div');
+      openBody.classList.add('panel-collapse');
+      openBody.classList.add('collapse');
+      openBody.classList.add('in');
+      openBody.setAttribute("id", "collapseOne");
+      openBody.appendChild(openBodyContent);
+
+      let openContainer = document.createElement('div');
+      openContainer.classList.add('panel');
+      openContainer.classList.add('panel-default');
+      openContainer.appendChild(openHead);
+      openContainer.appendChild(openBody);
+
+      extraPane.appendChild(openContainer);
+      
+      // Split line 1
+      let split1 = document.createElement('hr');
+      extraPane.appendChild(split1);
+
+      // Booking
+      // Booking heading
+      let bookTitleContent = document.createElement('a');
+      bookTitleContent.setAttribute("data-toggle", "collapse");
+      bookTitleContent.setAttribute("data-parent", "#accordion");
+      bookTitleContent.setAttribute("href", "#collapseTwo");
+      bookTitleContent.textContent = 'Booking';
+
+      let bookTitle = document.createElement('h6');
+      bookTitle.classList.add('panel-title');
+      bookTitle.appendChild(bookTitleContent);
+
+      let bookHead = document.createElement('div');
+      bookHead.classList.add('panel-heading');
+      bookHead.appendChild(bookTitle);
+
+      // Booking body content 
+      let bookBodyContent = document.createElement('div');
+      bookBodyContent.classList.add('panel-body');
+      bookBodyContent.style.cssText = 'font-size: 12px;';
+      bookBodyContent.textContent = "Next available: " + this.randomTime();
+
+      let bookBody = document.createElement('div');
+      bookBody.classList.add('panel-collapse');
+      bookBody.classList.add('collapse');
+      bookBody.classList.add('in');
+      bookBody.setAttribute("id", "collapseTwo");
+      bookBody.appendChild(bookBodyContent);
+
+      let bookContainer = document.createElement('div');
+      bookContainer.classList.add('panel');
+      bookContainer.classList.add('panel-default');
+      bookContainer.appendChild(bookHead);
+      bookContainer.appendChild(bookBody);
+
+      extraPane.appendChild(bookContainer);
+
+      // Split line 2
+      let split2 = document.createElement('hr');
+      extraPane.appendChild(split2);
+      
+      // Billking
+      // Billking heading
+      let billTitleContent = document.createElement('a');
+      billTitleContent.setAttribute("data-toggle", "collapse");
+      billTitleContent.setAttribute("data-parent", "#accordion");
+      billTitleContent.setAttribute("href", "#collapseThree");
+      billTitleContent.textContent = 'Billing';
+
+      let billTitle = document.createElement('h6');
+      billTitle.classList.add('panel-title');
+      billTitle.appendChild(billTitleContent);
+
+      let billHead = document.createElement('div');
+      billHead.classList.add('panel-heading');
+      billHead.appendChild(billTitle);
+
+      // Booking body content 
+      let billBodyContent = document.createElement('div');
+      billBodyContent.classList.add('panel-body');
+      billBodyContent.style.cssText = 'font-size: 12px;';
+      billBodyContent.textContent = "Billing type: " + this.randomBill();
+
+      let billBody = document.createElement('div');
+      billBody.classList.add('panel-collapse');
+      billBody.classList.add('collapse');
+      billBody.classList.add('in');
+      billBody.setAttribute("id", "collapseThree");
+      billBody.appendChild(billBodyContent);
+
+      let billContainer = document.createElement('div');
+      billContainer.classList.add('panel');
+      billContainer.classList.add('panel-default');
+      billContainer.appendChild(billHead);
+      billContainer.appendChild(billBody);
+
+      extraPane.appendChild(billContainer);
+    }
+  
     // Info display long long long function 
     function showPanel(placeResult) {
 
@@ -284,17 +404,16 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
       // Clear the previous details
       while (infoPane.lastChild) {
         infoPane.removeChild(infoPane.lastChild);
-        document.getElementById('extra').style.display="none";
+        document.getElementById('accordion').style.display="none";
       }
 
       //Create extra information panel button
       let button = document.createElement('button');
       button.classList.add('btn');
-      button.classList.add('btn-block');
       button.classList.add('align-self-end');
-      button.style.cssText = 'width: 50px;';
-      button.textContent = '☰';
-      button.setAttribute("onclick", "display('extra')");
+      button.style.cssText = 'width: 100px;';
+      button.textContent = '☰ More';
+      button.setAttribute("onclick", "display('accordion')");
       infoPane.appendChild(button);
 
       // Place photo
@@ -302,7 +421,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
         let firstPhoto = placeResult.photos[0];
         let photo = document.createElement('img');
         photo.classList.add('hero');
-        // photo.style.cssText = 'width: 50px; height: 50px;'
+        photo.style.cssText = 'padding: 25px;'
         photo.src = firstPhoto.getUrl();
         infoPane.appendChild(photo);
       }
@@ -331,7 +450,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
         opennow.textContent = 'Unavailable now';
         opennow.style.cssText = 'color: white; background-color: grey;'
       } 
-      infoPane.appendChild(opennow);
+      // infoPane.appendChild(opennow);
 
       // Distance
       var userPos = new google.maps.LatLng(pos.lat, pos.lng);
@@ -340,8 +459,11 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
       let distance = document.createElement('p');
       distance.classList.add('distance');
       distance.classList.add('details');
-      distance.textContent = distanceinKM + ' km away';
-      infoPane.appendChild(distance)
+      distance.textContent = distanceinKM + ' km away ';
+
+      distance.appendChild(opennow);
+      infoPane.appendChild(distance);
+  
 
       // Address
       let address = document.createElement('p');
@@ -400,12 +522,12 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
         <div class="form-group col-md-4 d-flex align-items-center">
             <img class="img-fluid img-thumbnail mr-3" style="width: 50px; height: 50px;" src="assets/img/logo.png"/>
             <select id="open" name="open" class="form-control" form="openform">
-              <option value="true">True</option>
               <option value="false">False</option>
+              <option value="true">True</option>
             </select>
         </div>
 
-        <!-- <div class="form-group col-md-3 d-flex align-items-center">
+        <div class="form-group col-md-3 d-flex align-items-center">
             <img class="img-fluid img-thumbnail mr-3" style="width: 50px; height: 50px;" src="assets/img/logo.png"/>
             <input type="text" class="form-control" name="date" placeholder="10/04/2000">
         </div>
@@ -414,7 +536,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
         <div class="form-group col-md-3 d-flex align-items-center">
             <img class="img-fluid img-thumbnail mr-3" style="width: 50px; height: 50px;" src="assets/img/logo.png"/>
             <input type="text" class="form-control" name="date" placeholder="10/04/2000">
-        </div> -->
+        </div>
 
         <div class="form-group col-md-3 d-flex align-items-center">
             <img class="img-fluid img-thumbnail mr-3" style="width: 50px; height: 50px;" src="assets/img/logo.png"/>
@@ -426,13 +548,19 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
 
     </div>
 
-    <!-- <div class="col-md-10 offset-md-1 mt-2 h3"> Avaliable Results: </div> -->
-
-    <div id="panel" class="d-flex flex-column justify-content-start"></div>
-    <div id="extra" class="extraInfo" style="display: none; margin-left: 250px; z-index: 1; 
-                        position: fixed; background-color: white; transition: all .2s ease-out;
-                        width: 250px; height: 100%;"></div>
-
-    <div id="map" style="width: 100%; height: 500px;"></div>
+    <div class="wrapper d-flex flex-row "> 
+      <div id="panel" class="d-flex flex-column justify-content-start" style="height: 500px; width: 20%;">
+        <div style="height: 100%; width: 100%; font-size:45px; margin-top: 100px; margin-left: 30px;"> 
+          <i class="bi bi-file-earmark-medical" style="padding-left: 18px; padding-right: 18px; font-size: 50px"></i> 
+          <p>Service</p>
+          <p>Provider</p>
+          <p>Information</p>
+        </div>
+      </div>
+      <div id="accordion" class="extraInfo" style="display: none; z-index: 1; 
+                          background-color: white; transition: all .2s ease-out;
+                          height: 500px; width: 20%; overflow: scroll; padding: 25px;"></div>
+      <div id="map" style="width: 80%; height: 500px;"></div>
+    </div>
     
 </div>

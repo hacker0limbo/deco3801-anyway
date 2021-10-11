@@ -11,12 +11,12 @@ body {
 }
 
 #panel {
-    height: 100%;
+    height: 500px;
     width: null;
     background-color: white;
-    position: fixed;
-    z-index: 1;
-    overflow-x: hidden;
+    /* position: fixed; */
+    /* z-index: 1; */
+    overflow: scroll;
     transition: all .2s ease-out;
 }
 
