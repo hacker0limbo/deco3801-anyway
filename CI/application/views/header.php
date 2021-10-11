@@ -92,10 +92,10 @@
             </li>
           </ul>
 
-          <form class="form-inline my-2 my-lg-0">
+          <!-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="<?php echo $search ?>" aria-label="Search">
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><?php echo $search ?></button>
-          </form>
+          </form> -->
 
           <!-- 做一个if 判断登陆没有-->
           <!-- logout 要在login的controller里加function-->

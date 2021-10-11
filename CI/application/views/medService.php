@@ -1,7 +1,7 @@
 <div class="container my-5 text-center">
   <h1><?php echo $medicalService?></h1>
   <hr class="my-3" style="margin: auto; width: 10%;">
-  <p>
+  <p class="lead">
     <?php echo $medicalServiceIntro ?>
   </p>
 </div>

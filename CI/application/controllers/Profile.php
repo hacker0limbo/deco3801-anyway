@@ -30,7 +30,7 @@ class Profile extends CI_Controller {
 		$this->load->view('header', $header_lang);
 		$this->load->view('userProfile', $data);
 		}
-		//$this->load->view('footer');
+		$this->load->view('footer');
 	}
 
 	public function update(){
@@ -65,6 +65,7 @@ class Profile extends CI_Controller {
 		$data = array_merge($data, $userProfile_lang);
 		$this->load->view('header', $header_lang);
 		$this->load->view('userProfile', $data);
+		$this->load->view('footer');
 		
 	}
 
@@ -95,6 +96,7 @@ class Profile extends CI_Controller {
 		$data = array_merge($data, $userProfile_lang);
 		$this->load->view('header', $header_lang);
 		$this->load->view('userProfile', $data);
+		$this->load->view('footer');
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
 		$value=$this->form_validation->run();
