@@ -23,7 +23,7 @@
         <img src="<?php echo base_url(); ?>assets/img/SymptomChecker_small.png" class="card-img-top" alt="medical centre">
         <div class="card-body">
           <h5 class="card-title"><?php echo $medicalProcess?></h5>
-          <p class="card-text"><?php echo $medicalProcessDes?></p>
+          <p class="card-text" style="padding:8pt;"><?php echo $medicalProcessDes?></p>
           <a href="<?php echo base_url(); ?>service/medicalProcess" class="btn btn-outline-primary"><?php echo $readMore?></a>
         </div>
       </div>
