@@ -18,4 +18,7 @@
     $lang['nextAvailable'] = 'Next Available';
     $lang['billing'] = 'Billing';
     $lang['rating'] = 'Rating';
+    $lang['open'] = 'OPEN';
+    $lang['close'] = 'CLOSE';
+    $lang['kmAway'] = ' km away';
 ?>

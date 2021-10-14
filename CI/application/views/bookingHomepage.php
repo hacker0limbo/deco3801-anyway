@@ -171,7 +171,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
         let rating = "None";
         if (placeResult.rating) rating = placeResult.rating;
         placeInfowindow.setContent('<div><strong>' + placeResult.name +
-          '</strong><br>' + 'Rating: ' + rating + '</div>');
+          '</strong><br>' + '<?php echo $rating?>: ' + rating + '</div>');
         placeInfowindow.open(marker.map, marker);
         currentInfoWindow.close();
         currentInfoWindow = placeInfowindow;
@@ -221,7 +221,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
 
       // Address
       let addressHeader = document.createElement('h6');
-      addressHeader.textContent = "Address";
+      addressHeader.textContent = "<?php echo $address?>";
       extraPane.appendChild(addressHeader);
       let address = document.createElement('p');
       address.style.cssText = "font-size: 12px;"
@@ -230,7 +230,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
 
       // Contact
       let contactHeader = document.createElement('h6');
-      contactHeader.textContent = "Contact";
+      contactHeader.textContent = "<?php echo $contact?>";
       extraPane.appendChild(contactHeader);
       if (placeResult.formatted_phone_number) {
         let contact = document.createElement('p');
@@ -241,7 +241,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
       
       // Description
       let descriptionHeader = document.createElement('h6');
-      descriptionHeader.textContent = "Description";
+      descriptionHeader.textContent = "<?php echo $description?>";
       extraPane.appendChild(descriptionHeader);
       let description = document.createElement('p');
       description.style.cssText = "font-size: 12px;"
@@ -250,7 +250,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
 
       // Type Tag
       let tagHeader = document.createElement('h6');
-      tagHeader.textContent = "Tags";
+      tagHeader.textContent = "<?php echo $tags?>";
       extraPane.appendChild(tagHeader);
       for (var type of placeResult.types) {
         let tag = document.createElement('span');
@@ -269,7 +269,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
       openTitleContent.setAttribute("data-toggle", "collapse");
       openTitleContent.setAttribute("data-parent", "#accordion");
       openTitleContent.setAttribute("href", "#collapseOne");
-      openTitleContent.textContent = 'Opening Hours';
+      openTitleContent.textContent = '<?php echo $openingHours?>';
 
       let openTitle = document.createElement('h6');
       openTitle.classList.add('panel-title');
@@ -291,7 +291,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
         }
       } else {
         let a = document.createElement('p');
-          a.textContent = 'Currently unavailable';
+          a.textContent = '<?php echo $currentlyUnavailable?>';
         openBodyContent.appendChild(a);
       }
 
@@ -320,7 +320,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
       bookTitleContent.setAttribute("data-toggle", "collapse");
       bookTitleContent.setAttribute("data-parent", "#accordion");
       bookTitleContent.setAttribute("href", "#collapseTwo");
-      bookTitleContent.textContent = 'Booking';
+      bookTitleContent.textContent = '<?php echo $booking?>';
 
       let bookTitle = document.createElement('h6');
       bookTitle.classList.add('panel-title');
@@ -334,7 +334,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
       let bookBodyContent = document.createElement('div');
       bookBodyContent.classList.add('panel-body');
       bookBodyContent.style.cssText = 'font-size: 12px;';
-      bookBodyContent.textContent = "Next available: " + this.randomTime();
+      bookBodyContent.textContent = "<?php echo $nextAvailable?>: " + this.randomTime();
 
       let bookBody = document.createElement('div');
       bookBody.classList.add('panel-collapse');
@@ -361,7 +361,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
       billTitleContent.setAttribute("data-toggle", "collapse");
       billTitleContent.setAttribute("data-parent", "#accordion");
       billTitleContent.setAttribute("href", "#collapseThree");
-      billTitleContent.textContent = 'Billing';
+      billTitleContent.textContent = '<?php echo $billing?>';
 
       let billTitle = document.createElement('h6');
       billTitle.classList.add('panel-title');
@@ -375,7 +375,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
       let billBodyContent = document.createElement('div');
       billBodyContent.classList.add('panel-body');
       billBodyContent.style.cssText = 'font-size: 12px;';
-      billBodyContent.textContent = "Billing type: " + this.randomBill();
+      billBodyContent.textContent = "<?php echo $billing?>: " + this.randomBill();
 
       let billBody = document.createElement('div');
       billBody.classList.add('panel-collapse');
@@ -412,7 +412,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
       button.classList.add('btn');
       button.classList.add('align-self-end');
       button.style.cssText = 'width: 100px;';
-      button.textContent = '☰ More';
+      button.textContent = '☰ <?php echo $more?>';
       button.setAttribute("onclick", "display('accordion')");
       infoPane.appendChild(button);
 
@@ -440,14 +440,14 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
 
       if (placeResult.opening_hours) {
         if (placeResult.opening_hours.open_now) {
-          opennow.textContent = 'OPEN';
+          opennow.textContent = '<?php echo $open?>';
           opennow.style.cssText = 'color: #426200; background-color: #F9EDDE;'
         } else {
-          opennow.textContent = 'CLOSE';
+          opennow.textContent = '<?php echo $close?>';
           opennow.style.cssText = 'color: #83231e; background-color: #FDE6E3;'
         }
       } else {
-        opennow.textContent = 'Unavailable now';
+        opennow.textContent = '<?php echo $currentlyUnavailable?>';
         opennow.style.cssText = 'color: white; background-color: grey;'
       } 
       // infoPane.appendChild(opennow);
@@ -459,7 +459,7 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
       let distance = document.createElement('p');
       distance.classList.add('distance');
       distance.classList.add('details');
-      distance.textContent = distanceinKM + ' km away ';
+      distance.textContent = distanceinKM + '<?php echo $kmAway ?>';
 
       distance.appendChild(opennow);
       infoPane.appendChild(distance);

@@ -8,7 +8,7 @@
     $lang['languages'] = '语言';
     $lang['search'] = '搜索';
     $lang['panelInstruction']='使用上方的搜索栏筛选寻找合适您的医生，您也可以通过地图导航寻找您需要的医疗服务。';
-    $lang['more']='更多信息';
+    $lang['more']='更多';
     $lang['address'] = '地址';
     $lang['contact'] = '联系方式';
     $lang['description'] = '服务描述';
@@ -18,4 +18,8 @@
     $lang['nextAvailable'] = '下一营业时间';
     $lang['billing'] = '收费方式';
     $lang['rating'] = '评分';
+    $lang['open'] = ' 正在营业';
+    $lang['close'] = ' 已结束营业';
+    $lang['kmAway'] = ' 千米距离';
+
 ?>
