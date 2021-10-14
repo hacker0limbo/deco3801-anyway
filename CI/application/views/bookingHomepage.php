@@ -7,7 +7,7 @@
 <script 
   async 
   defer 
-  src="https://maps.googleapis.com/maps/api/js?language=en-AU&key=AIzaSyDx0fQTqb3b18e6jy_QIoAO01bPgzAraFk&libraries=places&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?language=<?php echo strcmp($this->session->userdata('language'), 'english') == 0 ? 'en-US' : 'zh-CN'?>&key=AIzaSyDx0fQTqb3b18e6jy_QIoAO01bPgzAraFk&libraries=places&callback=initMap">
 </script>
 
 <script type="text/javascript" 
@@ -506,43 +506,36 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
 
 
 <div class="h-100">
-
-    <div id="input_area" class="col-md-10 offset-md-1 mt-5 d-flex flex-row flex-wrap justify-content-center">
-        
-        <div class="form-group col-md-4 d-flex align-items-center">
-            <img class="img-fluid img-thumbnail mr-3" style="width: 50px; height: 50px;" src="assets/img/logo.png"/>
-            <input type="text" id="keyword" name="keyword" class="form-control" placeholder="Service Type">
+    <div id="input_area" class="col-md-10 offset-md-1 mt-5 d-flex flex-row flex-wrap justify-content-center" style="margin-left: 0; max-width: 100%;">
+        <p class=" col-md-4 d-flex align-items-center" style="max-width: fit-content;"> <?php echo $filterInstruction?></p>
+        <div class="form-group col-md-4 d-flex align-items-center" style="max-width: 140px;">
+            <input type="text" id="keyword" name="keyword" class="form-control" placeholder="<?php echo $serviceType?>" style="width: 130px;">
         </div>
 
-        <div class="form-group col-md-4 d-flex align-items-center">
-            <img class="img-fluid img-thumbnail mr-3" style="width: 50px; height: 50px;" src="assets/img/logo.png"/>
-            <input type="text" id="radius" name="radius" class="form-control" placeholder="Search Radius">
+        <div class="form-group col-md-4 d-flex align-items-center" style="max-width: 120px;">
+            <input type="text" id="radius" name="radius" class="form-control" placeholder="<?php echo $distance?>" style="width: 110px;">
         </div>
 
-        <div class="form-group col-md-4 d-flex align-items-center">
-            <img class="img-fluid img-thumbnail mr-3" style="width: 50px; height: 50px;" src="assets/img/logo.png"/>
-            <select id="open" name="open" class="form-control" form="openform">
-              <option value="false">False</option>
-              <option value="true">True</option>
+        <div class="form-group col-md-4 d-flex align-items-center" style="max-width: 170px;">
+            <select id="open" name="open" class="form-control" form="openform" style="width: 160px;">
+              <option value="false"><?php echo $availableNow?></option>
+              <option value="true"><?php echo $availableLater?></option>
             </select>
         </div>
 
-        <div class="form-group col-md-3 d-flex align-items-center">
-            <img class="img-fluid img-thumbnail mr-3" style="width: 50px; height: 50px;" src="assets/img/logo.png"/>
-            <input type="text" class="form-control" name="date" placeholder="10/04/2000">
+        <div class="form-group col-md-4 d-flex align-items-center" style="max-width: 160px;">
+            <input type="text" class="form-control" name="date" placeholder="<?php echo $openingHours?>" style="width: 150px;">
         </div>
 
 
-        <div class="form-group col-md-3 d-flex align-items-center">
-            <img class="img-fluid img-thumbnail mr-3" style="width: 50px; height: 50px;" src="assets/img/logo.png"/>
-            <input type="text" class="form-control" name="date" placeholder="10/04/2000">
+        <div class="form-group col-md-4 d-flex align-items-center" style="max-width: 140px;">
+            <input type="text" class="form-control" name="date" placeholder="<?php echo $languages?>" style="width: 130px;">
         </div>
 
-        <div class="form-group col-md-3 d-flex align-items-center">
-            <img class="img-fluid img-thumbnail mr-3" style="width: 50px; height: 50px;" src="assets/img/logo.png"/>
+        <div class="form-group col-md-3 d-flex align-items-center" style="max-width: 140px;">
             <!-- <a role="button" class="btn btn-outline-dark btn-block">Search</a> -->
             <button onclick="initMap()" class="btn btn-outline-dark btn-block">
-              Search
+              <?php echo $search?>
             </button>
         </div>
 
@@ -550,11 +543,8 @@ src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></s
 
     <div class="wrapper d-flex flex-row "> 
       <div id="panel" class="d-flex flex-column justify-content-start" style="height: 500px; width: 20%;">
-        <div style="height: 100%; width: 100%; font-size:45px; margin-top: 100px; margin-left: 30px;"> 
-          <i class="bi bi-file-earmark-medical" style="padding-left: 18px; padding-right: 18px; font-size: 50px"></i> 
-          <p>Service</p>
-          <p>Provider</p>
-          <p>Information</p>
+        <div style="height: 100%; width: 100%; font-size:30px; padding-top: 20px; padding-left: 20px;"> 
+          <p style="font-size: 18; max-width: 240px;"><?php echo $panelInstruction?> </p>
         </div>
       </div>
       <div id="accordion" class="extraInfo" style="display: none; z-index: 1; 
