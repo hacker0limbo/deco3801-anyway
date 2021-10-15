@@ -4,13 +4,20 @@
     <!-- global css for all pages -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bs-stepper.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Noto+Serif+SC&display=swap" rel="stylesheet">
     <!-- global script for all pages -->
     <script src="<?php echo base_url(); ?>assets/js/jquery-3.6.0.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/crypto-js-core.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/crypto-js-md5.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/crypto-js-hmac-md5.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/crypto-js-enc-base64.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/bs-stepper.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/petite-vue.min.js"></script>
     <!-- config file for livechat -->
     <script src="<?php echo base_url(); ?>assets/js/liveChatConfig.js"></script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-615ea5ac83adc8b7"></script>     <!-- corresponding script for different pages -->
@@ -80,7 +87,7 @@
             <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'checker') == 0 ? 'active' : '' ?>">
               <a class="nav-link" href="<?php echo base_url(); ?>checker"><?php echo $symptomChecker ?></a>
             </li>
-            
+
           </ul>
 
           <ul class="navbar-nav">
