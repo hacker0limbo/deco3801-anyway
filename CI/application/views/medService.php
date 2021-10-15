@@ -1,7 +1,7 @@
 <div class="container my-5 text-center">
   <h1><?php echo $medicalService?></h1>
   <hr class="my-3" style="margin: auto; width: 10%;">
-  <p>
+  <p class="lead">
     <?php echo $medicalServiceIntro ?>
   </p>
 </div>
@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="card shadow-sm text-center h-100">
-        <img src="<?php echo base_url(); ?>assets/img/MedicalServices_small.png" class="card-img-top" alt="clinic">
+        <img src="<?php echo base_url(); ?>assets/img/ServiceType_small.png" class="card-img-top" alt="clinic">
         <div class="card-body">
           <h5 class="card-title"><?php echo $serviceType?></h5>
           <p class="card-text"><?php echo $serviceTypeDes?></p>
@@ -20,10 +20,10 @@
     </div>
     <div class="col-md-6">
       <div class="card shadow-sm text-center h-100">
-        <img src="<?php echo base_url(); ?>assets/img/SymptomChecker_small.png" class="card-img-top" alt="medical centre">
+        <img src="<?php echo base_url(); ?>assets/img/MedProcess_small.png" class="card-img-top" alt="medical centre">
         <div class="card-body">
           <h5 class="card-title"><?php echo $medicalProcess?></h5>
-          <p class="card-text"><?php echo $medicalProcessDes?></p>
+          <p class="card-text" style="padding:8pt;"><?php echo $medicalProcessDes?></p>
           <a href="<?php echo base_url(); ?>service/medicalProcess" class="btn btn-outline-primary"><?php echo $readMore?></a>
         </div>
       </div>

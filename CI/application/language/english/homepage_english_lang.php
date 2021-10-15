@@ -10,10 +10,10 @@
     $lang['symptomChecker'] = 'Symptom Checker';
     $lang['findDoctorh11'] = 'Help you quickly';
     $lang['findDoctorh12'] = 'find your ideal doctor';
-    $lang['medicalInfoh11'] = 'We provide information for';
-    $lang['medicalInfoh12'] = 'Australia medical system and services';
+    $lang['medicalInfoh11'] = 'Information for Australia';
+    $lang['medicalInfoh12'] = 'medical system and services';
     $lang['medicalServiceDes'] = 'Information about Australia medical system and process of seeing a doctor';
     $lang['medicalInsuranceDes'] = 'Information about medical insurance in Australia';
-    $lang['symptomCheckerh11'] = 'Provide you a symptom chekcer';
-    $lang['symptomCheckerh12'] = 'with our online chat & instant translate';
+    $lang['symptomCheckerh11'] = 'Symptom checker';
+    $lang['symptomCheckerh12'] = 'Chat & instant translate';
     ?>

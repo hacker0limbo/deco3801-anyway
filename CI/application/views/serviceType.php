@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin:0 !important; padding-left:0;">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>service"><?php echo $medicalService?> </a></li>
@@ -7,23 +7,27 @@
   </nav>
 </div>
 
-<div class="container my-5">
+<div class="container my-6" style="margin: 0 !important; max-width: max-content;">
   <div class="row">
-    <div class="col-md-3">
-      <div class="toc position-sticky" style="top: 2rem; overflow: auto; text-align: center;">
-        <ul class="list-group list-group-flush my-4" style="width: 220; ">
-          <li class="list-group-item" style="background-color: #42A5F5; color:#FFFFFF;">Service Type</li>
-          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;">A second item</li>
-          <li class="list-group-item" style="background-color: #42A5F5; color:#FFFFFF;">A third item</li>
-          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;">A fourth item</li>
-          <li class="list-group-item" style="background-color: #42A5F5; color:#FFFFFF;">And a fifth one</li>
+    <div class="col-md-2" style="max-width:260px; padding: 0 !important;">
+      <div class="toc" style="top: 2rem; overflow: auto; text-align: left;">
+        <ul class="list-group list-group-flush my-4" style="width: 220; margin-top:0 !important; background-color:#42A5F5; height:100%;">
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#serviceType" style="color:#FFFFFF; font-weight:bold;"><?php echo $serviceType?></a></li>
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#gp_primary" style="color:#FFFFFF;"><?php echo $gp_primary?></a></li>
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#specialist" style="color:#FFFFFF;"><?php echo $specialist?></a></li>
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#differences_primary_specialist" style="color:#FFFFFF;"><?php echo $differences_primary_specialist?></a></li>
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#allied" style="color:#FFFFFF;"><?php echo $allied?></a></li>
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#ed" style="color:#FFFFFF;"><?php echo $ed?></a></li>
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#hospitals" style="color:#FFFFFF;"><?php echo $hospitals?></a></li>
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#differences_hospital_clinic" style="color:#FFFFFF;"><?php echo $differences_hospital_clinic?></a></li>
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#medicines" style="color:#FFFFFF;"><?php echo $medicines?></a></li>
         </ul>
       </div>
     </div> 
 
-    <div class="col-md-9">
-      <h1><?php echo $serviceType?></h1>
-      <hr class="mt-4" style="margin: auto;">
+    <div class="col-md-9" style="padding-left:40px; padding-right:40px; flex:auto; width:990px; max-width:990px;">
+      <h1 style="text-align: center;" id='serviceType'><?php echo $serviceType?></h1>
+      <hr class="mt-4" style="margin: auto; width: 10%;">
       <div style="margin-top: 1em; margin-bottom: 5em;" >
         <p class="text-justify">
           <?php echo $p1 ?>
@@ -40,19 +44,19 @@
       </div>
 
       <div style="margin-top: 1em; margin-bottom: 5em;" >
-        <h3><?php echo $gp_primary?></h3>
+        <h3 id="gp_primary"><?php echo $gp_primary?></h3>
         <hr class="my-3" style="margin: auto;">
         <p class="text-justify"><?php echo $gp_primary_p1?></p>
       </div>
 
       <div style="margin-top: 1em; margin-bottom: 5em;" >
-        <h3><?php echo $specialist?></h3>
+        <h3 id="specialist"><?php echo $specialist?></h3>
         <hr class="my-3" style="margin: auto;">
         <p class="text-justify"><?php echo $specialist_p1?></p>
       </div>
 
       <div class="col-md-12" style="margin-top: 1em; margin-bottom: 5em; padding-left:0px; padding-right:0px;" >
-          <h3><?php echo $differences_primary_specialist?></h3>
+          <h3 id="differences_primary_specialist"><?php echo $differences_primary_specialist?></h3>
 
           <div class="border rounded p-4">
             <ul class="nav nav-tabs nav-fill mb-3" id="primaryTab" role="tablist">
@@ -80,26 +84,26 @@
       </div>
 
       <div style="margin-top: 1em; margin-bottom: 5em;" >
-        <h3><?php echo $allied?></h3>
+        <h3 id = "allied"><?php echo $allied?></h3>
         <hr class="my-3" style="margin: auto;">
         <p class="text-justify"><?php echo $allied_p1?></p>
       </div>
 
       <div style="margin-top: 1em; margin-bottom: 5em;" >
-        <h3><?php echo $ed?></h3>
+        <h3 id ="ed"><?php echo $ed?></h3>
         <hr class="my-3" style="margin: auto;">
         <p class="text-justify"><?php echo $ed_p1?></p>
         <p class="text-justify" style="font-weight: bold;"><?php echo $ed_p2?></p>
       </div>
 
       <div style="margin-top: 1em; margin-bottom: 5em;" >
-        <h3><?php echo $hospitals?></h3>
+        <h3 id="hospitals"><?php echo $hospitals?></h3>
         <hr class="my-3" style="margin: auto;">
         <p class="text-justify"><?php echo $hospitals_p1?></p>
       </div>
 
       <div class="col-md-12" style="margin-top: 1em; margin-bottom: 5em; padding-left:0px; padding-right:0px;" >
-          <h3><?php echo $differences_hospital_clinic?></h3>
+          <h3 id="differences_hospital_clinic"><?php echo $differences_hospital_clinic?></h3>
 
           <div class="border rounded p-4">
             <ul class="nav nav-tabs nav-fill mb-3" id="clinicsTab" role="tablist">
@@ -127,7 +131,7 @@
       </div>
 
       <div style="margin-top: 1em; margin-bottom: 5em;" >
-        <h3><?php echo $medicines?></h3>
+        <h3 id="medicines"><?php echo $medicines?></h3>
         <hr class="my-3" style="margin: auto; width: 10%;">
         <p class="text-justify"><?php echo $medicines_p1?></p>
       </div>

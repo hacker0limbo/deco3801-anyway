@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="card shadow-sm text-center">
-        <img src="<?php echo base_url(); ?>assets/img/SymptomChecker_small.png" class="card-img-top" alt="student">
+        <img src="<?php echo base_url(); ?>assets/img/Students_small.png" class="card-img-top" alt="student">
         <div class="card-body">
           <h5 class="card-title"><?php echo $students?></h5>
           <a href="<?php echo base_url(); ?>insurance/student" class="btn btn-outline-primary"><?php echo $students.' '; echo $medicalInsurance?></a>
@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-4">
       <div class="card shadow-sm text-center">
-        <img src="<?php echo base_url(); ?>assets/img/OnlineBooking_small.png" class="card-img-top" alt="visitor">
+        <img src="<?php echo base_url(); ?>assets/img/SymptomChecker_small.png" class="card-img-top" alt="visitor">
         <div class="card-body">
           <h5 class="card-title"><?php echo $visitors?></h5>
           <a href="<?php echo base_url(); ?>insurance/visitor" class="btn btn-outline-primary"><?php echo $visitors.' '; echo $medicalInsurance?></a>
@@ -28,7 +28,7 @@
     </div>
     <div class="col-md-4">
       <div class="card shadow-sm text-center">
-        <img src="<?php echo base_url(); ?>assets/img/MedicalInsurances_small.png" class="card-img-top" alt="citizen">
+        <img src="<?php echo base_url(); ?>assets/img/Citizens_small.png" class="card-img-top" alt="citizen">
         <div class="card-body">
           <h5 class="card-title"><?php echo $citizens?></h5>
           <a href="<?php echo base_url(); ?>insurance/citizen" class="btn btn-outline-primary"><?php echo $citizens.' '; echo $medicalInsurance?></a>

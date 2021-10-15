@@ -1,4 +1,4 @@
-<div class="container my-5 text-center">
+<div class="container my-5 text-center" style=" max-width: calc(300px + 1rem + 420px);">
   <h1><?php echo $liveChat?></h1>
   <div class="alert alert-info alert-dismissible fade show" role="alert">
     <?php echo $message?>
@@ -6,7 +6,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div id="live-chat-container" style="height: 60vh">
+  <div id="live-chat-container" style="height: 60vh;">
     <div class="spinner-grow text-primary mt-5" role="status">
       <span class="sr-only"><?php echo $loading?></span>
     </div>
