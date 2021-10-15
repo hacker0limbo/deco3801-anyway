@@ -62,10 +62,11 @@
               <a class="nav-link" href="<?php echo base_url(); ?>booking"><?php echo $onlineBooking ?></a>
             </li>
             <li class="nav-item dropdown btn-group <?php echo $this->uri->segment(1) == 'service' ? 'active' : '' ?>">
-              <a class="nav-link" href="" id="medicalServiceDropdown" role="button"><?php echo $medInformation ?></a>
+              <!-- <a class="nav-link" href="#" id="medicalServiceDropdown" role="button"><?php echo $medInformation ?></a>
               <button type="button" class="btn dropdown-toggle dropdown-toggle-split pl-0 py-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="sr-only">Toggle Dropdown</span>
-              </button>
+              </button> -->
+              <a class="nav-link dropdown-toggle" href="#" id="medicalServiceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $medInformation ?></a>
               <div class="dropdown-menu" aria-labelledby="medicalServiceDropdown">
                 <a href="<?php echo base_url(); ?>service" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'service') == 0 ? 'active' : '' ?>">
                   <?php echo $medicalService ?>
