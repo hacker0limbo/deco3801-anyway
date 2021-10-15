@@ -1,299 +1,553 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+#introduction-part .form-check-label:after {
+  content:"*";
+  color:red;
+}
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Checker</title>
+#info-part .col-form-label:after {
+  content:"*";
+  color:red;
+}
 
-    <link href="<?php echo base_url(); ?>assets/css/jquery-steps/css/jquery.steps.css" rel="stylesheet">
-    <!-- Custom Stylesheet -->
-    <link href="<?php echo base_url(); ?>assets/css/jquery-steps/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/select2/css/select2.min.css">
-    
-</head>
-<body>
-    <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h2>Welcome to Symptom Checker</h2>
-                                <form action="#" id="step-form-horizontal" class="step-form-horizontal">
-                                    <div>
-                                        <h4>Patient's Info</h4>
-                                        <section>
-                                            <div class="row">
-                                                <div class="col-lg-6 mb-4">
-                                                    <div class="form-group">
-                                                        <label class="text-label">First Name*</label>
-                                                        <input type="text" name="firstName" class="form-control" placeholder="Patient's firstname" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 mb-4">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Last Name*</label>
-                                                        <input type="text" name="lastName" class="form-control" placeholder="Patient's lastname" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 mb-4">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Gender</label>
-                                                        <div class="col-lg-9">
-                                                <select class="form-control">
-                                                    <option class="text-muted" disabled selected style="display: none">Choose the gender of the patient</option>
-                                                    <option>Male</option>
-                                                    <option>FeMale</option>
-                                                    <option>Other</option>
-                                                </select>
-                                            </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 mb-4">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Phone Number*</label>
-                                                        <div class="input-group">
-                                                            <input type="text" name="phoneNumber" class="form-control border-right-0" placeholder="(+1)408-657-9007" required>
-                                                            <div class="input-group-append">
-                                                                <span class="input-group-text bg-transparent" id="inputGroupPrepend5"> <i class="fa fa-phone" aria-hidden="true"></i> </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 mb-4">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Where are you from*</label>
-                                                        <input type="text" name="place" class="form-control" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                        <h4>Choose a symptom</h4>
-                                        <section>
-                                        <div class="col-xl-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="mb-4">
-                                    <h4 class="card-title">Please select your symptoms</h4>
-                                    
-                                </div>
-                                <div class="col-lg-12 mb-4">
-                                <select class="dropdown-groups">
-                                    <option>Choose symptoms according to body position</option>
-                                    <optgroup label="Head">
-                                        <option>Dizziness</option>
-                                        <option>Eye discomfort and redness</option>
-                                        
-                                        <option>Toothache</option>
-                                    </optgroup>
-                                    <optgroup label="Chest">
-                                        <option>Chest tightness</option>
-                                        <option>Heart palpitations</option>
-                                        <option>Distressed</option>
-                                    </optgroup>
-                                    <optgroup label="Abdomen">
-                                        <option>Diarrhea</option>
-                                        <option>Blood in stool</option>
-                                        <option>Constipation</option>
-                                    </optgroup>
-                                    <optgroup label="Arms and Legs">
-                                        <option>Neck pain</option>
-                                        <option>Shoulder pain</option>
-                                        <option>Knee pain</option>
-                                        <option>Foot swelling or leg swelling</option>
-                                        <option>Foot pain</option>
-                                    </optgroup>
-                                    <optgroup label="Other">
-                                        <option>Sore throat</option>
-                                        <option>Urinary problems</option>
-                                        <option>Wheezing</option>
-                                        <option>Difficulty swallowing</option>
-                                        <option>Nasal congestion</option>
-                                    </optgroup>
-                                </select>
-                            </div>
-                        </div></div>
+</style>
+
+<div class="container" id="checker-with-api" @mounted="mounted">
+  <div class="bs-stepper">
+    <div class="bs-stepper-header" role="tablist">
+      <!-- your steps here -->
+      <div class="step" data-target="#introduction-part">
+        <button type="button" class="step-trigger" role="tab" aria-controls="introduction-part" id="introduction-part-trigger">
+          <span class="bs-stepper-circle">1</span>
+          <span class="bs-stepper-label">{{ staticContent.introductionPart.introduction }}</span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#info-part">
+        <button type="button" class="step-trigger" role="tab" aria-controls="info-part" id="info-part-trigger">
+          <span class="bs-stepper-circle">2</span>
+          <span class="bs-stepper-label">{{ staticContent.infoPart.personalInfo }}</span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#symptoms-part">
+        <button type="button" class="step-trigger" role="tab" aria-controls="symptoms-part" id="symptoms-part-trigger">
+          <span class="bs-stepper-circle">3</span>
+          <span class="bs-stepper-label">{{ staticContent.symptomsPart.symptomsChosen }}</span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#diagnosis-part">
+        <button type="button" class="step-trigger" role="tab" aria-controls="diagnosis-part" id="diagnosis-part-trigger">
+          <span class="bs-stepper-circle">4</span>
+          <span class="bs-stepper-label">{{ staticContent.diagnosisPart.diagnosisResult }}</span>
+        </button>
+      </div>
+    </div>
+    <div class="bs-stepper-content">
+      <!-- your steps content here -->
+      <div id="introduction-part" class="content" role="tabpanel" aria-labelledby="introduction-part-trigger">
+        <h1 class="text-center my-5">{{ staticContent.introductionPart.title }}</h1>
+        <p class="lead my-3 font-italic">
+          {{ staticContent.introductionPart.header }}
+        </p>
+        <p class="lead mt-3">
+          {{ staticContent.introductionPart.termsOfServiceHeader }}
+        </p>
+        <ul class="lead ml-4 mb-3">
+          <li v-html="staticContent.introductionPart.firstList"></li>
+          <li v-html="staticContent.introductionPart.secondList "></li>
+          <li v-html="staticContent.introductionPart.thirdList"></li>
+        </ul>
+
+        <div class="form-check my-5">
+          <input class="form-check-input mt-2" type="checkbox" v-model="agreementChecked" id="agreement">
+          <label class="form-check-label lead" for="agreement">
+            {{ staticContent.introductionPart.agreementContent }}
+          </label>
+        </div>
+
+        <button :disabled="agreementInvalid" @click="introductionNext" class="btn btn-primary my-5 float-sm-right">
+          {{ staticContent.global.next }}
+        </button>
+
+      </div>
+
+      <div id="info-part" class="content fade" role="tabpanel" aria-labelledby="info-part-trigger">
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          {{ staticContent.infoPart.alert }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form onSubmit="return false;">
+          <div class="form-group row my-5">
+            <label for="info-year" class="col-sm-2 col-form-label">
+              {{ staticContent.infoPart.year }}
+            </label>
+            <div class="col-sm-10">
+              <input type="text" v-model="year" class="form-control" id="info-year" placeholder="e.g. 1982">
+            </div>
+          </div>
+
+          <fieldset class="form-group row mb-5">
+            <legend class="col-form-label col-sm-2 float-sm-left pt-0">
+              {{ staticContent.infoPart.gender }}
+            </legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="male-option" value="Male" v-model="gender">
+                <label class="form-check-label" for="male-option">
+                  {{ staticContent.infoPart.male }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="female-option" value="Female" v-model="gender">
+                <label class="form-check-label" for="female-option">
+                  {{ staticContent.infoPart.female }}
+                </label>
+              </div>
+            </div>
+          </fieldset>
+          <div class="row justify-content-between">
+            <button @click="infoPrevious" class="btn btn-primary my-5 ml-2">
+              {{ staticContent.global.previous }}
+            </button>
+            <button :disabled="infoInvalid" @click="infoSubmit" class="btn btn-primary my-5 mr-3">
+              {{ staticContent.global.next }}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div id="symptoms-part" class="content fade" role="tabpanel" aria-labelledby="symptoms-part-trigger">
+
+        <div v-if="symptoms.length === 0">
+          <div class="d-flex justify-content-center">
+            <div class="spinner-grow text-primary" role="status">
+              <span class="sr-only">{{ staticContent.global.loading }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div v-else>
+          <div class="alert alert-info alert-dismissible fade show" role="alert">
+            {{ staticContent.symptomsPart.alert }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form onSubmit="return false;" class="ml-3">
+            <div class="row row-cols-4">
+              <div v-for="symptom in symptoms" :key="'s' + symptom.ID" class="form-check my-1" >
+                <input class="form-check-input" type="checkbox" :id="'s' + symptom.ID" :value="symptom.ID" v-model="checkedSymptoms">
+                <label class="form-check-label" :for="'s' + symptom.ID">
+                  {{ symptom.Name }}
+                </label>
+              </div>
+            </div>
+            <button @click="symptomsPrevious" class="btn btn-primary float-sm-left my-5 ml-n3">
+              {{ staticContent.global.previous }}
+            </button>
+            <button :disabled="symptomsInvalid" @click="symptomsSubmit" class="btn btn-primary float-sm-right my-5">
+              {{ staticContent.global.check }}
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div id="diagnosis-part" class="content fade" role="tabpanel" aria-labelledby="diagnosis-part-trigger">
+        <div v-if="diagnosisPending">
+          <div class="d-flex justify-content-center">
+            <div class="spinner-grow text-primary" role="status">
+              <span class="sr-only">{{ staticContent.global.loading }}</span>
+            </div>
+          </div>
+        </div>
+        <div v-else-if="diagnosisSuccess">
+          <!-- sueess alert -->
+          <div class="alert alert-success alert-dismissible fade show my-3" role="alert">
+            <span class="text-center">
+              {{ staticContent.diagnosisPart.successAlert }}
+            </span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <!-- tab content to show different issues -->
+          <div class="row my-5">
+            <div class="col-4">
+              <div class="list-group" role="tablist">
+                <a v-for="(d, index) in diagnosis" :key="'d' + d.Issue.ID" :class="{ 'active show': index === 0 }" class="list-group-item list-group-item-action" :id="'list-' + d.Issue.Name.split(' ').join('') + '-list'" data-toggle="list" :href="'#list-' + d.Issue.Name.split(' ').join('')" role="tab" :aria-controls="d.Issue.Name.split(' ').join('')">
+                  {{ d.Issue.Name }}
+                </a>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="tab-content">
+                <div v-for="(d, index) in diagnosis" :key="'d' + d.Issue.ID" :class="{ 'active show': index === 0 }" class="tab-pane fade" :id="'list-' + d.Issue.Name.split(' ').join('')" role="tabpanel" :aria-labelledby="'list-' + d.Issue.Name.split(' ').join('') + '-list'">
+
+                  <div class="row">
+                    <div class="col-sm-3">{{ staticContent.diagnosisPart.issueName }}:</div>
+                    <div class="col-sm-9">{{ d.Issue.Name }}</div>
+                  </div>
+
+                  <div class="row my-3">
+                    <div class="col-sm-3">{{ staticContent.diagnosisPart.icd }}:</div>
+                    <div class="col-sm-9">{{ d.Issue.Icd }}</div>
+                  </div>
+
+                  <div class="row my-3">
+                    <div class="col-sm-3">{{ staticContent.diagnosisPart.icdName }}:</div>
+                    <div class="col-sm-9">{{ d.Issue.IcdName }}</div>
+                  </div>
+
+                  <div class="row my-3">
+                    <div class="col-sm-3">{{ staticContent.diagnosisPart.profName }}:</div>
+                    <div class="col-sm-9">{{ d.Issue.ProfName }}</div>
+                  </div>
+
+                  <div class="row my-3">
+                    <div class="col-sm-3">{{ staticContent.diagnosisPart.ranking }}:</div>
+                    <div class="col-sm-9">
+                      <span class="badge badge-primary mt-1">
+                        {{ d.Issue.Ranking }}
+                      </span>
                     </div>
-                    <div class="col-lg-12 mb-4">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Symptoms type</label>
-                                                        <div class="col-lg-9">
-                                                <select class="form-control">
-                                                    <option class="text-muted" disabled selected style="display: none">Choose whether the patient is an adult or a child</option>
-                                                    <option>Adult</option>
-                                                    <option>Child</option>
-                                                </select>
-                                            </div>
-                                                    </div>
-                                                </div>
-                                                
-                                        </section>
-                                        <h4>Select related factors</h4>
-                                        <section>
-                                        <div class="col-xs-6">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Problem is</label>
-                                                        <div class="form-group">
-                                            <div class="form-check">
-                                                <input id="checkbox1" class="form-check-input styled-checkbox" type="checkbox">
-                                                <label for="checkbox1" class="form-check-label">Ongoing or recurrent (weeks to years)</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input id="checkbox2" class="form-check-input styled-checkbox" type="checkbox">
-                                                <label for="checkbox2" class="form-check-label">Sudden (hours to days)</label>
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="col-xs-6">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Preceded by</label>
-                                                        <div class="form-group">
-                                            <div class="form-check">
-                                                <input id="checkbox4" class="form-check-input styled-checkbox" type="checkbox">
-                                                <label for="checkbox4" class="form-check-label">Eating suspect food</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input id="checkbox5" class="form-check-input styled-checkbox" type="checkbox">
-                                                <label for="checkbox5" class="form-check-label">Recent antibiotic use</label>
-                                            </div>
-                                            
-                                        </div>
+                  </div>
 
-                                        <div class="col-xs-6">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Triggered or worsened by</label>
-                                                        <div class="form-group">
-                                            <div class="form-check">
-                                                <input id="checkbox6" class="form-check-input styled-checkbox" type="checkbox">
-                                                <label for="checkbox6" class="form-check-label">Eating certain foods</label>
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="col-xs-6">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Relieved by</label>
-                                                        <div class="form-group">
-                                            <div class="form-check">
-                                                <input id="checkbox7" class="form-check-input styled-checkbox" type="checkbox">
-                                                <label for="checkbox7" class="form-check-label">Avoiding certain foods</label>
-                                            </div>
-                                            
-                                        </div>
-
-                                        <div class="col-xs-4">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Accompanied by</label>
-                                                        <div class="form-group">
-                                            <div class="form-check">
-                                                <input id="checkbox8" class="form-check-input styled-checkbox" type="checkbox">
-                                                <label for="checkbox8" class="form-check-label">Abdominal pain or cramping</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input id="checkbox9" class="form-check-input styled-checkbox" type="checkbox">
-                                                <label for="checkbox9" class="form-check-label">Bloating or abdominal swelling</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input id="checkbox10" class="form-check-input styled-checkbox" type="checkbox">
-                                                <label for="checkbox10" class="form-check-label">Bloody stools</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input id="checkbox11" class="form-check-input styled-checkbox" type="checkbox">
-                                                <label for="checkbox11" class="form-check-label">Constipation</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input id="checkbox12" class="form-check-input styled-checkbox" type="checkbox">
-                                                <label for="checkbox12" class="form-check-label">Fever</label>
-                                            </div>
-                                        </div>
-                                     
-                                        </section>
-                                        <h4>View possible causes</h4>
-                                        <section>
-                                        <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">According to the symptoms, the patients may get the following diseases:</h4>
-                                <p class="text-muted"><code></code>
-                                </p>
-                                <div id="accordion-one" class="accordion">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5 class="mb-0" data-toggle="collapse" data-target="#collapseOne"
-                                                aria-expanded="true" aria-controls="collapseOne"><i class="fa"
-                                                    aria-hidden="true"></i> Celiac disease</h5>
-                                        </div>
-                                        <div id="collapseOne" class="collapse show" data-parent="#accordion-one">
-                                            <div class="card-body"><strong>Problem is ongoing or recurrent (weeks to years)</strong><br>
-                                            <strong>Accompanied by abdominal pain or cramping</strong><br>
-                                            <strong>Triggered or worsened by eating certain foods</strong><br>
-                                            Relieved by avoiding certain foods<br>
-                                            Accompanied by bloating or abdominal swelling<br>
-                                            Accompanied by muscle or joint aches<br>
-                                            Accompanied by unintended weight loss</div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                                                aria-expanded="false" aria-controls="collapseTwo"><i class="fa"
-                                                    aria-hidden="true"></i> Crohn's disease</h5>
-                                        </div>
-                                        <div id="collapseTwo" class="collapse" data-parent="#accordion-one">
-                                        <div class="card-body"><strong>Problem is ongoing or recurrent (weeks to years)</strong><br>
-                                        <strong>Accompanied by abdominal pain or cramping</strong><br>
-                                        <strong>Accompanied by bloody stools</strong><br>
-                                        Accompanied by fever<br>
-                                        Accompanied by muscle or joint aches<br>
-                                        Accompanied by nausea or vomiting<br>
-                                        Accompanied by unintended weight loss</div>
-                                    </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseThree"
-                                                aria-expanded="false" aria-controls="collapseThree"><i class="fa"
-                                                    aria-hidden="true"></i> Accordion Header Tne</h5>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" data-parent="#accordion-one">
-                                        <div class="card-body">Preceded by eating suspect food<br>
-                                            Accompanied by abdominal pain or cramping<br>
-                                            Problem is sudden (hours to days)<br>
-                                            Accompanied by fever<br>
-                                            Accompanied by nausea or vomiting</div>
-                                    </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseThree"
-                                                aria-expanded="false" aria-controls="collapseThree"><i class="fa"
-                                                    aria-hidden="true"></i> Irritable bowel syndrome</h5>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" data-parent="#accordion-one">
-                                        <div class="card-body">Problem is ongoing or recurrent (weeks to years)<br>
-                                            Accompanied by abdominal pain or cramping<br>
-                                            Triggered or worsened by eating certain foods<br>
-                                            Accompanied by constipation<br>
-                                            Accompanied by mucus in stools<br>
-                                            Accompanied by passing gas</div>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
+                  <div class="row">
+                    <div class="col-sm-3">{{ staticContent.diagnosisPart.accuracy }}:</div>
+                    <div class="col-sm-9">
+                      <div class="progress mt-1">
+                        <div class="progress-bar" role="progressbar" :style="{ width: d.Issue.Accuracy + '%' }" :aria-valuenow="d.Issue.Accuracy" aria-valuemin="0" aria-valuemax="100">
+                          {{ d.Issue.Accuracy + '%' }}
                         </div>
+                      </div>
                     </div>
-                                        </section>
-                                    </div>
-                                </form>
-                            </div>
-    <script src="<?php echo base_url(); ?>assets/common/common.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/css/jquery-steps/build/jquery.steps.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/jquery-validation/jquery.validate.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/jquery-steps-init.js"></script>
-    <script src="<?php echo base_url(); ?>assets/css/select2/js/select2.full.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/css/select2/js/select2-init.js"></script>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-between">
+            <button @click="diagnosisPrevious" class="btn btn-primary my-5 ml-3">
+              {{ staticContent.global.previous }}
+            </button>
+            <a class="btn btn-primary my-5 mr-3" href="<?php echo base_url(); ?>checker/livechat" role="button">
+              {{ staticContent.global.liveChat }}
+            </a>
+          </div>
+
+        </div>
+        <div v-else>
+
+          <div class="alert alert-warning alert-dismissible fade show my-3" role="alert">
+            <span class="text-center">
+              {{ staticContent.diagnosisPart.failureAlert }}
+            </span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="row justify-content-between">
+            <button @click="diagnosisPrevious" class="btn btn-primary my-5 ml-3">
+              {{ staticContent.global.previous }}
+            </button>
+            <a class="btn btn-primary my-5 mr-3" href="<?php echo base_url(); ?>checker/livechat" role="button">
+              {{ staticContent.global.liveChat }}
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+
+// chinese / english
+const currentLanguage = <?php echo json_encode($this->session->userdata('language')); ?> 
+const isEnglish = currentLanguage === 'english'
+
+const checkerApiConfig = {
+  authUri: 'https://sandbox-authservice.priaid.ch',
+  baseUri: 'https://sandbox-healthservice.priaid.ch',
+  configString: 'format=json&language=en-gb',
+  username: 'stephen.yin@outlook.com',
+  hashedCredentials: 'PiFn2RrPCyyoeeY4qjS50g==',
+}
+
+const translationApiBaseUri = 'https://fanyi-api.baidu.com/api/trans/vip/translate'
+const translationApiAppid = '20211011000970116'
+const translationApiSalt = '1435660288'
+const translationApiSecret = 'fyz9ImKLYznZNPXXl4Bl'
+const getTranslationApiSign = (query) => CryptoJS.MD5(`${translationApiAppid}${query}${translationApiSalt}${translationApiSecret}`).toString()
+
+PetiteVue.createApp({
+
+  stepper: null,
+  // static content for language conditional rendering
+  staticContent: {
+    global: {
+      loading: isEnglish ? 'Loading...' : '加载中...',
+      previous: isEnglish ? 'Previous' : '上一步',
+      next: isEnglish ? 'Next' : '下一步',
+      check: isEnglish ? 'Check' : '诊断',
+      liveChat: isEnglish ? 'Live Chat' : '实时聊天',
+    },
+    introductionPart: {
+      introduction: isEnglish ? 'Introduction' : '欢迎',
+      title: isEnglish ? 'Welcome to Symptom Checker!' : '欢迎来到在线症状检查',
+      header: isEnglish
+        ? 'You’re about to use a short, safe and anonymous health checkup. Your answers will be carefully analyzed and you’ll learn about possible causes of your symptoms.'
+        : '您即将使用一个快捷的，安全且匿名的服务。本服务将认真分析您的所有答案，对您的症状进行初步的评估。',
+      termsOfServiceHeader: isEnglish
+        ? 'Before using the checkup, please read the following Terms of Service. Remember that:'
+        : '在我们开始之前，请您认真阅读并知晓以下服务条款。',
+      firstList: isEnglish
+        ? '<strong>Checkup is not a diagnosis.</strong> Checkup is for informational purposes and is not a qualified medical opinion.'
+        : '<strong>本服务不代表和提供医学诊断。</strong>本服务结果仅供参考，而非专业医学意见',
+      secondList: isEnglish
+        ? '<strong>Do not use in emergencies.</strong> In case of health emergency, call your local emergency number immediately.'
+        : '<strong>请不要在紧急情况下使用。</strong>如果出现紧急情况，请立刻拨打当地急救电话。',
+      thirdList: isEnglish
+        ? '<strong>Your data is safe.</strong> Information that you provide is anonymous and not shared with anyone.'
+        : '<strong>您的数据都是安全的。</strong>您提供的信息是匿名并且不会与任何人分享。',
+      agreementContent: isEnglish
+        ? 'I read and accept Terms of Service and Privacy Policy.'
+        : '我已阅读并接受服务条款和隐私政策。',
+    },
+    infoPart: {
+      personalInfo: isEnglish ? 'Personal Information' : '个人信息',
+      alert: isEnglish 
+        ? 'Please fill in your personal information below, note that those data will not be stored or share to anyone'
+        : '请在下面表单中填入您的个人信息, 需要注意的是我们不会存储或者将您的个人信息泄露给他人',
+      year: isEnglish ? 'Year' : '出身年份',
+      gender: isEnglish ? 'Gender' : '性别',
+      male: isEnglish ? 'Male' : '男',
+      female: isEnglish ? 'Female' : '女',
+    },
+    symptomsPart: {
+      symptomsChosen: isEnglish ? 'Symptoms Chosen' : '症状选择',
+      alert: isEnglish ? 'You can select matched symptoms below!' : '请选择以下匹配的的症状',
+    },
+    diagnosisPart: {
+      diagnosisResult: isEnglish ? 'Diagnosis Result': '诊断结果',
+      successAlert: isEnglish 
+        ? 'Successfully get diagnosis based on your selected symptoms, there could be mutiple results available in the following.' 
+        : '成功根据您选择的症状得到诊断结果, 诊断结果可能存在多个',
+      issueName: isEnglish ? 'Name' : '疾病名字',
+      icd: isEnglish ? 'Icd' : '国家疾病分类编号',
+      icdName: isEnglish ? 'Icd Name' : '国家疾病分类名称',
+      profName: isEnglish ? 'Prof Name' : '专业名称',
+      ranking: isEnglish ? 'Ranking' : '诊断排名',
+      accuracy: isEnglish ? 'Accuracy' : '诊断准确率',
+      failureAlert: isEnglish 
+        ? 'Not able to get diagnosis based on your selected symptoms, you can go back and try again, or talk with an real online doctor instead!'
+        : '根据您选择的症状获取诊断结果失败, 您可以返回重新尝试或直接向我们的在线客服咨询!',
+
+    },
+  },
+  agreementChecked: false,
+  year: '',
+  gender: 'Male',
+  symptoms: [],
+  // store symptom ids, [1, 2, ...]
+  checkedSymptoms: [],
+  diagnosis: [],
+  diagnosisStatus: false,
+
+  get agreementInvalid() {
+    return !this.agreementChecked
+  },
+
+  get infoInvalid() {
+    return !(this.year.length === 4 && this.gender.length !== 0 && parseInt(this.year))
+  },
+
+  get symptomsInvalid() {
+    return this.checkedSymptoms.length === 0
+  },
+
+  get diagnosisPending() {
+    return this.diagnosis.length === 0 && this.diagnosisStatus === false
+  },
+
+  get diagnosisSuccess() {
+    return this.diagnosis.length > 0 && this.diagnosisStatus === true
+  },
+
+  mounted() {
+    // initial bootstrap step
+    this.stepper = new Stepper(document.querySelector('.bs-stepper'), {
+      animation: true,
+    })
+
+    fetch(`${checkerApiConfig.authUri}/login`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${checkerApiConfig.username}:${checkerApiConfig.hashedCredentials}`
+      },
+    })
+      .then(res => res.json())
+      .then(({ Token }) => {
+        const symptomsUri = `${checkerApiConfig.baseUri}/symptoms?token=${Token}&${checkerApiConfig.configString}`
+
+        fetch(symptomsUri)
+          .then(res => res.json())
+          .then(symptoms => {
+            // [{ ID: xxx, Name: yyy }, {...}]
+            if (currentLanguage === 'english') {
+              this.symptoms = symptoms
+            } else {
+              const query = symptoms.map(s => s.Name).join('\n')
+              const sign = getTranslationApiSign(query)
+
+              $.ajax({
+                url: translationApiBaseUri,
+                type: 'get',
+                // use context to access vue this
+                context: this,
+                dataType: 'jsonp',
+                data: {
+                  q: query,
+                  appid: translationApiAppid,
+                  salt: translationApiSalt,
+                  from: 'en',
+                  to: 'zh',
+                  sign,
+                },
+                success({ trans_result }) {
+                  const translatedSymptoms = symptoms.map(({ ID, Name }) => {
+                    const t = trans_result.find(({ src, dst }) => src === Name)
+                    return { ID, Name: t.dst }
+                  })
+                  this.symptoms = translatedSymptoms
+                },
+                err(e) {
+                  console.log(e)
+                }
+              })
+            }
+          })
+          .catch(err => {
+            console.log(err)
+          })
+
+      })
+      .catch(err => console.log(err))
+
+  },
+
+  introductionNext(e) {
+    this.stepper.next()
+  },
+
+  infoPrevious(e) {
+    this.stepper.previous()
+  },
+
+  infoSubmit(e) {
+    // console.log('info', this.year, this.gender)
+    this.stepper.next()
+  },
+
+  symptomsPrevious(e) {
+    this.stepper.previous()
+  },
+
+  symptomsSubmit(e) {
+    // console.log('symptoms', this.checkedSymptoms)
+    this.stepper.next()
+
+    fetch(`${checkerApiConfig.authUri}/login`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${checkerApiConfig.username}:${checkerApiConfig.hashedCredentials}`
+      },
+    })
+      .then(res => res.json())
+      .then(({ Token }) => {
+        const diagnosisUri = `${checkerApiConfig.baseUri}/diagnosis?symptoms=[${this.checkedSymptoms.toString()}]&gender=${this.gender}&year_of_birth=${this.year}&token=${Token}&${checkerApiConfig.configString}`
+
+        fetch(diagnosisUri)
+          .then(res => res.json())
+          .then(diagnosis => {
+            // console.log('diagnosis', diagnosis)
+            if (diagnosis.length === 0) {
+              this.diagnosisStatus = true
+            } else {
+              if (currentLanguage === 'english') {
+                this.diagnosis = diagnosis
+                this.diagnosisStatus = true
+              } else {
+                const query = diagnosis.map(d => `${d.Issue.Name}\n${d.Issue.IcdName}\n${d.Issue.ProfName}`).join('\n')
+                const sign = getTranslationApiSign(query)
+
+                $.ajax({
+                  url: translationApiBaseUri,
+                  type: 'get',
+                  // use context to access vue this
+                  context: this,
+                  dataType: 'jsonp',
+                  data: {
+                    q: query,
+                    appid: translationApiAppid,
+                    salt: translationApiSalt,
+                    from: 'en',
+                    to: 'zh',
+                    sign,
+                  },
+                  success({ trans_result }) {
+                    const translatedDiagnosis = diagnosis.map(({ Issue, Specialisation }) => {
+                      const tName = trans_result.find(({ src, dst }) => src === Issue.Name)
+                      const tIcdName = trans_result.find(({ src, dst }) => src === Issue.IcdName)
+                      const tProfName = trans_result.find(({ src, dst }) => src === Issue.ProfName)
+
+                      return {
+                        ...Specialisation,
+                        Issue: {
+                          ...Issue,
+                          Name: tName.dst,
+                          IcdName: tIcdName.dst,
+                          ProfName: tProfName.dst,
+                        }
+                      }
+
+                    })
+                    this.diagnosis = translatedDiagnosis
+                    this.diagnosisStatus = true
+                  },
+                  err(e) {
+                    console.log(e)
+                  }
+                })
+              }
+            }
+          })
+          .catch(err => {
+            console.log(err)
+          })
+        })
+
+      .catch(err => console.log(err))
+  },
+
+  diagnosisPrevious(e) {
+    // reset diagnosis status and diagnosis result
+    this.diagnosisStatus = false
+    this.diagnosis = []
+    this.stepper.previous()
+  }
+
+}).mount('#checker-with-api')
 
 
-</body>
-
-</html>
+</script>
