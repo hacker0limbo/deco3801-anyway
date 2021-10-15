@@ -17,4 +17,7 @@
     $lang['welcomeMessage']='欢迎来到安游';
     $lang['profile'] = '个人中心';
     $lang['logout'] = '登出';
+    $lang['liveChat'] = '在线咨询';
+
+    $lang['medInformation'] = '医疗信息';
     ?>

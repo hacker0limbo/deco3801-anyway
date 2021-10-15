@@ -1,10 +1,12 @@
 /* style file for all webpages */
 
 /* general font size, font color, font, background-color etc */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Noto Sans SC', sans-serif;;
 }
 
 

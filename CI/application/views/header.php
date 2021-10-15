@@ -5,6 +5,9 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Noto+Serif+SC&display=swap" rel="stylesheet">
     <!-- global script for all pages -->
     <script src="<?php echo base_url(); ?>assets/js/jquery-3.6.0.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.bundle.min.js"></script>
@@ -50,69 +53,48 @@
         </button>
 
         <!-- collapsed content for responsible size -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content: end;">
+          <ul class="navbar-nav mr-auto" style ="margin-right: 0 !important;">
+            <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'livechat') == 0 ? 'active' : '' ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>livechat"><?php echo $liveChat ?></a>
+            </li>
             <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'booking') == 0 ? 'active' : '' ?>">
               <a class="nav-link" href="<?php echo base_url(); ?>booking"><?php echo $onlineBooking ?></a>
             </li>
             <li class="nav-item dropdown btn-group <?php echo $this->uri->segment(1) == 'service' ? 'active' : '' ?>">
-              <a class="nav-link" href="<?php echo base_url(); ?>service" id="medicalServiceDropdown" role="button"><?php echo $medicalService ?></a>
+              <a class="nav-link" href="" id="medicalServiceDropdown" role="button"><?php echo $medInformation ?></a>
               <button type="button" class="btn dropdown-toggle dropdown-toggle-split pl-0 py-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
               <div class="dropdown-menu" aria-labelledby="medicalServiceDropdown">
-                <a href="<?php echo base_url(); ?>service/servicetype" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'service/servicetype') == 0 ? 'active' : '' ?>">
-                  <?php echo $serviceType ?>
+                <a href="<?php echo base_url(); ?>service" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'service') == 0 ? 'active' : '' ?>">
+                  <?php echo $medicalService ?>
                 </a>
-                <a href="<?php echo base_url(); ?>service/medicalProcess" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'service/medicalProcess') == 0 ? 'active' : '' ?>">
-                  <?php echo $medicalProcess ?>
+                <a href="<?php echo base_url(); ?>insurance" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'insurance') == 0 ? 'active' : '' ?>">
+                  <?php echo $medicalInsurance ?>
                 </a>
                 
                 </div>
             </li>
-            <li class="nav-item dropdown btn-group <?php echo $this->uri->segment(1) == 'insurance' ? 'active' : '' ?>">
-              <a class="nav-link" href="<?php echo base_url(); ?>insurance" id="medicalInsuranceDropdown" role="button"><?php echo $medicalInsurance ?></a>
-              <button type="button" class="btn dropdown-toggle dropdown-toggle-split pl-0 py-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="sr-only">Toggle Dropdown</span>
-              </button>
-              <div class="dropdown-menu" aria-labelledby="medicalInsuranceDropdown">
-                <a href="<?php echo base_url(); ?>insurance/student" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'insurance/student') == 0 ? 'active' : '' ?>">
-                  <?php echo $students?>
-                </a>
-                <a href="<?php echo base_url(); ?>insurance/visitor" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'insurance/visitor') == 0 ? 'active' : '' ?>">
-                <?php echo $visitors?>
-                </a>
-                <a href="<?php echo base_url(); ?>insurance/citizen" class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'insurance/citizen') == 0 ? 'active' : '' ?>">
-                <?php echo $citizens?>
-                </a>
-              </div>
-            </li>
             <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'checker') == 0 ? 'active' : '' ?>">
               <a class="nav-link" href="<?php echo base_url(); ?>checker"><?php echo $symptomChecker ?></a>
             </li>
+            
           </ul>
 
-          <!-- <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="<?php echo $search ?>" aria-label="Search">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><?php echo $search ?></button>
-          </form> -->
-
-          <!-- 做一个if 判断登陆没有-->
-          <!-- logout 要在login的controller里加function-->
           <ul class="navbar-nav">
             <!-- not login, only show login button -->
             <?php if(!$this->session->userdata('logged_in')): ?>
               <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'login') == 0 ? 'active' : '' ?>">
-                <a class="nav-link" href="<?php echo base_url(); ?>login"><i class="bi bi-person-plus"></i><?php echo $login ?></a>
+                <a class="nav-link" href="<?php echo base_url(); ?>login"><i class="bi bi-person-circle"></i> </a>
               </li>
             <?php else: ?>
               <!-- user logged in, show dropdown list with profile and logout button -->
               <li class="nav-item dropdown <?php echo strcmp(base_url(uri_string()), base_url() . 'profile') == 0 ? 'active' : '' ?>">
                 <a class="nav-link dropdown-toggle" href="#" id="authDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="bi bi-person-check"></i>
-                  <?php echo $this->session->userdata("username"); ?>
+                  <i class="bi bi-person-circle"></i>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="authDropdown">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="authDropdown">
                   <a class="dropdown-item <?php echo strcmp(base_url(uri_string()), base_url() . 'profile') == 0 ? 'active' : '' ?>" href="<?php echo base_url(); ?>profile">
                     <i class="bi bi-person"></i>
                     <?php echo $profile?>
@@ -126,8 +108,8 @@
             <?php endif; ?>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="languagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $languages?></a>
-              <div class="dropdown-menu" aria-labelledby="languagesDropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="languagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-globe2"></i> </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languagesDropdown">
                 <a href="<?php echo base_url(); ?>welcome/toEnglish" class="dropdown-item btn action-button <?php echo strcmp($this->session->userdata('language'), 'english') == 0 ? 'active' : '' ?>" role="button">English</a>
                 <a href="<?php echo base_url(); ?>welcome/toChinese" class="dropdown-item btn action-button <?php echo strcmp($this->session->userdata('language'), 'chinese') == 0 ? 'active' : '' ?>" role="button">简体中文</a>
               </div>

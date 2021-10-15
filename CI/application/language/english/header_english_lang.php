@@ -15,7 +15,10 @@
     $lang['visitors'] = 'Vistors';
     $lang['citizens'] = 'Citizens';
     $lang['welcomeMessage']='Welcome to Anyway';
-    $lang['profile'] = '个人中心';
-    $lang['logout'] = '登出';
+    $lang['profile'] = 'Profile';
+    $lang['logout'] = 'Log Out';
+    $lang['liveChat'] = 'Live Chat';
+
+    $lang['medInformation'] = 'Medical Information';
     
     ?>
