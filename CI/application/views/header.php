@@ -55,8 +55,8 @@
         <!-- collapsed content for responsible size -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content: end;">
           <ul class="navbar-nav mr-auto" style ="margin-right: 0 !important;">
-            <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'livechat') == 0 ? 'active' : '' ?>">
-              <a class="nav-link" href="<?php echo base_url(); ?>livechat"><?php echo $liveChat ?></a>
+            <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'checker/livechat') == 0 ? 'active' : '' ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>checker/livechat"><?php echo $liveChat ?></a>
             </li>
             <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'booking') == 0 ? 'active' : '' ?>">
               <a class="nav-link" href="<?php echo base_url(); ?>booking"><?php echo $onlineBooking ?></a>
