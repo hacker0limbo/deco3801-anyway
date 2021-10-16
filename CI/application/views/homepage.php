@@ -18,6 +18,7 @@
         <li data-target="#homepageCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#homepageCarousel" data-slide-to="1"></li>
         <li data-target="#homepageCarousel" data-slide-to="2"></li>
+        <li data-target="#homepageCarousel" data-slide-to="3"></li>
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
@@ -58,6 +59,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="carousel-item">
+            <img src="<?php echo base_url(); ?>assets/img/homepage-slider0.png" class="d-block w-100" alt="slider3">
+            <div class="container">
+                <div class="carousel-caption text-left" style="bottom: 50px;">
+                    <h1>Live Chat</h1>
+                    <h1>Chat with Real Staff</h1>
+                    <p style="margin-top: 2rem;">
+                        <a class="btn btn-lg btn-info homepage-button" href="<?php echo base_url(); ?>checker/livechat">Live Chat</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
     </div>
     <a class="carousel-control-prev" href="#homepageCarousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
