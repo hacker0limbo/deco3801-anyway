@@ -300,7 +300,7 @@ PetiteVue.createApp({
       previous: isEnglish ? 'Previous' : '上一步',
       next: isEnglish ? 'Next' : '下一步',
       check: isEnglish ? 'Check' : '诊断',
-      liveChat: isEnglish ? 'Live Chat' : '实时聊天',
+      liveChat: isEnglish ? 'Live chat' : '在线咨询',
     },
     introductionPart: {
       introduction: isEnglish ? 'Introduction' : '欢迎',
@@ -341,8 +341,8 @@ PetiteVue.createApp({
     diagnosisPart: {
       diagnosisResult: isEnglish ? 'Diagnosis Result': '诊断结果',
       successAlert: isEnglish 
-        ? 'Successfully get diagnosis based on your selected symptoms, there could be mutiple results available in the following.' 
-        : '成功根据您选择的症状得到诊断结果, 诊断结果可能存在多个',
+        ? 'Successfully get possible diagnosis based on your selected symptoms, there could be mutiple results available in the following. Please be aware that the following results is just for reference, do not use them as official medical diagnosis. Seek for professional medical help if you think you are sick. ' 
+        : '成功根据您选择的症状得到推测结果, 结果可能存在多个。请注意以下结果只能作为参考，并不能作为专业医生诊断。如果您觉得您生病了，请及时就医。',
       issueName: isEnglish ? 'Name' : '疾病名字',
       icd: isEnglish ? 'Icd' : '国家疾病分类编号',
       icdName: isEnglish ? 'Icd Name' : '国家疾病分类名称',

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin:0 !important; padding-left:0;">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>service"><?php echo $medicalInsurance?> </a></li>
@@ -7,24 +7,24 @@
   </nav>
 </div>
 
-<div class="container my-5">
+<div class="container my-6" style="margin: 0 !important; max-width: max-content;">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2" style="max-width:260px; padding: 0 !important;">
       <div class="toc position-sticky" style="top: 2rem; overflow: auto; text-align: center;">
-        <ul class="list-group list-group-flush my-4" style="width: 220; ">
-          <li class="list-group-item" style="background-color: #42A5F5; color:#FFFFFF;"><a href = "#studentInsurances" style="color:#FFFFFF;"><?php echo $students.' '; echo $medicalInsurance?></a></li>
+        <ul class="list-group list-group-flush my-4" style="width: 220; margin-top:0 !important; background-color:#42A5F5; height:100%;">
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#studentInsurances" style="color:#FFFFFF;"><?php echo $students.' '; echo $medicalInsurance?></a></li>
           <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#OSHC" style="color:#FFFFFF;"><?php echo $OSHC?></a></li>
-          <li class="list-group-item" style="background-color: #42A5F5; color:#FFFFFF;"><a href = "#coverage" style="color:#FFFFFF;"><?php echo $coverage?></a></li>
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#coverage" style="color:#FFFFFF;"><?php echo $coverage?></a></li>
           <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#covid" style="color:#FFFFFF;"><?php echo $covid?></a></li>
-          <li class="list-group-item" style="background-color: #42A5F5; color:#FFFFFF;"><a href = "#purchase" style="color:#FFFFFF;"><?php echo $purchase?></a></li>
+          <li class="list-group-item" style="background-color: #007bff; color:#FFFFFF;"><a href = "#purchase" style="color:#FFFFFF;"><?php echo $purchase?></a></li>
         </ul>
       </div>
     </div> 
 
 
-    <div class="col-md-9">
+    <div class="col-md-9" style="padding-left:40px; padding-right:40px; flex:auto; width:990px; max-width:990px;">
       <h1 style="text-align: center" id="studentInsurances"><?php echo $students.' '; echo $medicalInsurance?> </h1>
-      <hr class="my-3" style="margin: auto; width: 10%;">
+      <hr class="mt-4" style="margin: auto; width: 10%;">
 
       <div style="margin-top: 4em; margin-bottom: 5em;" >
         <h3 id="OSHC"><?php echo $OSHC?></h3>
