@@ -17,7 +17,7 @@
     $lang['welcomeMessage']='Welcome to Anyway';
     $lang['profile'] = 'Profile';
     $lang['logout'] = 'Log Out';
-    $lang['liveChat'] = 'Live Chat';
+    $lang['liveChat'] = 'Bilingual Live Chat';
 
     $lang['medInformation'] = 'Medical Information';
     

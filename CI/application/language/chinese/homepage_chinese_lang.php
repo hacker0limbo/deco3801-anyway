@@ -7,6 +7,9 @@
     $lang['medicalInsurance'] = '医疗保险';
     $lang['onlineBooking'] = '寻找医生';
     $lang['symptomChecker'] = '症状检查';
+    $lang['liveChat'] = '双语在线咨询';
+    $lang['liveChath11'] = "在线咨询线上医生";
+    $lang['liveChath12'] = "支持即时翻译";
     $lang['findDoctorh11'] = '帮助您快速找到';
     $lang['findDoctorh12'] = '理想的医生';
     $lang['medicalInfoh11'] = '全面准确的澳洲医疗';

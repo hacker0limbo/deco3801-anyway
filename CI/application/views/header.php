@@ -37,8 +37,9 @@
       data-trigger="hover focus" 
       data-toggle="popover" 
       data-placement="top" 
-      data-content="<?php echo strcmp($this->session->userdata('language'), 'english') == 0 ? 'Need Help?' : '需要帮助吗?'; ?>"
+      data-content="<?php echo strcmp($this->session->userdata('language'), 'english') == 0 ? 'Need Help? Chat with translation!' : '需要帮助吗? 多语言咨询！'; ?>"
       class="chat-launcher <?php echo strcmp(base_url(uri_string()), base_url() . 'checker/livechat') == 0 ? 'hide' : '' ?> shadow bg-primary rounded"
+      style = "background-color: transparent !important; width: fit-content; max-width:fit-content;"
     >
       <a href="<?php echo base_url(); ?>checker/livechat">
         <img src="<?php echo base_url(); ?>assets/img/chatLauncher.png" width="50" height="50">

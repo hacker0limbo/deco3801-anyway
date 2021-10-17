@@ -61,13 +61,13 @@
         </div>
 
         <div class="carousel-item">
-            <img src="<?php echo base_url(); ?>assets/img/homepage-slider0.png" class="d-block w-100" alt="slider3">
+            <img src="<?php echo base_url(); ?>assets/img/MedicalServices.png" class="d-block w-100" alt="slider3">
             <div class="container">
                 <div class="carousel-caption text-left" style="bottom: 50px;">
-                    <h1>Live Chat</h1>
-                    <h1>Chat with Real Staff</h1>
+                    <h1><?php echo $liveChath11 ?></h1>
+                    <h1><?php echo $liveChath12 ?></h1>
                     <p style="margin-top: 2rem;">
-                        <a class="btn btn-lg btn-info homepage-button" href="<?php echo base_url(); ?>checker/livechat">Live Chat</a>
+                        <a class="btn btn-lg btn-info homepage-button" href="<?php echo base_url(); ?>checker/livechat"><?php echo $liveChat?></a>
                     </p>
                 </div>
             </div>
