@@ -59,9 +59,11 @@
           <li v-html="staticContent.introductionPart.thirdList"></li>
         </ul>
 
+        <p v-html="staticContent.introductionPart.dataSource" class="lead my-3 font-weight-bold"></p>
+
         <div class="form-check my-5">
           <input class="form-check-input mt-2" type="checkbox" v-model="agreementChecked" id="agreement">
-          <label class="form-check-label lead" for="agreement">
+          <label class="form-check-label lead font-weight-bolder" for="agreement">
             {{ staticContent.introductionPart.agreementContent }}
           </label>
         </div>
@@ -104,6 +106,12 @@
                 <input class="form-check-input" type="radio" name="gender" id="female-option" value="Female" v-model="gender">
                 <label class="form-check-label" for="female-option">
                   {{ staticContent.infoPart.female }}
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="other-option" value="Other" v-model="gender">
+                <label class="form-check-label" for="other-option">
+                  {{ staticContent.infoPart.otherGender }}
                 </label>
               </div>
             </div>
@@ -320,6 +328,9 @@ PetiteVue.createApp({
       thirdList: isEnglish
         ? '<strong>Your data is safe.</strong> Information that you provide is anonymous and not shared with anyone.'
         : '<strong>您的数据都是安全的。</strong>您提供的信息是匿名并且不会与任何人分享。',
+      dataSource: isEnglish
+        ? 'Note that all data provided are achieved from <a href="https://apimedic.com/" class="text-decoration-none">ApiMedic</a>'
+        : '注意所有提供的数据均来自 <a href="https://apimedic.com/" class="text-decoration-none">ApiMedic</a>',
       agreementContent: isEnglish
         ? 'I read and accept Terms of Service and Privacy Policy.'
         : '我已阅读并接受服务条款和隐私政策。',
@@ -333,6 +344,7 @@ PetiteVue.createApp({
       gender: isEnglish ? 'Gender' : '性别',
       male: isEnglish ? 'Male' : '男',
       female: isEnglish ? 'Female' : '女',
+      otherGender: isEnglish ? 'Choose not to tell' : '保密',
     },
     symptomsPart: {
       symptomsChosen: isEnglish ? 'Symptoms Chosen' : '症状选择',
@@ -370,6 +382,11 @@ PetiteVue.createApp({
 
   get infoInvalid() {
     return !(this.year.length === 4 && this.gender.length !== 0 && parseInt(this.year))
+  },
+
+  get parsedGender() {
+    // Other still be counted as male option
+    return this.gender === 'Other' ? 'Male' : this.gender
   },
 
   get symptomsInvalid() {
@@ -475,7 +492,7 @@ PetiteVue.createApp({
     })
       .then(res => res.json())
       .then(({ Token }) => {
-        const diagnosisUri = `${checkerApiConfig.baseUri}/diagnosis?symptoms=[${this.checkedSymptoms.toString()}]&gender=${this.gender}&year_of_birth=${this.year}&token=${Token}&${checkerApiConfig.configString}`
+        const diagnosisUri = `${checkerApiConfig.baseUri}/diagnosis?symptoms=[${this.checkedSymptoms.toString()}]&gender=${this.parsedGender}&year_of_birth=${this.year}&token=${Token}&${checkerApiConfig.configString}`
 
         fetch(diagnosisUri)
           .then(res => res.json())
