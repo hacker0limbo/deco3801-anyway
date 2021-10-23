@@ -11,7 +11,7 @@
     $lang['liveChath11'] = "在线咨询线上医生";
     $lang['liveChath12'] = "支持即时翻译";
     $lang['findDoctorh11'] = '帮助您快速找到';
-    $lang['findDoctorh12'] = '理想的医生';
+    $lang['findDoctorh12'] = '理想的医疗服务';
     $lang['medicalInfoh11'] = '全面准确的澳洲医疗';
     $lang['medicalInfoh12'] = '及就诊流程介绍';
     $lang['medicalServiceDes'] = '澳洲医疗体系及就诊流程介绍';

@@ -92,7 +92,7 @@
           <ul class="navbar-nav">
             <!-- not login, only show login button -->
             <?php if(!$this->session->userdata('logged_in')): ?>
-              <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'login') == 0 ? 'active' : '' ?>">
+              <li class="nav-item <?php echo strcmp(base_url(uri_string()), base_url() . 'login') == 0 ? 'active' : '' ?>" style="display:flex; align-items:center;">
                 <a class="nav-link" href="<?php echo base_url(); ?>login"><i class="bi bi-person-circle"></i> </a>
               </li>
             <?php else: ?>

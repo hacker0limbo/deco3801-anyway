@@ -12,7 +12,7 @@
     $lang['liveChath11'] = "Ask question live with";
     $lang['liveChath12'] = "instant translation";
     $lang['findDoctorh11'] = 'Help you quickly ';
-    $lang['findDoctorh12'] = 'find your ideal doctor';
+    $lang['findDoctorh12'] = 'find your ideal services';
     $lang['medicalInfoh11'] = 'Information for Australia';
     $lang['medicalInfoh12'] = 'medical system and services';
     $lang['medicalServiceDes'] = 'Information about Australia medical system and process of seeing a doctor';

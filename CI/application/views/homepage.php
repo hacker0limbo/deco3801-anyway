@@ -100,6 +100,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $symptomChecker?></h5>
                     <p class="card-text"><?php echo $symptomCheckerh11?></p>
+                    <p><br></p>
                     <a href="<?php echo base_url(); ?>checker" class="btn btn-outline-primary"><?php echo $readMore?></a>
                 </div>
             </div>
