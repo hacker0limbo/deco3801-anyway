@@ -52,7 +52,6 @@
             <div class="container">
                 <div class="carousel-caption text-left" style="bottom: 50px;">
                     <h1><?php echo $symptomCheckerh11 ?></h1>
-                    <h1><?php echo $symptomCheckerh12 ?></h1>
                     <p style="margin-top: 2rem;">
                         <a class="btn btn-lg btn-info homepage-button" href="<?php echo base_url(); ?>checker"><?php echo $symptomChecker?></a>
                     </p>
@@ -100,7 +99,7 @@
                 <img src="<?php echo base_url(); ?>assets/img/SymptomChecker_small.png" class="card-img-top" alt="symptom checker">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $symptomChecker?></h5>
-                    <p class="card-text"><?php echo $symptomCheckerh11; echo $symptomCheckerh12?></p>
+                    <p class="card-text"><?php echo $symptomCheckerh11?></p>
                     <a href="<?php echo base_url(); ?>checker" class="btn btn-outline-primary"><?php echo $readMore?></a>
                 </div>
             </div>

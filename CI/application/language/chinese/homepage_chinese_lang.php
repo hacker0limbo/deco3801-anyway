@@ -5,7 +5,7 @@
     $lang['readMore'] = '了解更多';
     $lang['medicalService']='医疗服务';
     $lang['medicalInsurance'] = '医疗保险';
-    $lang['onlineBooking'] = '寻找医生';
+    $lang['onlineBooking'] = '寻找医疗服务';
     $lang['symptomChecker'] = '症状检查';
     $lang['liveChat'] = '双语在线咨询';
     $lang['liveChath11'] = "在线咨询线上医生";

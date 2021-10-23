@@ -1,7 +1,7 @@
 <?php
     $lang['medicalService']='Medical Service';
     $lang['medicalInsurance'] = 'Medical Insurance';
-    $lang['onlineBooking'] = 'Find Doctor';
+    $lang['onlineBooking'] = 'Find Services';
     $lang['symptomChecker'] = 'Symptom Checker';
     $lang['serviceType'] = 'Service Types';
     $lang['medicalProcess'] = 'Medical Process';
