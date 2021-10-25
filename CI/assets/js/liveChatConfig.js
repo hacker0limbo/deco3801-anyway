@@ -7,7 +7,7 @@ const liveChatConfig = {
   // change this if you want to customize super user
   // make sure you already registered using the same username and email
   staffInfo: {
-    name: 'stephen',
+    name: 'OnlineDoctor',
     email: 'stephen.yin@outlook.com'
   }
 }
